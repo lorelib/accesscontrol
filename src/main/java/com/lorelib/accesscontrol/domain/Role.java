@@ -1,8 +1,9 @@
 package com.lorelib.accesscontrol.domain;
 
-import com.lorelib.accesscontrol.common.AggregateRoot;
+import com.lorelib.accesscontrol.common.stereotype.AggregateRoot;
 
 /**
+ * 角色
  * Created by listening on 2017/3/7.
  */
 public class Role extends AggregateRoot {

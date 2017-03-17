@@ -1,8 +1,9 @@
 package com.lorelib.accesscontrol.domain;
 
-import com.lorelib.accesscontrol.common.Entity;
+import com.lorelib.accesscontrol.common.stereotype.Entity;
 
 /**
+ * 用户
  * Created by listening on 2017/3/7.
  */
 public class User extends Entity {

@@ -1,4 +1,4 @@
-package com.lorelib.accesscontrol.common;
+package com.lorelib.accesscontrol.common.stereotype;
 
 import java.io.Serializable;
 
@@ -7,17 +7,17 @@ import java.io.Serializable;
  * Created by listening on 2017/3/16.
  */
 public class Entity implements Serializable {
-    private long id;
+    private Serializable id;
 
     protected Entity() {
         setId(-1);
     }
 
-    protected long getId() {
+    protected Serializable getId() {
         return id;
     }
 
-    protected void setId(long id) {
+    protected void setId(Serializable id) {
         this.id = id;
     }
 }

@@ -1,4 +1,4 @@
-package com.lorelib.accesscontrol.common;
+package com.lorelib.accesscontrol.common.stereotype;
 
 /**
  * 聚合根

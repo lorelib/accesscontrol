@@ -1,6 +1,6 @@
 package com.lorelib.accesscontrol.domain;
 
-import com.lorelib.accesscontrol.common.Entity;
+import com.lorelib.accesscontrol.common.stereotype.Entity;
 
 /**
  * 权限
