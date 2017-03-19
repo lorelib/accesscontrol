@@ -7,7 +7,13 @@
     <groupId>com.lorelib.accesscontrol</groupId>
     <artifactId>accesscontrol</artifactId>
     <version>1.0</version>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>query</module>
+        <module>core</module>
+        <module>web</module>
+    </modules>
 
     <developers>
         <developer>
