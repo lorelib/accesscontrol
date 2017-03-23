@@ -17,14 +17,15 @@ public class ParamsValidatorUtil {
 
     /**
      * 验证对象是否合法
-     * @param obj       被验证对象
-     * @param groups    所属组
+     *
+     * @param obj    被验证对象
+     * @param groups 所属组
      * @param <T>
      */
     public static <T> boolean validate(T obj, Class<?>... groups) {
         String err = "";
         Set<ConstraintViolation<T>> violations = validator.validate(obj, groups);
-        for (ConstraintViolation<T> violation: violations) {
+        for (ConstraintViolation<T> violation : violations) {
             err += violation.getMessage() + " | ";
         }
         if (StringUtils.isNotBlank(err)) {
