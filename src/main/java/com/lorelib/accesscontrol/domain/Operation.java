@@ -1,11 +1,13 @@
 package com.lorelib.accesscontrol.domain;
 
+import com.lorelib.accesscontrol.commons.algorithm.IdGenerator;
 import com.lorelib.accesscontrol.commons.stereotype.Entity;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
+ * 操作
  * Created by listening on 2017/3/7.
  */
 public class Operation extends Entity {
@@ -33,6 +35,7 @@ public class Operation extends Entity {
 
     public Operation() {
         super();
+        this.setId(IdGenerator.nextId());
     }
 
     public Operation(int resourceId, String optName, String optPath) {

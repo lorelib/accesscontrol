@@ -5,6 +5,7 @@ import com.lorelib.accesscontrol.commons.stereotype.ValueObject;
 import javax.validation.constraints.Min;
 
 /**
+ * 公司信息
  * Created by listening on 2017/3/22.
  */
 public final class CompanyInfo implements ValueObject {

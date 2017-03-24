@@ -3,6 +3,7 @@ package com.lorelib.accesscontrol.domain;
 import java.util.Set;
 
 /**
+ * 资源仓库
  * Created by listening on 2017/3/21.
  */
 public interface ResourceRepository {

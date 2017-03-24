@@ -1,5 +1,6 @@
 package com.lorelib.accesscontrol.domain;
 
+import com.lorelib.accesscontrol.commons.algorithm.IdGenerator;
 import com.lorelib.accesscontrol.commons.stereotype.Entity;
 
 import javax.validation.Valid;
@@ -20,10 +21,10 @@ public class Resource extends Entity {
     private CompanyInfo companyInfo;
 
     /**
-     * 资源ID
+     * 外部资源ID
      */
     @Min(value = 1, message = "资源ID为空")
-    private int resourceId;
+    private int outResourceId;
 
     /**
      * 资源类型
@@ -51,18 +52,19 @@ public class Resource extends Entity {
 
     public Resource() {
         super();
+        this.setId(IdGenerator.nextId());
     }
 
-    public Resource(int resourceId, String resourceType, String resourceName, String resourcePath) {
+    public Resource(int outResourceId, String resourceType, String resourceName, String resourcePath) {
         this();
-        this.resourceId = resourceId;
+        this.outResourceId = outResourceId;
         this.resourceType = resourceType;
         this.resourceName = resourceName;
         this.resourcePath = resourcePath;
     }
 
-    public Integer resourceId() {
-        return this.resourceId;
+    public Integer outResourceId() {
+        return this.outResourceId;
     }
 
     public Resource companyInfo(CompanyInfo companyInfo) {

@@ -9,6 +9,7 @@ import javax.validation.ValidatorFactory;
 import java.util.Set;
 
 /**
+ * 参数校验工具
  * Created by listening on 2017/3/10.
  */
 public class ParamsValidatorUtil {

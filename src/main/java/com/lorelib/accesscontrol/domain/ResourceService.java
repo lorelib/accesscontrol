@@ -2,7 +2,6 @@ package com.lorelib.accesscontrol.domain;
 
 import com.lorelib.accesscontrol.commons.stereotype.DomainService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 
@@ -11,7 +10,6 @@ import java.util.Set;
  * Created by listening on 2017/3/21.
  */
 @DomainService
-@Transactional
 public class ResourceService {
     /**
      * 添加资源
