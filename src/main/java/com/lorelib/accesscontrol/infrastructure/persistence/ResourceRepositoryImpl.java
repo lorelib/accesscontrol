@@ -54,5 +54,5 @@ public class ResourceRepositoryImpl implements ResourceRepository {
 
     @Autowired
     private SqlSession sqlSession;
-    private final static String RESOURCE_MAPPER = "com.lorelib.accesscontrol.domain.ResourceRepositoryImpl.";
+    private final static String RESOURCE_MAPPER = "com.lorelib.accesscontrol.domain.ResourceRepository.";
 }
