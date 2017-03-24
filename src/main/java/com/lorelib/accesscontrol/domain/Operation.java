@@ -21,6 +21,7 @@ public class Operation extends Entity {
      * 操作ID
      */
     private int optId;
+
     /**
      * 操作名称
      */
