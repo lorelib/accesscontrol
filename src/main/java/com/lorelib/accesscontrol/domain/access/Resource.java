@@ -1,4 +1,4 @@
-package com.lorelib.accesscontrol.domain;
+package com.lorelib.accesscontrol.domain.access;
 
 import com.lorelib.accesscontrol.commons.algorithm.IdGenerator;
 import com.lorelib.accesscontrol.commons.stereotype.Entity;
@@ -6,8 +6,8 @@ import com.lorelib.accesscontrol.commons.stereotype.Entity;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 资源
@@ -15,16 +15,10 @@ import java.util.Set;
  */
 public class Resource extends Entity {
     /**
-     * 公司信息
-     */
-    @Valid
-    private CompanyInfo companyInfo;
-
-    /**
      * 外部资源ID
      */
     @Min(value = 1, message = "资源ID为空")
-    private int outResourceId;
+    private long outResourceId;
 
     /**
      * 资源类型
@@ -48,31 +42,25 @@ public class Resource extends Entity {
      * 资源拥有的操作
      */
     @Valid
-    private Set<Operation> opts = new HashSet<>();
+    private List<Operation> opts = new ArrayList<>();
 
     public Resource() {
         super();
         this.setId(IdGenerator.nextId());
     }
 
-    public Resource(int outResourceId, String resourceType, String resourceName, String resourcePath) {
+    public Resource(String resourceType, String resourceName, String resourcePath) {
         this();
-        this.outResourceId = outResourceId;
         this.resourceType = resourceType;
         this.resourceName = resourceName;
         this.resourcePath = resourcePath;
     }
 
-    public Integer outResourceId() {
-        return this.outResourceId;
+    public void outResourceId(long outResourceId) {
+        this.outResourceId = outResourceId;
     }
 
-    public Resource companyInfo(CompanyInfo companyInfo) {
-        this.companyInfo = companyInfo;
-        return this;
-    }
-
-    public Resource opts(Set<Operation> opts) {
+    public Resource opts(List<Operation> opts) {
         this.opts = opts;
         return this;
     }

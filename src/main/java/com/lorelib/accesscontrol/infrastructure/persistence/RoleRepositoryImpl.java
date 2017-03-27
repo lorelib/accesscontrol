@@ -1,6 +1,6 @@
 package com.lorelib.accesscontrol.infrastructure.persistence;
 
-import com.lorelib.accesscontrol.domain.RoleRepository;
+import com.lorelib.accesscontrol.domain.access.RoleRepository;
 
 /**
  * 角色仓库实现

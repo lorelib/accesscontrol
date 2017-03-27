@@ -1,54 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lorelib.accesscontrol.domain.ResourceRepository">
+<mapper namespace="com.lorelib.accesscontrol.domain.access.ResourceRepository">
     <insert id="addResource" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO ac_resource (
+        id,
+        productCode,
+        companyId,
+        resourceType,
+        outResourceId,
+        resourceName,
+        resourcePath,
+        createBy,
+        createDate,
+        updateBy,
+        updateDate
+        ) VALUES (
+        #{id},
+        #{companyInfo.productCode},
+        #{companyInfo.companyId},
+        #{resourceType},
+        #{outResourceId},
+        #{resourceName},
+        #{resourcePath},
+        #{createBy},
+        #{createDate},
+        #{updateBy},
+        #{updateDate}
+        );
+        <foreach collection="opts" item="opt">
+            INSERT INTO ac_operation (
             id,
-            productCode,
-            companyId,
-            resourceType,
-            outResourceId,
-            resourceName,
-            resourcePath,
+            resourceId,
+            optId,
+            optName,
+            optPath,
             createBy,
             createDate,
             updateBy,
             updateDate
-        ) VALUES (
-            #{id},
-            #{companyInfo.productCode},
-            #{companyInfo.companyId},
-            #{resourceType},
-            #{outResourceId},
-            #{resourceName},
-            #{resourcePath},
-            #{createBy},
-            #{createDate},
-            #{updateBy},
-            #{updateDate}
-        );
-        <foreach collection="opts" item="opt">
-            INSERT INTO ac_operation (
-                id,
-                resourceId,
-                optId,
-                optName,
-                optPath,
-                createBy,
-                createDate,
-                updateBy,
-                updateDate
             ) VALUES (
-                #{opt.id},
-                #{opt.resourceId},
-                #{opt.optId},
-                #{opt.optName},
-                #{opt.optPath},
-                #{opt.createBy},
-                #{opt.createDate},
-                #{opt.updateBy},
-                #{opt.updateDate}
+            #{opt.id},
+            #{opt.resourceId},
+            #{opt.optId},
+            #{opt.optName},
+            #{opt.optPath},
+            #{opt.createBy},
+            #{opt.createDate},
+            #{opt.updateBy},
+            #{opt.updateDate}
             )
         </foreach>
     </insert>
+
+    <delete id="deleteResource">
+        DELETE FROM ac_resource WHERE id = #{resourceId};
+        DELETE FROM ac_operation WHERE resourceId = #{resourceId};
+    </delete>
+
+    <update id="updateResource">
+
+    </update>
+
+    <select id="getResourcesBy">
+
+    </select>
 </mapper>

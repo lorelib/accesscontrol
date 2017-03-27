@@ -50,10 +50,8 @@ CREATE TABLE ac_permission
 CREATE TABLE ac_resource
 (
 	id BIGINT NOT NULL COMMENT '主键ID',
-	productCode INTEGER NOT NULL COMMENT '所属产品code',
-	companyId INTEGER NOT NULL COMMENT '所属公司ID',
 	resourceType VARCHAR(16) NOT NULL COMMENT '资源类型',
-	outResourceId INTEGER NOT NULL COMMENT '外部资源ID',
+	outResourceId BIGINT NOT NULL COMMENT '外部资源ID',
 	resourceName NVARCHAR(50) NOT NULL COMMENT '资源名称',
 	resourcePath VARCHAR(50) NOT NULL COMMENT '资源路径',
 	createBy VARCHAR(16) COMMENT '创建者userId',
@@ -61,23 +59,20 @@ CREATE TABLE ac_resource
 	updateBy VARCHAR(16) COMMENT '更新者userId',
 	updateDate DATETIME COMMENT '更新日期',
 	PRIMARY KEY (id),
-	UNIQUE union_unique(productCode, resourceId)
+	UNIQUE union_unique(resourceType, outResourceId)
 )  COMMENT='访问控制：资源表';
 
 
 CREATE TABLE ac_role
 (
 	id BIGINT NOT NULL COMMENT '主键ID',
-	productCode INTEGER NOT NULL COMMENT '所属产品code',
-	companyId INTEGER NOT NULL COMMENT '所属公司ID',
 	roleName NVARCHAR(50) NOT NULL COMMENT '角色名称  ',
 	createBy VARCHAR(16) COMMENT '创建者userId',
 	createDate DATETIME COMMENT '创建日期',
 	updateBy VARCHAR(16) COMMENT '更新者userId',
 	updateDate DATETIME COMMENT '更新日期',
 	PRIMARY KEY (id),
-	UNIQUE UQ_ac_role_companyId(companyId),
-	UNIQUE union_unique(roleName, productCode)
+	UNIQUE union_unique(roleName)
 )  COMMENT='访问控制：角色表';
 
 
@@ -91,16 +86,13 @@ CREATE TABLE ac_role_permission
 CREATE TABLE ac_user
 (
 	id BIGINT NOT NULL COMMENT '主键ID',
-	productCode INTEGER NOT NULL COMMENT '所属产品code',
-	companyId INTEGER NOT NULL COMMENT '所属公司ID',
 	userLoginId VARCHAR(16) NOT NULL COMMENT '用户登录帐号',
 	createBy VARCHAR(16) COMMENT '创建者userId',
 	createDate DATETIME COMMENT '创建日期',
 	updateBy VARCHAR(16) COMMENT '更新者userId',
 	updateDate DATETIME COMMENT '更新日期',
 	PRIMARY KEY (id),
-	UNIQUE UQ_ac_user_companyId(companyId),
-	UNIQUE union_unique(userLoginId, productCode)
+	UNIQUE union_unique(userLoginId)
 )  COMMENT='访问控制：用户表';
 
 

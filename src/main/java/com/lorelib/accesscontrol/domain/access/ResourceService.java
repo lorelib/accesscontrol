@@ -1,9 +1,9 @@
-package com.lorelib.accesscontrol.domain;
+package com.lorelib.accesscontrol.domain.access;
 
 import com.lorelib.accesscontrol.commons.stereotype.DomainService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * 资源服务
@@ -23,10 +23,10 @@ public class ResourceService {
     /**
      * 删除资源
      *
-     * @param resource
+     * @param resourceId
      */
-    public void deleteResource(Resource resource) {
-        resourceRepository.deleteResource(resource);
+    public void deleteResource(long resourceId) {
+        resourceRepository.deleteResource(resourceId);
     }
 
     /**
@@ -45,7 +45,7 @@ public class ResourceService {
      * @param organizationId
      * @return
      */
-    public Set<Resource> getResourcesBy(int productCode, int organizationId) {
+    public List<Resource> getResourcesBy(int productCode, int organizationId) {
         return resourceRepository.getResourcesBy(productCode, organizationId);
     }
 

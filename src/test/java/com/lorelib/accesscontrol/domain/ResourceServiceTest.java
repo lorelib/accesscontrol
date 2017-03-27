@@ -2,13 +2,15 @@ package com.lorelib.accesscontrol.domain;
 
 import com.lorelib.accesscontrol.common.ResourceType;
 import com.lorelib.accesscontrol.commons.TestNGUtil;
+import com.lorelib.accesscontrol.commons.algorithm.IdGenerator;
+import com.lorelib.accesscontrol.domain.access.Operation;
+import com.lorelib.accesscontrol.domain.access.Resource;
+import com.lorelib.accesscontrol.domain.access.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 资源服务
@@ -20,11 +22,16 @@ public class ResourceServiceTest extends TestNGUtil {
 
     @Test
     public void addResource() {
-        Resource resource = new Resource(1, ResourceType.API.name(), "user", "/user");
-        Set<Operation> opts = new HashSet<>();
-        opts.add(new Operation(resource.outResourceId(), "新增用户", "/addUser"));
-        resource.companyInfo(new CompanyInfo(1003038, 13)).opts(opts);
+        Resource resource = new Resource(ResourceType.API.name(), "user", "/user");
+        resource.outResourceId(IdGenerator.nextId());
+        List<Operation> opts = new ArrayList<>();
+        opts.add(new Operation(resource.id(), "新增用户", "/addUser"));
 
         if (validate(resource)) resourceService.addResource(resource);
+    }
+
+    @Test
+    public void deleteResource() {
+        resourceService.deleteResource(845192683969449984L);
     }
 }

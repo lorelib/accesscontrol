@@ -1,20 +1,15 @@
-package com.lorelib.accesscontrol.domain;
+package com.lorelib.accesscontrol.domain.access;
 
 import com.lorelib.accesscontrol.commons.stereotype.Entity;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 角色
  * Created by listening on 2017/3/7.
  */
 public class Role extends Entity {
-    /**
-     * 公司信息
-     */
-    private CompanyInfo companyInfo;
-
     /**
      * 角色名称
      */
@@ -23,7 +18,7 @@ public class Role extends Entity {
     /**
      * 角色拥有的权限
      */
-    private Set<Permission> permissions = new HashSet<>();
+    private List<Permission> permissions = new ArrayList<>();
 
     public Role() {
         super();

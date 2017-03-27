@@ -1,11 +1,15 @@
-package com.lorelib.accesscontrol.domain;
+package com.lorelib.accesscontrol.domain.access;
 
-import java.util.Set;
+import com.lorelib.accesscontrol.commons.stereotype.Repository;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 资源仓库
  * Created by listening on 2017/3/21.
  */
+@Repository
 public interface ResourceRepository {
     /**
      * 添加资源
@@ -17,9 +21,9 @@ public interface ResourceRepository {
     /**
      * 删除资源
      *
-     * @param resource
+     * @param resourceId
      */
-    void deleteResource(Resource resource);
+    void deleteResource(long resourceId);
 
     /**
      * 更新资源
@@ -35,5 +39,5 @@ public interface ResourceRepository {
      * @param organizationId
      * @return
      */
-    Set<Resource> getResourcesBy(int productCode, int organizationId);
+    List<Resource> getResourcesBy(@Param("productCode") int productCode, @Param("organizationId") int organizationId);
 }

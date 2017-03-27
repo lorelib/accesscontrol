@@ -1,4 +1,4 @@
-package com.lorelib.accesscontrol.domain;
+package com.lorelib.accesscontrol.domain.identity;
 
 import com.lorelib.accesscontrol.commons.stereotype.DomainService;
 

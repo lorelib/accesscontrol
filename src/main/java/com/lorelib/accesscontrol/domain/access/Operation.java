@@ -1,4 +1,4 @@
-package com.lorelib.accesscontrol.domain;
+package com.lorelib.accesscontrol.domain.access;
 
 import com.lorelib.accesscontrol.commons.algorithm.IdGenerator;
 import com.lorelib.accesscontrol.commons.stereotype.Entity;
@@ -15,7 +15,7 @@ public class Operation extends Entity {
      * 资源ID
      */
     @Min(value = 1, message = "资源ID为空")
-    private int resourceId;
+    private long resourceId;
 
     /**
      * 操作ID
@@ -39,7 +39,7 @@ public class Operation extends Entity {
         this.setId(IdGenerator.nextId());
     }
 
-    public Operation(int resourceId, String optName, String optPath) {
+    public Operation(long resourceId, String optName, String optPath) {
         this();
         this.resourceId = resourceId;
         this.optName = optName;
