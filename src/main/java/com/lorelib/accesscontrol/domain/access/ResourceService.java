@@ -39,14 +39,12 @@ public class ResourceService {
     }
 
     /**
-     * 根据产品code与组织机构ID获取资源信息
+     * 通过资源类型获取资源
      *
-     * @param productCode
-     * @param organizationId
      * @return
      */
-    public List<Resource> getResourcesBy(int productCode, int organizationId) {
-        return resourceRepository.getResourcesBy(productCode, organizationId);
+    public List<Resource> getResourcesByType(String resourceType) {
+        return resourceRepository.getResourcesByType(resourceType);
     }
 
     @Autowired

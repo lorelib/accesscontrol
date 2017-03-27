@@ -6,7 +6,7 @@ import com.lorelib.accesscontrol.commons.stereotype.Entity;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -42,7 +42,9 @@ public class Resource extends Entity {
      * 资源拥有的操作
      */
     @Valid
-    private List<Operation> opts = new ArrayList<>();
+    @NotNull(message = "资源操作为null")
+    @Size(min = 1, message = "资源操作为空")
+    private List<Operation> opts;
 
     public Resource() {
         super();
@@ -56,12 +58,33 @@ public class Resource extends Entity {
         this.resourcePath = resourcePath;
     }
 
-    public void outResourceId(long outResourceId) {
+    public Resource outResourceId(long outResourceId) {
         this.outResourceId = outResourceId;
+        return this;
     }
 
     public Resource opts(List<Operation> opts) {
         this.opts = opts;
         return this;
+    }
+
+    public long getOutResourceId() {
+        return outResourceId;
+    }
+
+    public String getResourceType() {
+        return resourceType;
+    }
+
+    public String getResourceName() {
+        return resourceName;
+    }
+
+    public String getResourcePath() {
+        return resourcePath;
+    }
+
+    public List<Operation> getOpts() {
+        return opts;
     }
 }

@@ -1,15 +1,11 @@
 package com.lorelib.accesscontrol.domain.access;
 
-import com.lorelib.accesscontrol.commons.stereotype.Repository;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 
 /**
  * 资源仓库
  * Created by listening on 2017/3/21.
  */
-@Repository
 public interface ResourceRepository {
     /**
      * 添加资源
@@ -33,11 +29,9 @@ public interface ResourceRepository {
     void updateResource(Resource resource);
 
     /**
-     * 根据产品code与组织机构ID获取资源信息
+     * 通过资源类型获取资源
      *
-     * @param productCode
-     * @param organizationId
      * @return
      */
-    List<Resource> getResourcesBy(@Param("productCode") int productCode, @Param("organizationId") int organizationId);
+    List<Resource> getResourcesByType(String resourceType);
 }

@@ -3,7 +3,6 @@ package com.lorelib.accesscontrol.domain.identity;
 import com.lorelib.accesscontrol.commons.stereotype.Entity;
 import com.lorelib.accesscontrol.domain.access.Role;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +18,7 @@ public class User extends Entity {
     /**
      * 用户拥有的权限
      */
-    private List<Role> roles = new ArrayList<>();
+    private List<Role> roles;
 
     public User() {
         super();

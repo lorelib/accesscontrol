@@ -1,5 +1,7 @@
 package com.lorelib.accesscontrol.commons.stereotype;
 
+import com.lorelib.accesscontrol.commons.utils.DateUtil;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -21,7 +23,7 @@ public abstract class Entity implements Serializable {
     /**
      * 创建日期
      */
-    protected Date createDate;
+    protected Date createDate = DateUtil.getCurrentDate();
 
     /**
      * 更新者userId
@@ -38,11 +40,27 @@ public abstract class Entity implements Serializable {
         this.setId(-1);
     }
 
-    public long id() {
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
     }
 }

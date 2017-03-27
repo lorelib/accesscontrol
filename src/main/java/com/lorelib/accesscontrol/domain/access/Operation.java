@@ -45,4 +45,20 @@ public class Operation extends Entity {
         this.optName = optName;
         this.optPath = optPath;
     }
+
+    public long getResourceId() {
+        return resourceId;
+    }
+
+    public int getOptId() {
+        return optId;
+    }
+
+    public String getOptName() {
+        return optName;
+    }
+
+    public String getOptPath() {
+        return optPath;
+    }
 }

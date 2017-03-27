@@ -3,6 +3,7 @@ package com.lorelib.accesscontrol.domain;
 import com.lorelib.accesscontrol.common.ResourceType;
 import com.lorelib.accesscontrol.commons.TestNGUtil;
 import com.lorelib.accesscontrol.commons.algorithm.IdGenerator;
+import com.lorelib.accesscontrol.commons.utils.JSONUtil;
 import com.lorelib.accesscontrol.domain.access.Operation;
 import com.lorelib.accesscontrol.domain.access.Resource;
 import com.lorelib.accesscontrol.domain.access.ResourceService;
@@ -21,17 +22,26 @@ public class ResourceServiceTest extends TestNGUtil {
     private ResourceService resourceService;
 
     @Test
-    public void addResource() {
+    public void addResourceTest() {
         Resource resource = new Resource(ResourceType.API.name(), "user", "/user");
-        resource.outResourceId(IdGenerator.nextId());
         List<Operation> opts = new ArrayList<>();
-        opts.add(new Operation(resource.id(), "新增用户", "/addUser"));
+        opts.add(new Operation(resource.getId(), "新增用户", "/addUser"));
+        resource.outResourceId(IdGenerator.nextId()).opts(opts);
 
         if (validate(resource)) resourceService.addResource(resource);
     }
 
     @Test
-    public void deleteResource() {
-        resourceService.deleteResource(845192683969449984L);
+    public void deleteResourceTest() {
+        List<Resource> resources = resourceService.getResourcesByType(ResourceType.API.name());
+        for (Resource resource: resources) {
+            resourceService.deleteResource(resource.getId());
+        }
+    }
+
+    @Test
+    public void getResourcesByTypeTest() {
+        List<Resource> resources = resourceService.getResourcesByType(ResourceType.API.name());
+        System.out.println(JSONUtil.toJsonString(resources));
     }
 }
