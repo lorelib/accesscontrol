@@ -1,6 +1,6 @@
 package com.lorelib.accesscontrol.infrastructure.persistence;
 
-import com.lorelib.accesscontrol.commons.stereotype.Repository;
+import com.lorelib.accesscontrol.infrastructure.stereotype.Repository;
 import com.lorelib.accesscontrol.domain.access.Operation;
 import com.lorelib.accesscontrol.domain.access.Resource;
 import com.lorelib.accesscontrol.domain.access.ResourceRepository;

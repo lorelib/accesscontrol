@@ -1,6 +1,6 @@
 package com.lorelib.accesscontrol.domain.access;
 
-import com.lorelib.accesscontrol.commons.stereotype.Entity;
+import com.lorelib.accesscontrol.infrastructure.stereotype.Entity;
 
 import java.util.List;
 

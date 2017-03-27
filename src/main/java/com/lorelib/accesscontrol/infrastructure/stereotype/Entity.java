@@ -1,6 +1,6 @@
-package com.lorelib.accesscontrol.commons.stereotype;
+package com.lorelib.accesscontrol.infrastructure.stereotype;
 
-import com.lorelib.accesscontrol.commons.utils.DateUtil;
+import com.lorelib.accesscontrol.infrastructure.helpers.utils.DateUtil;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.lorelib.accesscontrol.commons.algorithm;
+package com.lorelib.accesscontrol.infrastructure.helpers.algorithm;
 
 /**
  * id生成器

@@ -1,6 +1,6 @@
 package com.lorelib.accesscontrol.domain.access;
 
-import com.lorelib.accesscontrol.commons.stereotype.DomainService;
+import com.lorelib.accesscontrol.infrastructure.stereotype.DomainService;
 
 /**
  * 授权服务

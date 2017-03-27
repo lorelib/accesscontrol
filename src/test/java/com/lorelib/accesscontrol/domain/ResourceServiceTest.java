@@ -1,9 +1,9 @@
 package com.lorelib.accesscontrol.domain;
 
 import com.lorelib.accesscontrol.common.ResourceType;
-import com.lorelib.accesscontrol.commons.TestNGUtil;
-import com.lorelib.accesscontrol.commons.algorithm.IdGenerator;
-import com.lorelib.accesscontrol.commons.utils.JSONUtil;
+import com.lorelib.accesscontrol.infrastructure.test.TestNGUtil;
+import com.lorelib.accesscontrol.infrastructure.helpers.algorithm.IdGenerator;
+import com.lorelib.accesscontrol.infrastructure.helpers.utils.JSONUtil;
 import com.lorelib.accesscontrol.domain.access.Operation;
 import com.lorelib.accesscontrol.domain.access.Resource;
 import com.lorelib.accesscontrol.domain.access.ResourceService;

@@ -44,7 +44,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="com.lorelib.accesscontrol.domain"/>
-        <property name="typeAliasesSuperType" value="com.lorelib.accesscontrol.commons.stereotype.Entity"/>
+        <property name="typeAliasesSuperType" value="com.lorelib.accesscontrol.infrastructure.stereotype.Entity"/>
         <property name="mapperLocations" value="classpath*:mybatis/mappers/*/*.xml"/>
     </bean>
 
@@ -52,7 +52,7 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <property name="basePackage" value="com.lorelib.accesscontrol.domain"/>
-        <property name="annotationClass" value="com.lorelib.accesscontrol.commons.stereotype.Repository"/>
+        <property name="annotationClass" value="com.lorelib.accesscontrol.infrastructure.stereotype.Repository"/>
     </bean>
 
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">

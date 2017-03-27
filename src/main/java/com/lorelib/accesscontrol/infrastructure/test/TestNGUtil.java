@@ -1,6 +1,6 @@
-package com.lorelib.accesscontrol.commons;
+package com.lorelib.accesscontrol.infrastructure.test;
 
-import com.lorelib.accesscontrol.commons.utils.ParamsValidatorUtil;
+import com.lorelib.accesscontrol.infrastructure.helpers.utils.ParamsValidatorUtil;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;

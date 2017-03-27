@@ -1,7 +1,7 @@
 package com.lorelib.accesscontrol.domain.access;
 
-import com.lorelib.accesscontrol.commons.algorithm.IdGenerator;
-import com.lorelib.accesscontrol.commons.stereotype.Entity;
+import com.lorelib.accesscontrol.infrastructure.helpers.algorithm.IdGenerator;
+import com.lorelib.accesscontrol.infrastructure.stereotype.Entity;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;

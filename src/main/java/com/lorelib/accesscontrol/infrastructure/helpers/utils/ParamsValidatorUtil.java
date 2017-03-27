@@ -1,4 +1,4 @@
-package com.lorelib.accesscontrol.commons.utils;
+package com.lorelib.accesscontrol.infrastructure.helpers.utils;
 
 import org.apache.commons.lang3.StringUtils;
 

@@ -1,4 +1,4 @@
-package com.lorelib.accesscontrol.commons.stereotype;
+package com.lorelib.accesscontrol.infrastructure.stereotype;
 
 import org.springframework.stereotype.Service;
 

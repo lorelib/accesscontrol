@@ -1,6 +1,6 @@
 package com.lorelib.accesscontrol.application;
 
-import com.lorelib.accesscontrol.commons.stereotype.ApplicationService;
+import com.lorelib.accesscontrol.infrastructure.stereotype.ApplicationService;
 
 /**
  * Created by listening on 2017/3/21.

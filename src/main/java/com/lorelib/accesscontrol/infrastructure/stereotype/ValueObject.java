@@ -1,4 +1,4 @@
-package com.lorelib.accesscontrol.commons.stereotype;
+package com.lorelib.accesscontrol.infrastructure.stereotype;
 
 /**
  * 值对象标识

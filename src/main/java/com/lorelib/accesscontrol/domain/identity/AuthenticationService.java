@@ -1,6 +1,6 @@
 package com.lorelib.accesscontrol.domain.identity;
 
-import com.lorelib.accesscontrol.commons.stereotype.DomainService;
+import com.lorelib.accesscontrol.infrastructure.stereotype.DomainService;
 
 /**
  * 身份认证服务
