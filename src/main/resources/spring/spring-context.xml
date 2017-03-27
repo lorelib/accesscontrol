@@ -16,6 +16,4 @@
     <tx:annotation-driven/>
 
     <aop:aspectj-autoproxy/>
-
-    <context:property-placeholder ignore-unresolvable="true" location="classpath*:jdbc-production.properties"/>
 </beans>
