@@ -10,12 +10,8 @@ import org.testng.annotations.BeforeTest;
  * 测试工具类
  * Created by listening on 2017/3/9.
  */
-@ContextConfiguration(locations = {"classpath*:spring-*.xml", "classpath*:spring/spring-*.xml"})
+@ContextConfiguration(locations = {"classpath*:env/dev/spring-*.xml"})
 public class TestNGUtil extends AbstractTestNGSpringContextTests {
-    protected static <T> boolean validate(T obj, Class<?>... groups) {
-        return ParamsValidatorUtil.validate(obj, groups);
-    }
-
     @BeforeTest
     public void setup() {
 
@@ -24,5 +20,9 @@ public class TestNGUtil extends AbstractTestNGSpringContextTests {
     @AfterClass
     public void destroy() {
 
+    }
+
+    protected static <T> boolean validate(T obj, Class<?>... groups) {
+        return ParamsValidatorUtil.validate(obj, groups);
     }
 }

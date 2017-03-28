@@ -225,8 +225,40 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <filters>
+                    <filter>src/main/resources/filters/profile-test.properties</filter>
+                </filters>
+            </build>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <build>
+                <filters>
+                    <filter>src/main/resources/filters/profile-production.properties</filter>
+                </filters>
+            </build>
+        </profile>
+    </profiles>
+
     <build>
         <finalName>AccessControl</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>mysql/*</exclude>
+                    <exclude>filters/*</exclude>
+                </excludes>
+            </resource>
+        </resources>
         <plugins>
             <!-- 编译插件 -->
             <plugin>
