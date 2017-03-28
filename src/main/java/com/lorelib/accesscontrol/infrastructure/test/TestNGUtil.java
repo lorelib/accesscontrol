@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeTest;
  * 测试工具类
  * Created by listening on 2017/3/9.
  */
-@ContextConfiguration(locations = {"classpath*:env/dev/spring-*.xml"})
+@ContextConfiguration(locations = {"classpath*:spring-*.xml"})
 public class TestNGUtil extends AbstractTestNGSpringContextTests {
     @BeforeTest
     public void setup() {
