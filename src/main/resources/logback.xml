@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration scan="true" scanPeriod="3600 seconds" debug="false">
     <contextName>AccessControl</contextName>
-    <property name="LOG_DIR" value="${catalina.base}/logs/AccessControl" />
+    <property name="LOG_DIR" value="${log.dir}/logs/AccessControl" />
 
     <appender name="AccessControl" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <prudent>true</prudent>
