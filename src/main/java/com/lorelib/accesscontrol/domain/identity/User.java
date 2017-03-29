@@ -1,6 +1,6 @@
 package com.lorelib.accesscontrol.domain.identity;
 
-import com.lorelib.accesscontrol.infrastructure.stereotype.Entity;
+import com.lorelib.accesscontrol.infrastructure.stereotype.BaseEntity;
 import com.lorelib.accesscontrol.domain.access.Role;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
  * 用户
  * Created by listening on 2017/3/7.
  */
-public class User extends Entity {
+public class User extends BaseEntity {
     /**
      * 用户登录帐号
      */

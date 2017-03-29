@@ -50,7 +50,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="com.lorelib.accesscontrol.domain"/>
-        <property name="typeAliasesSuperType" value="com.lorelib.accesscontrol.infrastructure.stereotype.Entity"/>
+        <property name="typeAliasesSuperType" value="com.lorelib.accesscontrol.infrastructure.stereotype.BaseEntity"/>
         <property name="mapperLocations" value="classpath*:mybatis/mappers/accesscontrol/ResourceMapper.xml"/>
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

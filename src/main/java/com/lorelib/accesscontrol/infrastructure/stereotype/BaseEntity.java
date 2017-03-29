@@ -5,6 +5,7 @@ import com.lorelib.accesscontrol.infrastructure.helpers.utils.DateUtil;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,10 +13,11 @@ import java.util.Date;
  * 基础实体类
  * Created by listening on 2017/3/4.
  */
-public abstract class Entity implements Serializable {
+public abstract class BaseEntity implements Serializable {
     /**
      * 主键ID
      */
+    @Id
     protected long id;
 
     /**
@@ -38,7 +40,7 @@ public abstract class Entity implements Serializable {
      */
     protected Date updateDate;
 
-    protected Entity() {
+    protected BaseEntity() {
         super();
         this.setId(IdGenerator.nextId());
     }

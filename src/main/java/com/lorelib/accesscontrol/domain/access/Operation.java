@@ -1,8 +1,10 @@
 package com.lorelib.accesscontrol.domain.access;
 
 import com.lorelib.accesscontrol.infrastructure.helpers.algorithm.IdGenerator;
-import com.lorelib.accesscontrol.infrastructure.stereotype.Entity;
+import com.lorelib.accesscontrol.infrastructure.stereotype.BaseEntity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -10,7 +12,9 @@ import javax.validation.constraints.NotNull;
  * 操作
  * Created by listening on 2017/3/7.
  */
-public class Operation extends Entity {
+@Entity
+@Table(name = "ac_operation")
+public class Operation extends BaseEntity {
     /**
      * 资源ID
      */

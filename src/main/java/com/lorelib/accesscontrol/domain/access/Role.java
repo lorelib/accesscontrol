@@ -1,8 +1,6 @@
 package com.lorelib.accesscontrol.domain.access;
 
-import com.lorelib.accesscontrol.infrastructure.stereotype.Entity;
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+import com.lorelib.accesscontrol.infrastructure.stereotype.BaseEntity;
 
 import java.util.List;
 
@@ -10,7 +8,7 @@ import java.util.List;
  * 角色
  * Created by listening on 2017/3/7.
  */
-public class Role extends Entity {
+public class Role extends BaseEntity {
     /**
      * 角色名称
      */

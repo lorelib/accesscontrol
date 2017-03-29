@@ -1,7 +1,9 @@
 package com.lorelib.accesscontrol.domain.access;
 
-import com.lorelib.accesscontrol.infrastructure.stereotype.Entity;
+import com.lorelib.accesscontrol.infrastructure.stereotype.BaseEntity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -10,7 +12,9 @@ import java.util.List;
  * 资源
  * Created by listening on 2017/3/7.
  */
-public class Resource extends Entity {
+@Entity
+@Table(name = "ac_resource")
+public class Resource extends BaseEntity {
     /**
      * 资源类型
      */
