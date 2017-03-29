@@ -272,6 +272,15 @@
                     <encoding>${project.encoding}</encoding>
                 </configuration>
             </plugin>
+            <!-- resource插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <encoding>${project.encoding}</encoding>
+                </configuration>
+            </plugin>
             <!-- clean插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
