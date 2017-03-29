@@ -5,17 +5,13 @@
         INSERT INTO ac_resource (
         id,
         resourceType,
-        outResourceId,
         resourceName,
         resourcePath,
         createBy,
-        createDate,
-        updateBy,
-        updateDate
+        createDate
         ) VALUES (
         #{id},
         #{resourceType},
-        #{outResourceId},
         #{resourceName},
         #{resourcePath},
         #{createBy},
@@ -25,17 +21,13 @@
             INSERT INTO ac_operation (
             id,
             resourceId,
-            optId,
             optName,
             optPath,
             createBy,
-            createDate,
-            updateBy,
-            updateDate
+            createDate
             ) VALUES (
             #{opt.id},
             #{opt.resourceId},
-            #{opt.optId},
             #{opt.optName},
             #{opt.optPath},
             #{opt.createBy},

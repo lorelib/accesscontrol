@@ -1,6 +1,9 @@
 package com.lorelib.accesscontrol.infrastructure.stereotype;
 
+import com.lorelib.accesscontrol.infrastructure.helpers.algorithm.IdGenerator;
 import com.lorelib.accesscontrol.infrastructure.helpers.utils.DateUtil;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -37,7 +40,7 @@ public abstract class Entity implements Serializable {
 
     protected Entity() {
         super();
-        this.setId(-1);
+        this.setId(IdGenerator.nextId());
     }
 
     public void setId(long id) {
@@ -48,19 +51,8 @@ public abstract class Entity implements Serializable {
         return id;
     }
 
-    public String getCreateBy() {
-        return createBy;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public String getUpdateBy() {
-        return updateBy;
-    }
-
-    public Date getUpdateDate() {
-        return updateDate;
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.JSON_STYLE);
     }
 }

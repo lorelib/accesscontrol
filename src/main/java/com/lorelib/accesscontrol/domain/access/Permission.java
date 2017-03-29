@@ -8,12 +8,12 @@ import com.lorelib.accesscontrol.infrastructure.stereotype.Entity;
  */
 public class Permission extends Entity {
     /**
-     * 拥有的资源
+     * 角色ID
      */
-    private Resource resource;
+    private long roleId;
 
     /**
-     * 拥有的操作
+     * 资源ID
      */
-    private Operation opt;
+    private long resourceId;
 }

@@ -10,20 +10,30 @@ SET FOREIGN_KEY_CHECKS=0;
 
 --  Drop Tables, Stored Procedures and Views
 
-DROP TABLE IF EXISTS ac_operation;
 DROP TABLE IF EXISTS ac_permission;
+DROP TABLE IF EXISTS ac_operation;
 DROP TABLE IF EXISTS ac_resource;
 DROP TABLE IF EXISTS ac_role;
-DROP TABLE IF EXISTS ac_role_permission;
 DROP TABLE IF EXISTS ac_user;
 DROP TABLE IF EXISTS ac_user_role;
 
 --  Create Tables
+CREATE TABLE ac_permission
+(
+	id BIGINT NOT NULL COMMENT '主键ID',
+	roleId BIGINT NOT NULL COMMENT '角色表主键',
+	resourceId INTEGER NOT NULL COMMENT '资源表主键',
+	createBy VARCHAR(16) COMMENT '创建者userId',
+	createDate DATETIME COMMENT '创建日期',
+	updateBy VARCHAR(16) COMMENT '更新者userId',
+	updateDate DATETIME COMMENT '更新日期',
+	PRIMARY KEY (id)
+)  COMMENT='访问控制：权限表';
+
 CREATE TABLE ac_operation
 (
 	id BIGINT NOT NULL COMMENT '主键ID',
 	resourceId BIGINT NOT NULL COMMENT '资源ID',
-	optId INTEGER COMMENT '操作ID',
 	optName NVARCHAR(50) NOT NULL COMMENT '操作名称',
 	optPath VARCHAR(50) NOT NULL COMMENT '操作路径',
 	createBy VARCHAR(16) COMMENT '创建者userId',
@@ -33,25 +43,10 @@ CREATE TABLE ac_operation
 	PRIMARY KEY (id)
 )  COMMENT='访问控制：操作表';
 
-
-CREATE TABLE ac_permission
-(
-	id BIGINT NOT NULL COMMENT '主键ID',
-	resourceId INTEGER NOT NULL COMMENT '资源ID',
-	optId INTEGER NOT NULL COMMENT '操作ID',
-	createBy VARCHAR(16) COMMENT '创建者userId',
-	createDate DATETIME COMMENT '创建日期',
-	updateBy VARCHAR(16) COMMENT '更新者userId',
-	updateDate DATETIME COMMENT '更新日期',
-	PRIMARY KEY (id)
-)  COMMENT='访问控制：权限表';
-
-
 CREATE TABLE ac_resource
 (
 	id BIGINT NOT NULL COMMENT '主键ID',
 	resourceType VARCHAR(16) NOT NULL COMMENT '资源类型',
-	outResourceId BIGINT NOT NULL COMMENT '外部资源ID',
 	resourceName NVARCHAR(50) NOT NULL COMMENT '资源名称',
 	resourcePath VARCHAR(50) NOT NULL COMMENT '资源路径',
 	createBy VARCHAR(16) COMMENT '创建者userId',
@@ -59,7 +54,7 @@ CREATE TABLE ac_resource
 	updateBy VARCHAR(16) COMMENT '更新者userId',
 	updateDate DATETIME COMMENT '更新日期',
 	PRIMARY KEY (id),
-	UNIQUE union_unique(resourceType, outResourceId)
+	UNIQUE union_unique(resourceType, resourceName)
 )  COMMENT='访问控制：资源表';
 
 
@@ -74,13 +69,6 @@ CREATE TABLE ac_role
 	PRIMARY KEY (id),
 	UNIQUE union_unique(roleName)
 )  COMMENT='访问控制：角色表';
-
-
-CREATE TABLE ac_role_permission
-(
-	roleId BIGINT NOT NULL COMMENT '角色表主键',
-	permId BIGINT NOT NULL COMMENT '权限表主键'
-)  COMMENT='访问控制：角色权限映射表';
 
 
 CREATE TABLE ac_user

@@ -1,7 +1,7 @@
 package com.lorelib.accesscontrol.infrastructure.persistence;
 
-import com.lorelib.accesscontrol.infrastructure.stereotype.Repository;
 import com.lorelib.accesscontrol.domain.access.Operation;
+import com.lorelib.accesscontrol.infrastructure.stereotype.Repository;
 import com.lorelib.accesscontrol.domain.access.Resource;
 import com.lorelib.accesscontrol.domain.access.ResourceRepository;
 import org.apache.commons.collections4.CollectionUtils;
@@ -28,8 +28,8 @@ public class ResourceRepositoryImpl implements ResourceRepository {
     @Override
     public void updateResource(Resource resource) {
         sqlSession.update(RESOURCE_MAPPER + "updateResource", resource);
-        if (CollectionUtils.isNotEmpty(resource.getOpts())) {
-            sqlSession.update(RESOURCE_MAPPER + "updateOptsByResourceId", resource.getOpts());
+        if (CollectionUtils.isNotEmpty(resource.opts())) {
+            sqlSession.update(RESOURCE_MAPPER + "updateOptsByResourceId", resource.opts());
         }
     }
 

@@ -18,11 +18,6 @@ public class Operation extends Entity {
     private long resourceId;
 
     /**
-     * 操作ID
-     */
-    private int optId;
-
-    /**
      * 操作名称
      */
     @NotNull(message = "操作名称为空")
@@ -44,21 +39,5 @@ public class Operation extends Entity {
         this.resourceId = resourceId;
         this.optName = optName;
         this.optPath = optPath;
-    }
-
-    public long getResourceId() {
-        return resourceId;
-    }
-
-    public int getOptId() {
-        return optId;
-    }
-
-    public String getOptName() {
-        return optName;
-    }
-
-    public String getOptPath() {
-        return optPath;
     }
 }

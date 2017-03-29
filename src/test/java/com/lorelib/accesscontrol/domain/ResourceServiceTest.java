@@ -1,10 +1,9 @@
 package com.lorelib.accesscontrol.domain;
 
 import com.lorelib.accesscontrol.common.ResourceType;
-import com.lorelib.accesscontrol.infrastructure.test.TestNGUtil;
-import com.lorelib.accesscontrol.infrastructure.helpers.algorithm.IdGenerator;
-import com.lorelib.accesscontrol.infrastructure.helpers.utils.JSONUtil;
 import com.lorelib.accesscontrol.domain.access.Operation;
+import com.lorelib.accesscontrol.infrastructure.test.TestNGUtil;
+import com.lorelib.accesscontrol.infrastructure.helpers.utils.JSONUtil;
 import com.lorelib.accesscontrol.domain.access.Resource;
 import com.lorelib.accesscontrol.domain.access.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,7 @@ public class ResourceServiceTest extends TestNGUtil {
         Resource resource = new Resource(ResourceType.API.name(), "user", "/user");
         List<Operation> opts = new ArrayList<>();
         opts.add(new Operation(resource.getId(), "新增用户", "/addUser"));
-        resource.outResourceId(IdGenerator.nextId()).opts(opts);
+        resource.opts(opts);
 
         if (validate(resource)) resourceService.addResource(resource);
     }

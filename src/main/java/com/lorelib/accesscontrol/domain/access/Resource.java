@@ -1,12 +1,9 @@
 package com.lorelib.accesscontrol.domain.access;
 
-import com.lorelib.accesscontrol.infrastructure.helpers.algorithm.IdGenerator;
 import com.lorelib.accesscontrol.infrastructure.stereotype.Entity;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -14,12 +11,6 @@ import java.util.List;
  * Created by listening on 2017/3/7.
  */
 public class Resource extends Entity {
-    /**
-     * 外部资源ID
-     */
-    @Min(value = 1, message = "资源ID为空")
-    private long outResourceId;
-
     /**
      * 资源类型
      */
@@ -42,13 +33,10 @@ public class Resource extends Entity {
      * 资源拥有的操作
      */
     @Valid
-    @NotNull(message = "资源操作为null")
-    @Size(min = 1, message = "资源操作为空")
     private List<Operation> opts;
 
     public Resource() {
         super();
-        this.setId(IdGenerator.nextId());
     }
 
     public Resource(String resourceType, String resourceName, String resourcePath) {
@@ -58,9 +46,12 @@ public class Resource extends Entity {
         this.resourcePath = resourcePath;
     }
 
-    public Resource outResourceId(long outResourceId) {
-        this.outResourceId = outResourceId;
-        return this;
+    public Resource(long parentId, String resourceType, String resourceName, String resourcePath) {
+        this(resourceType, resourceName, resourcePath);
+    }
+
+    public String resourceType() {
+        return this.resourceType;
     }
 
     public Resource opts(List<Operation> opts) {
@@ -68,23 +59,7 @@ public class Resource extends Entity {
         return this;
     }
 
-    public long getOutResourceId() {
-        return outResourceId;
-    }
-
-    public String getResourceType() {
-        return resourceType;
-    }
-
-    public String getResourceName() {
-        return resourceName;
-    }
-
-    public String getResourcePath() {
-        return resourcePath;
-    }
-
-    public List<Operation> getOpts() {
-        return opts;
+    public List<Operation> opts() {
+        return this.opts;
     }
 }
