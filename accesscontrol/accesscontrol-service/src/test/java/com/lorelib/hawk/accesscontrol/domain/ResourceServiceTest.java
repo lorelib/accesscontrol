@@ -25,7 +25,7 @@ public class ResourceServiceTest extends TestNGUtil {
         Resource resource = new Resource(ResourceType.API.name(), "file3", "/file3");
         List<Resource> sub = new ArrayList<>();
         sub.add(new Resource(resource.getId(), resource.resourceType(), "新增文件", "/addFile"));
-        resource.subResources(sub);
+        resource.addSubResources(sub);
 
         System.out.println(ReflectionToStringBuilder.toString(resource, ToStringStyle.JSON_STYLE));
         if (validate(resource)) resourceService.addResource(resource);

@@ -63,7 +63,7 @@ public class Resource extends BaseEntity {
         return this.resourceType;
     }
 
-    public Resource subResources(List<Resource> subResources) {
+    public Resource addSubResources(List<Resource> subResources) {
         this.subResources = subResources;
         return this;
     }
@@ -75,7 +75,7 @@ public class Resource extends BaseEntity {
     public Resource withoutSubResources() {
         try {
             Resource clone = (Resource) this.clone();
-            return clone.subResources(null);
+            return clone.addSubResources(null);
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException("对象[" + this.getClass().getName() + "]克隆失败", e);
         }
