@@ -15,6 +15,13 @@ public interface ResourceRepository {
     void addResource(Resource resource);
 
     /**
+     * 批量添加资源
+     *
+     * @param resources
+     */
+    void addBatchResources(List<Resource> resources);
+
+    /**
      * 删除资源
      *
      * @param resourceId

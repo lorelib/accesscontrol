@@ -3,6 +3,7 @@ package com.lorelib.hawk.infrastructure.test;
 import com.lorelib.hawk.infrastructure.helpers.utils.ParamsValidatorUtil;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 

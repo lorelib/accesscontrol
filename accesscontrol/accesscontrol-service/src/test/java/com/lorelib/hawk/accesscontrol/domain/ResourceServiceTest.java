@@ -1,11 +1,11 @@
 package com.lorelib.hawk.accesscontrol.domain;
 
 import com.lorelib.hawk.accesscontrol.common.ResourceType;
-import com.lorelib.hawk.accesscontrol.domain.access.Operation;
 import com.lorelib.hawk.infrastructure.test.TestNGUtil;
 import com.lorelib.hawk.accesscontrol.domain.access.Resource;
 import com.lorelib.hawk.accesscontrol.domain.access.ResourceService;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Test;
 
@@ -22,11 +22,12 @@ public class ResourceServiceTest extends TestNGUtil {
 
     @Test
     public void addResource() {
-        Resource resource = new Resource(ResourceType.API.name(), "file", "/file");
-        List<Operation> opts = new ArrayList<>();
-        opts.add(new Operation(resource.getId(), "新增文件", "/addFile"));
-        resource.opts(opts);
+        Resource resource = new Resource(ResourceType.API.name(), "file3", "/file3");
+        List<Resource> sub = new ArrayList<>();
+        sub.add(new Resource(resource.getId(), resource.resourceType(), "新增文件", "/addFile"));
+        resource.subResources(sub);
 
+        System.out.println(ReflectionToStringBuilder.toString(resource, ToStringStyle.JSON_STYLE));
         if (validate(resource)) resourceService.addResource(resource);
     }
 

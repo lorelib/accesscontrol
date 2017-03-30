@@ -22,13 +22,13 @@ DROP TABLE IF EXISTS ac_user_role;
 CREATE TABLE ac_user
 (
   id BIGINT NOT NULL COMMENT '主键ID',
-  userId VARCHAR(16) NOT NULL COMMENT '用户登录帐号',
+  loginId VARCHAR(16) NOT NULL COMMENT '用户登录帐号',
   createBy VARCHAR(16) COMMENT '创建者userId',
   createDate DATETIME COMMENT '创建日期',
   updateBy VARCHAR(16) COMMENT '更新者userId',
   updateDate DATETIME COMMENT '更新日期',
   PRIMARY KEY (id),
-  UNIQUE union_unique(userLoginId)
+  UNIQUE union_unique(loginId)
 )  COMMENT='访问控制：用户表';
 
 CREATE TABLE ac_role

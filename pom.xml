@@ -58,6 +58,7 @@
         <glassfish.el.version>3.0.0</glassfish.el.version>
         <commons-lang3.version>3.5</commons-lang3.version>
         <commons-collection.version>4.1</commons-collection.version>
+        <guava.version>20.0</guava.version>
         <slf4j.version>1.7.16</slf4j.version>
         <logback.version>1.1.10</logback.version>
         <fastjson.version>1.1.46</fastjson.version>
@@ -178,6 +179,12 @@
             <artifactId>commons-collections4</artifactId>
             <version>${commons-collection.version}</version>
         </dependency>
+        <!-- google guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
         <!-- 日志库 -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -242,30 +249,7 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>test</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <filters>
-                    <filter>src/main/resources/filters/profile-test.properties</filter>
-                </filters>
-            </build>
-        </profile>
-        <profile>
-            <id>prod</id>
-            <build>
-                <filters>
-                    <filter>src/main/resources/filters/profile-production.properties</filter>
-                </filters>
-            </build>
-        </profile>
-    </profiles>
-
     <build>
-        <finalName>AccessControl</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

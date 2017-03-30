@@ -13,7 +13,7 @@ public class Permission extends BaseEntity {
     private long roleId;
 
     /**
-     * 资源操作ID
+     * 资源ID
      */
-    private long optId;
+    private long resourceId;
 }

@@ -16,6 +16,10 @@ import java.util.List;
 @Table(name = "ac_resource")
 public class Resource extends BaseEntity {
     /**
+     * 父级资源ID
+     */
+    private long parentId;
+    /**
      * 资源类型
      */
     @NotNull(message = "资源类型为空")
@@ -34,10 +38,10 @@ public class Resource extends BaseEntity {
     private String resourcePath;
 
     /**
-     * 资源拥有的操作
+     * 资源拥有的子资源
      */
     @Valid
-    private List<Operation> opts;
+    private List<Resource> subResources;
 
     public Resource() {
         super();
@@ -52,18 +56,28 @@ public class Resource extends BaseEntity {
 
     public Resource(long parentId, String resourceType, String resourceName, String resourcePath) {
         this(resourceType, resourceName, resourcePath);
+        this.parentId = parentId;
     }
 
     public String resourceType() {
         return this.resourceType;
     }
 
-    public Resource opts(List<Operation> opts) {
-        this.opts = opts;
+    public Resource subResources(List<Resource> subResources) {
+        this.subResources = subResources;
         return this;
     }
 
-    public List<Operation> opts() {
-        return this.opts;
+    public List<Resource> subResources() {
+        return this.subResources;
+    }
+
+    public Resource withoutSubResources() {
+        try {
+            Resource clone = (Resource) this.clone();
+            return clone.subResources(null);
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException("对象[" + this.getClass().getName() + "]克隆失败", e);
+        }
     }
 }

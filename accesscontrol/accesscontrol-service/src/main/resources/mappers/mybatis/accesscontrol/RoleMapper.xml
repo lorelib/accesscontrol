@@ -12,6 +12,23 @@
         #{roleName},
         #{createBy},
         #{createDate}
-        )
+        );
+        <foreach collection="permissions" item="perm">
+            INSERT INTO ac_permission (
+            id,
+            resourceId,
+            optName,
+            optPath,
+            createBy,
+            createDate
+            ) VALUES (
+            #{opt.id},
+            #{opt.resourceId},
+            #{opt.optName},
+            #{opt.optPath},
+            #{opt.createBy},
+            #{opt.createDate}
+            )
+        </foreach>
     </insert>
 </mapper>

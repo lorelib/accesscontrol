@@ -13,7 +13,7 @@ import java.util.Date;
  * 基础实体类
  * Created by listening on 2017/3/4.
  */
-public abstract class BaseEntity implements Serializable {
+public abstract class BaseEntity implements Serializable, Cloneable {
     /**
      * 主键ID
      */
