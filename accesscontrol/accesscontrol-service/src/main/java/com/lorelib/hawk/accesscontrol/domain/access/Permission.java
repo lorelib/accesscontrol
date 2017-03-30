@@ -16,4 +16,12 @@ public class Permission extends BaseEntity {
      * 资源ID
      */
     private long resourceId;
+
+    public Permission() {}
+
+    public Permission(long roleId, long resourceId) {
+        this();
+        this.roleId = roleId;
+        this.resourceId = resourceId;
+    }
 }

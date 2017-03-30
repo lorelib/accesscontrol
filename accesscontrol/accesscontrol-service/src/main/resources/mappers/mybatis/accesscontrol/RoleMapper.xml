@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lorelib.hawk.accesscontrol.domain.access.RoleRepository">
-    <insert id="addResource" useGeneratedKeys="true" keyProperty="id">
+    <insert id="addRole">
         INSERT INTO ac_role (
         id,
         roleName,
@@ -16,19 +16,25 @@
         <foreach collection="permissions" item="perm">
             INSERT INTO ac_permission (
             id,
+            roleId,
             resourceId,
-            optName,
-            optPath,
             createBy,
             createDate
             ) VALUES (
-            #{opt.id},
-            #{opt.resourceId},
-            #{opt.optName},
-            #{opt.optPath},
-            #{opt.createBy},
-            #{opt.createDate}
+            #{perm.id},
+            #{perm.roleId},
+            #{perm.resourceId},
+            #{perm.createBy},
+            #{perm.createDate}
             )
         </foreach>
     </insert>
+
+    <select id="getAllRoles" resultType="Role">
+        SELECT * FROM ac_role
+    </select>
+
+    <select id="getRolesByUserId" resultType="Role">
+        SELECT * FROM ac_role
+    </select>
 </mapper>

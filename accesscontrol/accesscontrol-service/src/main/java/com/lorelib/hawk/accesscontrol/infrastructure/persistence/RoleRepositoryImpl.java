@@ -3,6 +3,8 @@ package com.lorelib.hawk.accesscontrol.infrastructure.persistence;
 import com.lorelib.hawk.accesscontrol.domain.access.Role;
 import com.lorelib.hawk.accesscontrol.domain.access.RoleRepository;
 import com.lorelib.hawk.infrastructure.stereotype.Repository;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -14,16 +16,20 @@ import java.util.List;
 public class RoleRepositoryImpl implements RoleRepository {
     @Override
     public void addRole(Role role) {
-        System.out.println("");
+        sqlSession.insert(RESOURCE_MAPPER + "addRole", role);
     }
 
     @Override
     public List<Role> getAllRoles() {
-        return null;
+        return sqlSession.selectList(RESOURCE_MAPPER + "getAllRoles");
     }
 
     @Override
     public List<Role> getRolesByUserId(String userId) {
-        return null;
+        return sqlSession.selectList(RESOURCE_MAPPER + "getRolesByUserId", userId);
     }
+
+    @Autowired
+    private SqlSessionTemplate sqlSession;
+    private final static String RESOURCE_MAPPER = "com.lorelib.hawk.accesscontrol.domain.access.RoleRepository";
 }

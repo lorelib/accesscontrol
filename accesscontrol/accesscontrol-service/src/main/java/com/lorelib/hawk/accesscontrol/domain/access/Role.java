@@ -26,6 +26,12 @@ public class Role extends BaseEntity {
     }
 
     public Role(String roleName) {
+        this();
         this.roleName = roleName;
+    }
+
+    public Role addPermissions(List<Permission> permissions) {
+        this.permissions = permissions;
+        return this;
     }
 }
