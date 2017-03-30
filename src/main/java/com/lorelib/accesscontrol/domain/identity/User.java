@@ -13,7 +13,7 @@ public class User extends BaseEntity {
     /**
      * 用户登录帐号
      */
-    private String userLoginId;
+    private String userId;
 
     /**
      * 用户拥有的权限

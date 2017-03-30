@@ -3,9 +3,9 @@ package com.lorelib.accesscontrol.domain;
 import com.lorelib.accesscontrol.common.ResourceType;
 import com.lorelib.accesscontrol.domain.access.Operation;
 import com.lorelib.accesscontrol.infrastructure.test.TestNGUtil;
-import com.lorelib.accesscontrol.infrastructure.helpers.utils.JSONUtil;
 import com.lorelib.accesscontrol.domain.access.Resource;
 import com.lorelib.accesscontrol.domain.access.ResourceService;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Test;
 
@@ -21,26 +21,18 @@ public class ResourceServiceTest extends TestNGUtil {
     private ResourceService resourceService;
 
     @Test
-    public void addResourceTest() {
-        Resource resource = new Resource(ResourceType.API.name(), "user", "/user");
+    public void addResource() {
+        Resource resource = new Resource(ResourceType.API.name(), "file", "/file");
         List<Operation> opts = new ArrayList<>();
-        opts.add(new Operation(resource.getId(), "新增用户", "/addUser"));
+        opts.add(new Operation(resource.getId(), "新增文件", "/addFile"));
         resource.opts(opts);
 
         if (validate(resource)) resourceService.addResource(resource);
     }
 
     @Test
-    public void deleteResourceTest() {
+    public void getResourcesByType() {
         List<Resource> resources = resourceService.getResourcesByType(ResourceType.API.name());
-        for (Resource resource: resources) {
-            resourceService.deleteResource(resource.getId());
-        }
-    }
-
-    @Test
-    public void getResourcesByTypeTest() {
-        List<Resource> resources = resourceService.getResourcesByType(ResourceType.API.name());
-        System.out.println(JSONUtil.toJsonString(resources));
+        System.out.println(new ReflectionToStringBuilder(resources.toArray()).toString());
     }
 }

@@ -2,6 +2,7 @@ package com.lorelib.accesscontrol.domain.access;
 
 import com.lorelib.accesscontrol.infrastructure.stereotype.BaseEntity;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -12,6 +13,7 @@ public class Role extends BaseEntity {
     /**
      * 角色名称
      */
+    @NotNull(message = "角色名称为空")
     private String roleName;
 
     /**

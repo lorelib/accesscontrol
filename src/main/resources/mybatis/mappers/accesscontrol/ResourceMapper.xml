@@ -36,49 +36,6 @@
         </foreach>
     </insert>
 
-    <delete id="deleteResource">
-        DELETE FROM ac_resource WHERE id = #{resourceId};
-        DELETE FROM ac_operation WHERE resourceId = #{resourceId};
-    </delete>
-
-    <update id="updateResource">
-        UPDATE ac_resource
-        <set>
-            <if test="resourceName != null">
-                resourceName = #{resourceName},
-            </if>
-            <if test="resourcePath != null">
-                resourcePath = #{resourcePath},
-            </if>
-            <if test="updateBy != null">
-                updateBy = #{updateBy},
-            </if>
-            <if test="updateDate != null">
-                updateDate = #{updateDate},
-            </if>
-        </set>
-        WHERE resourceId = #{resourceId}
-    </update>
-
-    <update id="updateOptsByResourceId">
-        UPDATE ac_resource
-        <set>
-            <if test="resourceName != null">
-                resourceName = #{resourceName},
-            </if>
-            <if test="resourcePath != null">
-                resourcePath = #{resourcePath},
-            </if>
-            <if test="updateBy != null">
-                updateBy = #{updateBy},
-            </if>
-            <if test="updateDate != null">
-                updateDate = #{updateDate},
-            </if>
-        </set>
-        WHERE resourceId = #{resourceId}
-    </update>
-
     <select id="getResourcesByType" resultType="Resource">
         SELECT * FROM ac_resource WHERE resourceType = #{resourceType}
     </select>

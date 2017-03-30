@@ -22,7 +22,7 @@ CREATE TABLE ac_permission
 (
 	id BIGINT NOT NULL COMMENT '主键ID',
 	roleId BIGINT NOT NULL COMMENT '角色表主键',
-	resourceId INTEGER NOT NULL COMMENT '资源表主键',
+	optId INTEGER NOT NULL COMMENT '操作表主键',
 	createBy VARCHAR(16) COMMENT '创建者userId',
 	createDate DATETIME COMMENT '创建日期',
 	updateBy VARCHAR(16) COMMENT '更新者userId',
@@ -74,7 +74,7 @@ CREATE TABLE ac_role
 CREATE TABLE ac_user
 (
 	id BIGINT NOT NULL COMMENT '主键ID',
-	userLoginId VARCHAR(16) NOT NULL COMMENT '用户登录帐号',
+	userId VARCHAR(16) NOT NULL COMMENT '用户登录帐号',
 	createBy VARCHAR(16) COMMENT '创建者userId',
 	createDate DATETIME COMMENT '创建日期',
 	updateBy VARCHAR(16) COMMENT '更新者userId',
