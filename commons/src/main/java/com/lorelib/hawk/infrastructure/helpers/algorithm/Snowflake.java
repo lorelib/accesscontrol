@@ -20,7 +20,7 @@ public class Snowflake {
     private long timestampLeftShift = sequenceBits + workerIdBits + dataCenterIdBits;
     private long sequenceMask = -1L ^ (-1L << sequenceBits);
 
-    private long lastTimestamp = -1L;
+    private static long lastTimestamp = -1L;
     private long twepoch = 1288834974657L;
 
     protected Snowflake() {
