@@ -21,7 +21,7 @@ public class RoleServiceTest extends TestNGUtil {
     public void addRole() {
         Role role = new Role("Administrator");
         List<Permission> permissions = Lists.newArrayList();
-        permissions.add(new Permission(role.getId(), 100L));
+        permissions.add(new Permission(role.getId(), 8053191461614784514L));
 
         roleService.addRole(role.addPermissions(permissions));
     }

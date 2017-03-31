@@ -83,4 +83,4 @@
             </resource>
         </resources>
         
-    3.  项目编译打包，如：mvn clean package -Pproduction
+    3.  项目编译打包，如：mvn clean package -Pprod

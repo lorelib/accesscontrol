@@ -31,5 +31,5 @@ public class RoleRepositoryImpl implements RoleRepository {
 
     @Autowired
     private SqlSessionTemplate sqlSession;
-    private final static String RESOURCE_MAPPER = "com.lorelib.hawk.accesscontrol.domain.access.RoleRepository";
+    private final static String RESOURCE_MAPPER = "com.lorelib.hawk.accesscontrol.domain.access.RoleRepository.";
 }
