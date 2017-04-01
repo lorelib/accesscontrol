@@ -43,6 +43,21 @@
         </foreach>
     </insert>
 
+    <select id="getResourcesByType" resultMap="resourceMap">
+         SELECT
+            p.id AS id,
+            p.resourceType AS resourceType,
+            p.resourceName AS resourceName,
+            p.resourcePath AS resourcePath,
+            c.parentId AS c_parentId,
+            c.id AS c_id,
+            c.resourceType AS c_resourceType,
+            c.resourceName AS c_resourceName,
+            c.resourcePath AS c_resourcePath
+         FROM ac_resource p LEFT JOIN ac_resource c ON p.id = c.parentId
+         WHERE p.resourceType = #{resourceType} AND p.parentId = 0
+    </select>
+
     <resultMap id="resourceMap" type="Resource">
         <result property="id" column="id" />
         <result property="resourceType" column="resourceType" />
@@ -58,19 +73,4 @@
         <result property="resourceName" column="resourceName" />
         <result property="resourcePath" column="resourcePath" />
     </resultMap>
-
-    <select id="getResourcesByType" resultMap="resourceMap">
-         SELECT
-            p.id AS id,
-            p.resourceType AS resourceType,
-            p.resourceName AS resourceName,
-            p.resourcePath AS resourcePath,
-            c.parentId AS c_parentId,
-            c.id AS c_id,
-            c.resourceType AS c_resourceType,
-            c.resourceName AS c_resourceName,
-            c.resourcePath AS c_resourcePath
-         FROM ac_resource p LEFT JOIN ac_resource c ON p.id = c.parentId
-         WHERE p.resourceType = #{resourceType} AND p.parentId = 0
-    </select>
 </mapper>

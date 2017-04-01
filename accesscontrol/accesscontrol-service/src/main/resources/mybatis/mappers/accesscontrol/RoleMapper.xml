@@ -52,32 +52,6 @@
         SELECT * FROM ac_role
     </select>
 
-    <resultMap id="roleMap" type="Role">
-        <result property="id" column="id" />
-        <result property="roleName" column="roleName" />
-        <association property="perms" resultMap="permissionMap"/>
-    </resultMap>
-    
-    <resultMap id="permissionMap" type="Permission">
-        <association property="resource" resultMap="resourceMap" columnPrefix="rs_" />
-    </resultMap>
-
-    <resultMap id="resourceMap" type="Resource">
-        <result property="id" column="id" />
-        <result property="resourceType" column="resourceType" />
-        <result property="resourceName" column="resourceName" />
-        <result property="resourcePath" column="resourcePath" />
-        <association property="subResources" resultMap="childResource" columnPrefix="c_"/>
-    </resultMap>
-
-    <resultMap id="childResource" type="Resource">
-        <result property="id" column="id" />
-        <result property="parentId" column="parentId" />
-        <result property="resourceType" column="resourceType" />
-        <result property="resourceName" column="resourceName" />
-        <result property="resourcePath" column="resourcePath" />
-    </resultMap>
-
     <select id="getAllRolesWithPerm" resultMap="roleMap">
         SELECT
         r.id AS id,
@@ -95,4 +69,14 @@
     <select id="getRolesByUserId" resultType="Role">
 
     </select>
+
+    <resultMap id="roleMap" type="Role">
+        <result property="id" column="id" />
+        <result property="roleName" column="roleName" />
+        <association property="perms" resultMap="permissionMap"/>
+    </resultMap>
+
+    <resultMap id="permissionMap" type="Permission">
+        <association property="resource" resultMap="com.lorelib.hawk.accesscontrol.domain.access.ResourceRepository.resourceMap" columnPrefix="rs_" />
+    </resultMap>
 </mapper>
