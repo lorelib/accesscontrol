@@ -1,7 +1,7 @@
 package com.lorelib.hawk.accesscontrol.domain;
 
 import com.lorelib.hawk.infrastructure.stereotype.DomainService;
-import org.testng.collections.Lists;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -14,19 +14,23 @@ public class AuthorizationService {
     /**
      * 为用户分配角色
      * @param user
-     * @param role
+     * @param roles
      */
-    public void assignRoleTo(User user, Role role) {
-
+    public void assignRoleTo(User user, List<Role> roles) {
+        User real = userRepository.getUser(user.loginId());
+        if (real == null) {
+            userRepository.addUser(user);
+        }
+        userRepository.addRoleTo(user.addRoles(roles));
     }
 
     /**
      * 取消用户角色
      * @param user
-     * @param role
+     * @param roles
      */
-    public void unassignRoleFor(User user, Role role) {
-
+    public void unassignRoleFor(User user, List<Role> roles) {
+        userRepository.deleteRoleFor(user.addRoles(roles));
     }
 
     /**
@@ -35,6 +39,9 @@ public class AuthorizationService {
      * @return
      */
     public List<Role> getRolesFor(User user) {
-        return Lists.newArrayList();
+        return userRepository.getRolesFor(user);
     }
+
+    @Autowired
+    private UserRepository userRepository;
 }

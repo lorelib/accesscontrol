@@ -13,7 +13,7 @@ public class User extends BaseEntity {
     /**
      * 用户登录帐号
      */
-    private String userId;
+    private String loginId;
 
     /**
      * 用户拥有的权限
@@ -22,5 +22,14 @@ public class User extends BaseEntity {
 
     public User() {
         super();
+    }
+
+    public User addRoles(List<Role> roles) {
+        this.roles = roles;
+        return this;
+    }
+
+    public String loginId() {
+        return this.loginId;
     }
 }
