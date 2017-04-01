@@ -44,23 +44,6 @@
     </bean>
     <!-- 事务 配置 end -->
 
-    <!-- mybatis 配置 start -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="typeAliasesPackage" value="com.lorelib.hawk"/>
-        <property name="typeAliasesSuperType" value="com.lorelib.hawk.infrastructure.stereotype.BaseEntity"/>
-        <property name="mapperLocations" value="classpath*:mappers/mybatis/*/*Mapper.xml"/>
-    </bean>
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-        <property name="basePackage" value="com.lorelib.hawk"/>
-        <property name="annotationClass" value="com.lorelib.hawk.infrastructure.stereotype.Repository"/>
-    </bean>
-    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg index="0" ref="sqlSessionFactory" />
-    </bean>
-    <!-- mybatis 配置 end -->
-
     <!-- REDIS 配置 start -->
     <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <property name="maxIdle" value="300" /> <!-- 最大能够保持idel状态的对象数  -->
