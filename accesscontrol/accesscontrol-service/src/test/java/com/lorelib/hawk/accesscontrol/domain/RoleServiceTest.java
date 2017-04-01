@@ -5,6 +5,8 @@ import com.lorelib.hawk.accesscontrol.domain.access.Permission;
 import com.lorelib.hawk.accesscontrol.domain.access.Role;
 import com.lorelib.hawk.accesscontrol.domain.access.RoleService;
 import com.lorelib.hawk.infrastructure.test.TestNGUtil;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Test;
 
@@ -19,16 +21,32 @@ public class RoleServiceTest extends TestNGUtil {
 
     @Test
     public void addRole() {
+        long resourceId = 8053191461614784514L;
         Role role = new Role("Administrator");
-        List<Permission> permissions = Lists.newArrayList();
-        permissions.add(new Permission(role.getId(), 8053191461614784514L));
+        List<Permission> perms = Lists.newArrayList();
+        perms.add(new Permission(role.getId(), resourceId));
 
-        roleService.addRole(role.addPermissions(permissions));
+        roleService.addRole(role.addPermissions(perms));
+    }
+
+    @Test
+    public void addPermToRole() {
+        long roleId = 6911758440524288000L;
+        List<Permission> perms = Lists.newArrayList();
+        perms.add(new Permission(2004003941024665600L));
+        roleService.addPermToRole(roleId, perms);
     }
 
     @Test
     public void getAllRoles() {
+        List<Role> roles = roleService.getAllRoles();
+        System.out.println(new ReflectionToStringBuilder(roles.toArray()).toString());
+    }
 
+    @Test
+    public void getAllRolesWithPerm() {
+        List<Role> roles = roleService.getAllRolesWithPerm();
+        System.out.println(new ReflectionToStringBuilder(roles.toArray()).toString());
     }
 
     @Test
