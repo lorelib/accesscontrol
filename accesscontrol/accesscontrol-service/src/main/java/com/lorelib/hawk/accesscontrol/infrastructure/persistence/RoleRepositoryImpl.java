@@ -20,8 +20,19 @@ public class RoleRepositoryImpl implements RoleRepository {
     }
 
     @Override
+    public void addPermToRole(Role role) {
+        sqlSession.insert(RESOURCE_MAPPER + "addPermToRole", role);
+    }
+
+    @Override
     public List<Role> getAllRoles() {
         return sqlSession.selectList(RESOURCE_MAPPER + "getAllRoles");
+    }
+
+    @Override
+    public List<Role> getAllRolesWithPerm() {
+        List<Role> roles = sqlSession.selectList(RESOURCE_MAPPER + "getAllRolesWithPerm");
+        return roles;
     }
 
     @Override

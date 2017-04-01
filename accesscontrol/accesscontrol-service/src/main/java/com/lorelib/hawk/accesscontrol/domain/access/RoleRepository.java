@@ -14,10 +14,22 @@ public interface RoleRepository {
     void addRole(Role role);
 
     /**
+     * 为角色添加新的权限
+     * @param role
+     */
+    void addPermToRole(Role role);
+
+    /**
      * 获取所有角色
      * @return
      */
     List<Role> getAllRoles();
+
+    /**
+     * 获取所有角色及权限
+     * @return
+     */
+    List<Role> getAllRolesWithPerm();
 
     /**
      * 根据该用户角色

@@ -13,7 +13,7 @@
         #{createBy},
         #{createDate}
         );
-        <foreach collection="permissions" item="perm">
+        <foreach collection="perms" item="perm">
             INSERT INTO ac_permission (
             id,
             roleId,
@@ -22,8 +22,26 @@
             createDate
             ) VALUES (
             #{perm.id},
-            #{perm.roleId},
-            #{perm.resourceId},
+            #{perm.role.id},
+            #{perm.resource.id},
+            #{perm.createBy},
+            #{perm.createDate}
+            )
+        </foreach>
+    </insert>
+
+    <insert id="addPermToRole">
+        <foreach collection="perms" item="perm">
+            INSERT INTO ac_permission (
+            id,
+            roleId,
+            resourceId,
+            createBy,
+            createDate
+            ) VALUES (
+            #{perm.id},
+            #{id},
+            #{perm.resource.id},
             #{perm.createBy},
             #{perm.createDate}
             )
@@ -34,7 +52,47 @@
         SELECT * FROM ac_role
     </select>
 
+    <resultMap id="roleMap" type="Role">
+        <result property="id" column="id" />
+        <result property="roleName" column="roleName" />
+        <association property="perms" resultMap="permissionMap"/>
+    </resultMap>
+    
+    <resultMap id="permissionMap" type="Permission">
+        <association property="resource" resultMap="resourceMap" columnPrefix="rs_" />
+    </resultMap>
+
+    <resultMap id="resourceMap" type="Resource">
+        <result property="id" column="id" />
+        <result property="resourceType" column="resourceType" />
+        <result property="resourceName" column="resourceName" />
+        <result property="resourcePath" column="resourcePath" />
+        <association property="subResources" resultMap="childResource" columnPrefix="c_"/>
+    </resultMap>
+
+    <resultMap id="childResource" type="Resource">
+        <result property="id" column="id" />
+        <result property="parentId" column="parentId" />
+        <result property="resourceType" column="resourceType" />
+        <result property="resourceName" column="resourceName" />
+        <result property="resourcePath" column="resourcePath" />
+    </resultMap>
+
+    <select id="getAllRolesWithPerm" resultMap="roleMap">
+        SELECT
+        r.id AS id,
+        r.roleName AS roleName,
+        rs.parentId AS rs_parentId,
+        rs.id AS rs_id,
+        rs.resourceType AS rs_resourceType,
+        rs.resourceName AS rs_resourceName,
+        rs.resourcePath AS rs_resourcePath
+        FROM ac_role r
+        LEFT JOIN ac_permission p ON r.id = p.roleId
+        LEFT JOIN ac_resource rs ON rs.id = p.resourceId AND rs.parentId != 0
+    </select>
+
     <select id="getRolesByUserId" resultType="Role">
-        SELECT * FROM ac_role
+
     </select>
 </mapper>

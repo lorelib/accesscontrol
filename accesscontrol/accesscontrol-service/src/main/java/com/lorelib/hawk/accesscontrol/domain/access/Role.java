@@ -19,7 +19,7 @@ public class Role extends BaseEntity {
     /**
      * 角色拥有的权限
      */
-    private List<Permission> permissions;
+    private List<Permission> perms;
 
     public Role() {
         super();
@@ -30,8 +30,12 @@ public class Role extends BaseEntity {
         this.roleName = roleName;
     }
 
-    public Role addPermissions(List<Permission> permissions) {
-        this.permissions = permissions;
+    public Role(long id) {
+        this.id = id;
+    }
+
+    public Role addPermissions(List<Permission> perms) {
+        this.perms = perms;
         return this;
     }
 }

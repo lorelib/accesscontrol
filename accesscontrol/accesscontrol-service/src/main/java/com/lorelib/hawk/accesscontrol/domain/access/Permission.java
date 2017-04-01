@@ -8,20 +8,27 @@ import com.lorelib.hawk.infrastructure.stereotype.BaseEntity;
  */
 public class Permission extends BaseEntity {
     /**
-     * 角色ID
+     * 角色
      */
-    private long roleId;
+    private Role role;
 
     /**
-     * 资源ID
+     * 资源
      */
-    private long resourceId;
+    private Resource resource;
 
-    public Permission() {}
+    public Permission() {
+        super();
+    }
+
+    public Permission(long resourceId) {
+        this();
+        this.resource = new Resource(resourceId);
+    }
 
     public Permission(long roleId, long resourceId) {
         this();
-        this.roleId = roleId;
-        this.resourceId = resourceId;
+        this.role = new Role(roleId);
+        this.resource = new Resource(resourceId);
     }
 }

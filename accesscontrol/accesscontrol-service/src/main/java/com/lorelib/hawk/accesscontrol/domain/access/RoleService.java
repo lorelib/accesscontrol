@@ -22,11 +22,28 @@ public class RoleService {
     }
 
     /**
+     * 为角色添加新的权限
+     * @param roleId
+     * @param perms
+     */
+    public void addPermToRole(long roleId, List<Permission> perms) {
+        roleRepository.addPermToRole(new Role(roleId).addPermissions(perms));
+    }
+
+    /**
      * 获取所有角色
      * @return
      */
     public List<Role> getAllRoles() {
         return roleRepository.getAllRoles();
+    }
+
+    /**
+     * 获取所有角色及权限
+     * @return
+     */
+    public List<Role> getAllRolesWithPerm() {
+        return roleRepository.getAllRolesWithPerm();
     }
 
     /**

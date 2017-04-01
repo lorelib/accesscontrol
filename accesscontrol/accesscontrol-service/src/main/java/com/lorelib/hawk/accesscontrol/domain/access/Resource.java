@@ -1,6 +1,7 @@
 package com.lorelib.hawk.accesscontrol.domain.access;
 
 import com.lorelib.hawk.infrastructure.stereotype.BaseEntity;
+import org.apache.ibatis.annotations.ResultMap;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -57,6 +58,10 @@ public class Resource extends BaseEntity {
     public Resource(long parentId, String resourceType, String resourceName, String resourcePath) {
         this(resourceType, resourceName, resourcePath);
         this.parentId = parentId;
+    }
+
+    public Resource(long id) {
+        this.id = id;
     }
 
     public String resourceType() {

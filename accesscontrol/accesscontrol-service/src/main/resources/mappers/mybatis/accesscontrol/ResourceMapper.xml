@@ -48,17 +48,15 @@
         <result property="resourceType" column="resourceType" />
         <result property="resourceName" column="resourceName" />
         <result property="resourcePath" column="resourcePath" />
-        <result property="createBy" column="createBy" />
-        <result property="createDate" column="createDate" />
-        <collection property="subResources" ofType="Resource">
-            <result property="id" column="c_id" />
-            <result property="parentId" column="c_parentId" />
-            <result property="resourceType" column="c_resourceType" />
-            <result property="resourceName" column="c_resourceName" />
-            <result property="resourcePath" column="c_resourcePath" />
-            <result property="createBy" column="c_createBy" />
-            <result property="createDate" column="c_createDate" />
-        </collection>
+        <association property="subResources" resultMap="childResource" columnPrefix="c_"/>
+    </resultMap>
+
+    <resultMap id="childResource" type="Resource">
+        <result property="id" column="id" />
+        <result property="parentId" column="parentId" />
+        <result property="resourceType" column="resourceType" />
+        <result property="resourceName" column="resourceName" />
+        <result property="resourcePath" column="resourcePath" />
     </resultMap>
 
     <select id="getResourcesByType" resultMap="resourceMap">
@@ -67,15 +65,11 @@
             p.resourceType AS resourceType,
             p.resourceName AS resourceName,
             p.resourcePath AS resourcePath,
-            p.createBy AS createBy,
-            p.createDate AS createDate,
             c.parentId AS c_parentId,
             c.id AS c_id,
             c.resourceType AS c_resourceType,
             c.resourceName AS c_resourceName,
-            c.resourcePath AS c_resourcePath,
-            c.createBy AS c_createBy,
-            c.createDate AS c_createDate
+            c.resourcePath AS c_resourcePath
          FROM ac_resource p LEFT JOIN ac_resource c ON p.id = c.parentId
          WHERE p.resourceType = #{resourceType} AND p.parentId = 0
     </select>
