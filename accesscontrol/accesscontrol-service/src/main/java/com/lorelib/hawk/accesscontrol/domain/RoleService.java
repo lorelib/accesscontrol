@@ -1,4 +1,4 @@
-package com.lorelib.hawk.accesscontrol.domain.access;
+package com.lorelib.hawk.accesscontrol.domain;
 
 import com.lorelib.hawk.infrastructure.stereotype.DomainService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,8 +2,6 @@ package com.lorelib.hawk.accesscontrol.domain;
 
 import com.lorelib.hawk.accesscontrol.common.ResourceType;
 import com.lorelib.hawk.infrastructure.test.TestNGUtil;
-import com.lorelib.hawk.accesscontrol.domain.access.Resource;
-import com.lorelib.hawk.accesscontrol.domain.access.ResourceService;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.beans.factory.annotation.Autowired;

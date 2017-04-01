@@ -1,7 +1,7 @@
 package com.lorelib.hawk.accesscontrol.infrastructure.persistence;
 
-import com.lorelib.hawk.accesscontrol.domain.access.Role;
-import com.lorelib.hawk.accesscontrol.domain.access.RoleRepository;
+import com.lorelib.hawk.accesscontrol.domain.Role;
+import com.lorelib.hawk.accesscontrol.domain.RoleRepository;
 import com.lorelib.hawk.infrastructure.stereotype.Repository;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +42,5 @@ public class RoleRepositoryImpl implements RoleRepository {
 
     @Autowired
     private SqlSessionTemplate sqlSession;
-    private final static String RESOURCE_MAPPER = "com.lorelib.hawk.accesscontrol.domain.access.RoleRepository.";
+    private final static String RESOURCE_MAPPER = "com.lorelib.hawk.accesscontrol.domain.RoleRepository.";
 }

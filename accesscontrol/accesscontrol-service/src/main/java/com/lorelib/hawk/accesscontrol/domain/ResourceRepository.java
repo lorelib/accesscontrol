@@ -1,4 +1,4 @@
-package com.lorelib.hawk.accesscontrol.domain.access;
+package com.lorelib.hawk.accesscontrol.domain;
 
 import java.util.List;
 

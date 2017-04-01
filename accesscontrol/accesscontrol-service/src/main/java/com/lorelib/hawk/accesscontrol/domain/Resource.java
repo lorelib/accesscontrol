@@ -1,7 +1,6 @@
-package com.lorelib.hawk.accesscontrol.domain.access;
+package com.lorelib.hawk.accesscontrol.domain;
 
 import com.lorelib.hawk.infrastructure.stereotype.BaseEntity;
-import org.apache.ibatis.annotations.ResultMap;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

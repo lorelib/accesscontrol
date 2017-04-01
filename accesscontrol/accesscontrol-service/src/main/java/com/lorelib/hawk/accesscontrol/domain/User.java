@@ -1,7 +1,7 @@
-package com.lorelib.hawk.accesscontrol.domain.identity;
+package com.lorelib.hawk.accesscontrol.domain;
 
 import com.lorelib.hawk.infrastructure.stereotype.BaseEntity;
-import com.lorelib.hawk.accesscontrol.domain.access.Role;
+import com.lorelib.hawk.accesscontrol.domain.Role;
 
 import java.util.List;
 

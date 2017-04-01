@@ -1,17 +1,14 @@
 package com.lorelib.hawk.accesscontrol.infrastructure.persistence;
 
-import com.google.common.collect.Collections2;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.lorelib.hawk.infrastructure.stereotype.Repository;
-import com.lorelib.hawk.accesscontrol.domain.access.Resource;
-import com.lorelib.hawk.accesscontrol.domain.access.ResourceRepository;
+import com.lorelib.hawk.accesscontrol.domain.Resource;
+import com.lorelib.hawk.accesscontrol.domain.ResourceRepository;
 import org.apache.commons.collections4.CollectionUtils;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -61,5 +58,5 @@ public class ResourceRepositoryImpl implements ResourceRepository {
 
     @Autowired
     private SqlSessionTemplate sqlSession;
-    private final static String RESOURCE_MAPPER = "com.lorelib.hawk.accesscontrol.domain.access.ResourceRepository.";
+    private final static String RESOURCE_MAPPER = "com.lorelib.hawk.accesscontrol.domain.ResourceRepository.";
 }
