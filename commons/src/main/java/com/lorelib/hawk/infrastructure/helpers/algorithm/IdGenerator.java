@@ -11,6 +11,17 @@ public class IdGenerator {
     private final static long DEFAULT_DATACENTER_ID = 1L;
 
     public static long nextId() {
-        return new Snowflake(Thread.currentThread().getId() + RandomUtils.nextLong(), DEFAULT_DATACENTER_ID, DEFAULT_SEQUENCE).nextId();
+        return new Snowflake(
+                Thread.currentThread().getId() + RandomUtils.nextLong(0, 9999999999L),
+                DEFAULT_DATACENTER_ID,
+                DEFAULT_SEQUENCE
+        ).nextId();
+    }
+
+    public static void main(String[] args) {
+        long num = 10000L;
+        for (long i = 0; i < num; i++) {
+            System.out.println("id: " + nextId());
+        }
     }
 }

@@ -42,7 +42,7 @@ public class Snowflake {
         } else {
             sequence = 0;
         }
-
+        //System.out.println("timestamp: " + timestamp + ", lastTimestamp: " + lastTimestamp + ", workerId: " + workerId + ", sequence: " + sequence);
         lastTimestamp = timestamp;
         return ((timestamp - twepoch) << timestampLeftShift) |
                 (dataCenterId << dataCenterIdShift) |
