@@ -9,7 +9,7 @@ import java.util.List;
  * 用户
  * Created by listening on 2017/3/7.
  */
-public class User extends BaseEntity {
+public class User extends BaseEntity<User> {
     /**
      * 用户登录帐号
      */

@@ -17,7 +17,8 @@ public class ResourceService {
      * @param resource
      */
     public void addResource(Resource resource) {
-        resourceRepository.addResource(resource);
+        long id = resourceRepository.identifier();
+        resourceRepository.addResource(resource.setId(id));
     }
 
     /**

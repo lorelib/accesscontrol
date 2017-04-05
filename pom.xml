@@ -43,7 +43,7 @@
 
     <properties>
         <project.encoding>UTF-8</project.encoding>
-        <project.jdk.version>1.7</project.jdk.version>
+        <project.jdk.version>1.8</project.jdk.version>
         <spring.version>4.3.7.RELEASE</spring.version>
         <hibernate.version>5.1.5.Final</hibernate.version>
         <mybatis.version>3.1.1</mybatis.version>

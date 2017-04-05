@@ -9,7 +9,7 @@ import java.util.List;
  * 角色
  * Created by listening on 2017/3/7.
  */
-public class Role extends BaseEntity {
+public class Role extends BaseEntity<Role> {
     /**
      * 角色名称
      */
@@ -31,6 +31,7 @@ public class Role extends BaseEntity {
     }
 
     public Role(long id) {
+        this();
         this.id = id;
     }
 

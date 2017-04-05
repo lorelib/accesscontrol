@@ -5,6 +5,7 @@ import com.lorelib.hawk.accesscontrol.domain.RoleRepository;
 import com.lorelib.hawk.infrastructure.stereotype.Repository;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.testng.collections.Lists;
 
 import java.util.List;
 
@@ -31,17 +32,12 @@ public class RoleRepositoryImpl implements RoleRepository {
 
     @Override
     public List<Role> getAllRolesWithPerm() {
-        return getRolesWithPerm(new Role());
+        return getRolesWithPerm(null);
     }
 
     @Override
-    public List<Role> getRolesWithPerm(Role role) {
-        return sqlSession.selectList(RESOURCE_MAPPER + "getRolesWithPerm", role);
-    }
-
-    @Override
-    public List<Role> getRolesById(long roleId) {
-        return getRolesWithPerm(new Role(roleId));
+    public List<Role> getRolesWithPerm(List<Role> roleIds) {
+        return sqlSession.selectList(RESOURCE_MAPPER + "getRolesWithPerm", roleIds);
     }
 
     @Autowired

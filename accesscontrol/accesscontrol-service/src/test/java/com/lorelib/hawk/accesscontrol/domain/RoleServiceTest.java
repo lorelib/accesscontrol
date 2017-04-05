@@ -46,7 +46,8 @@ public class RoleServiceTest extends TestNGUtil {
     }
 
     @Test
-    public void getRolesByUserId() {
-
+    public void getRolesById() {
+        List<Role> roles = roleService.getRolesWithPerm(Lists.newArrayList(new Role(849456114931503104L)));
+        System.out.println(new ReflectionToStringBuilder(roles.toArray()).toString());
     }
 }

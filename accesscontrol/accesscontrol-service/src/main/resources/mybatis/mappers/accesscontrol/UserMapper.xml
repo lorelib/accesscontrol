@@ -19,9 +19,20 @@
         </foreach>
     </insert>
 
-    <select id="getRolesFor">
-        SELECT * FROM ac_user u
+    <select id="getRolesFor" resultMap="roleMap">
+        SELECT
+        roleId
+        FROM ac_user u
         LEFT JOIN ac_role r ON u.roleId = r.id
-        LEFT JOIN
+        WHERE u.loginId = #{loginId}
     </select>
+
+    <resultMap id="userMap" type="User" autoMapping="true">
+        <result property="id" column="id" />
+        <association property="roles" resultMap="roleMap" columnPrefix=""/>
+    </resultMap>
+
+    <resultMap id="roleMap" type="Role">
+        <result property="id" column="roleId" />
+    </resultMap>
 </mapper>

@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "ac_resource")
-public class Resource extends BaseEntity {
+public class Resource extends BaseEntity<Resource> {
     /**
      * 父级资源ID
      */
@@ -47,6 +47,11 @@ public class Resource extends BaseEntity {
         super();
     }
 
+    public Resource(long id) {
+        this();
+        this.id = id;
+    }
+
     public Resource(String resourceType, String resourceName, String resourcePath) {
         this();
         this.resourceType = resourceType;
@@ -57,10 +62,6 @@ public class Resource extends BaseEntity {
     public Resource(long parentId, String resourceType, String resourceName, String resourcePath) {
         this(resourceType, resourceName, resourcePath);
         this.parentId = parentId;
-    }
-
-    public Resource(long id) {
-        this.id = id;
     }
 
     public String resourceType() {

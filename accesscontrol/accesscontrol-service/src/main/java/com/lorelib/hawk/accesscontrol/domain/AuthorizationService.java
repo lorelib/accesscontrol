@@ -17,6 +17,10 @@ public class AuthorizationService {
      * @param roles
      */
     public void assignRoleTo(User user, List<Role> roles) {
+        if (user.getId() == 0) {
+            long id = userRepository.identifier();
+            user.setId(id);
+        }
         userRepository.addRoleTo(user.addRoles(roles));
     }
 
@@ -35,9 +39,13 @@ public class AuthorizationService {
      * @return
      */
     public List<Role> getRolesFor(User user) {
-        return userRepository.getRolesFor(user);
+        List<Role> roleIds = userRepository.getRolesFor(user);
+        List<Role> roles = roleService.getRolesWithPerm(roleIds);
+        return roles;
     }
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private RoleService roleService;
 }

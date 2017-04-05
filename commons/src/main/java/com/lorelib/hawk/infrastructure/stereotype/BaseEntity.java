@@ -13,7 +13,7 @@ import java.util.Date;
  * 基础实体类
  * Created by listening on 2017/3/4.
  */
-public abstract class BaseEntity implements Serializable, Cloneable {
+public abstract class BaseEntity<T> implements Serializable, Cloneable {
     /**
      * 主键ID
      */
@@ -42,11 +42,11 @@ public abstract class BaseEntity implements Serializable, Cloneable {
 
     protected BaseEntity() {
         super();
-        this.setId(IdGenerator.nextId());
     }
 
-    public void setId(long id) {
+    public T setId(long id) {
         this.id = id;
+        return (T) this;
     }
 
     public long getId() {

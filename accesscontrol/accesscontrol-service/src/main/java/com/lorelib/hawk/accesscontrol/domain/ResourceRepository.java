@@ -1,12 +1,14 @@
 package com.lorelib.hawk.accesscontrol.domain;
 
+import com.lorelib.hawk.infrastructure.stereotype.BaseRepository;
+
 import java.util.List;
 
 /**
  * 资源仓库
  * Created by listening on 2017/3/21.
  */
-public interface ResourceRepository {
+public interface ResourceRepository extends BaseRepository {
     /**
      * 添加资源
      *

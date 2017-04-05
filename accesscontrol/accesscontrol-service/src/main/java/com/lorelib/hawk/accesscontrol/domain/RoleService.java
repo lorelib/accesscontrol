@@ -1,5 +1,6 @@
 package com.lorelib.hawk.accesscontrol.domain;
 
+import com.beust.jcommander.internal.Lists;
 import com.lorelib.hawk.infrastructure.stereotype.DomainService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,7 +19,8 @@ public class RoleService {
      * @param role
      */
     public void addRole(Role role) {
-        roleRepository.addRole(role);
+        long id = roleRepository.identifier();
+        roleRepository.addRole(role.setId(id));
     }
 
     /**
@@ -47,11 +49,11 @@ public class RoleService {
     }
 
     /**
-     * 根据该用户角色
-     * @param roleId
+     * 根据角色获取
+     * @param roleIds
      * @return
      */
-    public List<Role> getRolesById(long roleId) {
-        return roleRepository.getRolesById(roleId);
+    public List<Role> getRolesWithPerm(List<Role> roleIds) {
+        return roleRepository.getRolesWithPerm(roleIds);
     }
 }

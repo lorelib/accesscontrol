@@ -1,11 +1,13 @@
 package com.lorelib.hawk.accesscontrol.domain;
 
+import com.lorelib.hawk.infrastructure.stereotype.BaseRepository;
+
 import java.util.List;
 
 /**
  * Created by listening on 2017/4/1.
  */
-public interface UserRepository {
+public interface UserRepository extends BaseRepository {
     /**
      * 添加用户角色
      * @param user

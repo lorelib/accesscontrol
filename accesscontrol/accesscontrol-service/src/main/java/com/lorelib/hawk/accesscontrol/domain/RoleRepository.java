@@ -1,12 +1,14 @@
 package com.lorelib.hawk.accesscontrol.domain;
 
+import com.lorelib.hawk.infrastructure.stereotype.BaseRepository;
+
 import java.util.List;
 
 /**
  * 角色仓库
  * Created by listening on 2017/3/24.
  */
-public interface RoleRepository {
+public interface RoleRepository extends BaseRepository {
     /**
      * 新增角色
      * @param role
@@ -35,12 +37,5 @@ public interface RoleRepository {
      * 获取角色及权限
      * @return
      */
-    List<Role> getRolesWithPerm(Role role);
-
-    /**
-     * 根据该用户角色
-     * @param roleId
-     * @return
-     */
-    List<Role> getRolesById(long roleId);
+    List<Role> getRolesWithPerm(List<Role> roleIds);
 }
