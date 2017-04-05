@@ -22,7 +22,7 @@ public class Role extends BaseEntity {
     private List<Permission> perms;
 
     public Role() {
-        super();
+        //super();
     }
 
     public Role(String roleName) {

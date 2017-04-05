@@ -17,7 +17,7 @@ public class RoleServiceTest extends TestNGUtil {
 
     @Test
     public void addRole() {
-        long resourceId = 8053191461614784514L;
+        long resourceId = 849456017743462402L;
         Role role = new Role("Administrator");
         List<Permission> perms = Lists.newArrayList();
         perms.add(new Permission(role.getId(), resourceId));

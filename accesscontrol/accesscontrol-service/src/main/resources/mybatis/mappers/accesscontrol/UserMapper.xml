@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lorelib.hawk.accesscontrol.domain.RoleRepository">
-    <insert id="addUser">
-        INSERT INTO ac_user (
-        id,
-        loginId,
-        createBy,
-        createDate
-        ) VALUES (
-        #{id},
-        #{loginId},
-        #{createBy},
-        #{createDate}
-        );
+<mapper namespace="com.lorelib.hawk.accesscontrol.domain.UserRepository">
+    <insert id="addRoleTo">
+        <foreach collection="roles" item="role">
+            INSERT INTO ac_user (
+            id,
+            loginId,
+            roleId,
+            createBy,
+            createDate
+            ) VALUES (
+            #{id},
+            #{loginId},
+            #{role.id},
+            #{createBy},
+            #{createDate}
+            );
+        </foreach>
     </insert>
-    
-    <select id="getUser"
+
+    <select id="getRolesFor">
+        SELECT * FROM ac_user u
+        LEFT JOIN ac_role r ON u.roleId = r.id
+        LEFT JOIN
+    </select>
 </mapper>

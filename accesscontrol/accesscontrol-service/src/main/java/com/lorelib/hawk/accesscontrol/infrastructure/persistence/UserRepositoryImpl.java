@@ -15,18 +15,8 @@ import java.util.List;
 @Repository
 public class UserRepositoryImpl implements UserRepository {
     @Override
-    public void addUser(User user) {
-        sqlSession.insert(RESOURCE_MAPPER + "addUser", user);
-    }
-
-    @Override
-    public User getUser(String loginId) {
-        return sqlSession.selectOne(RESOURCE_MAPPER + "getUser", loginId);
-    }
-
-    @Override
     public void addRoleTo(User user) {
-        sqlSession.insert(RESOURCE_MAPPER + "addRoleTo");
+        sqlSession.insert(RESOURCE_MAPPER + "addRoleTo", user);
     }
 
     @Override
@@ -41,7 +31,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<Role> getRolesFor(User user) {
-        return null;
+        return sqlSession.selectList(RESOURCE_MAPPER + "getRolesFor", user);
     }
 
     @Autowired

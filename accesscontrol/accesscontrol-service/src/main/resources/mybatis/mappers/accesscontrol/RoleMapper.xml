@@ -52,7 +52,7 @@
         SELECT * FROM ac_role
     </select>
 
-    <select id="getAllRolesWithPerm" resultMap="roleMap">
+    <select id="getRolesWithPerm" resultMap="roleMap">
         SELECT
         r.id AS id,
         r.roleName AS roleName,
@@ -64,10 +64,10 @@
         FROM ac_role r
         LEFT JOIN ac_permission p ON r.id = p.roleId
         LEFT JOIN ac_resource rs ON rs.id = p.resourceId AND rs.parentId != 0
-    </select>
-
-    <select id="getRolesByUserId" resultType="Role">
-
+        WHERE 1 = 1
+        <if test="id != 0">
+            AND r.id = #{id}
+        </if>
     </select>
 
     <resultMap id="roleMap" type="Role">

@@ -48,10 +48,10 @@ public class RoleService {
 
     /**
      * 根据该用户角色
-     * @param userId
+     * @param roleId
      * @return
      */
-    public List<Role> getRolesByUserId(String userId) {
-        return roleRepository.getRolesByUserId(userId);
+    public List<Role> getRolesById(long roleId) {
+        return roleRepository.getRolesById(roleId);
     }
 }

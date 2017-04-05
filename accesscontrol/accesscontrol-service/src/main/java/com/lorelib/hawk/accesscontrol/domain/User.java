@@ -24,6 +24,11 @@ public class User extends BaseEntity {
         super();
     }
 
+    public User(String loginId) {
+        this();
+        this.loginId = loginId;
+    }
+
     public User addRoles(List<Role> roles) {
         this.roles = roles;
         return this;

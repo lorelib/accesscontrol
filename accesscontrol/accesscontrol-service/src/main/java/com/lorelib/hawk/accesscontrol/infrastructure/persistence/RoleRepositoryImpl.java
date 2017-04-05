@@ -31,13 +31,17 @@ public class RoleRepositoryImpl implements RoleRepository {
 
     @Override
     public List<Role> getAllRolesWithPerm() {
-        List<Role> roles = sqlSession.selectList(RESOURCE_MAPPER + "getAllRolesWithPerm");
-        return roles;
+        return getRolesWithPerm(new Role());
     }
 
     @Override
-    public List<Role> getRolesByUserId(String userId) {
-        return sqlSession.selectList(RESOURCE_MAPPER + "getRolesByUserId", userId);
+    public List<Role> getRolesWithPerm(Role role) {
+        return sqlSession.selectList(RESOURCE_MAPPER + "getRolesWithPerm", role);
+    }
+
+    @Override
+    public List<Role> getRolesById(long roleId) {
+        return getRolesWithPerm(new Role(roleId));
     }
 
     @Autowired

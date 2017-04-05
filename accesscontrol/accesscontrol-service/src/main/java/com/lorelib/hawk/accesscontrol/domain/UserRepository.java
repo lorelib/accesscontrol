@@ -7,19 +7,6 @@ import java.util.List;
  */
 public interface UserRepository {
     /**
-     * 新增用户
-     * @param user
-     */
-    void addUser(User user);
-
-    /**
-     * 获取用户
-     * @param loginId
-     * @return
-     */
-    User getUser(String loginId);
-
-    /**
      * 添加用户角色
      * @param user
      */

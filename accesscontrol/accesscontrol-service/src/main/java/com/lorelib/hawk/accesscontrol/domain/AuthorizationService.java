@@ -17,10 +17,6 @@ public class AuthorizationService {
      * @param roles
      */
     public void assignRoleTo(User user, List<Role> roles) {
-        User real = userRepository.getUser(user.loginId());
-        if (real == null) {
-            userRepository.addUser(user);
-        }
         userRepository.addRoleTo(user.addRoles(roles));
     }
 

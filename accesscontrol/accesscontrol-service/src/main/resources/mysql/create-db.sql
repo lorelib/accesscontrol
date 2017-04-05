@@ -23,6 +23,7 @@ CREATE TABLE ac_user
 (
   id BIGINT NOT NULL COMMENT '主键ID',
   loginId VARCHAR(16) NOT NULL COMMENT '用户登录帐号',
+  roleId BIGINT NOT NULL COMMENT '角色表主键',
   createBy VARCHAR(16) COMMENT '创建者userId',
   createDate DATETIME COMMENT '创建日期',
   updateBy VARCHAR(16) COMMENT '更新者userId',
@@ -42,12 +43,6 @@ CREATE TABLE ac_role
   PRIMARY KEY (id),
   UNIQUE union_unique(roleName)
 )  COMMENT='访问控制：角色表';
-
-CREATE TABLE ac_user_role
-(
-  userId BIGINT NOT NULL COMMENT '用户表主键',
-  roleId BIGINT NOT NULL COMMENT '角色表主键'
-)  COMMENT='访问控制：用户角色映射表';
 
 CREATE TABLE ac_permission
 (

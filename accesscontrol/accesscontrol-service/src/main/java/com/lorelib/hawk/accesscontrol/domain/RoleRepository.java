@@ -32,9 +32,15 @@ public interface RoleRepository {
     List<Role> getAllRolesWithPerm();
 
     /**
-     * 根据该用户角色
-     * @param userId
+     * 获取角色及权限
      * @return
      */
-    List<Role> getRolesByUserId(String userId);
+    List<Role> getRolesWithPerm(Role role);
+
+    /**
+     * 根据该用户角色
+     * @param roleId
+     * @return
+     */
+    List<Role> getRolesById(long roleId);
 }
