@@ -1,0 +1,46 @@
+package com.lorelib.hawk.system.accesscontrol.interfaces.facade;
+
+import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRoleCommand;
+import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRoleWithPermCommand;
+import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.DeleteRoleCommand;
+import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.UpdateRoleCommand;
+import com.lorelib.hawk.system.accesscontrol.interfaces.facade.dto.RoleDTO;
+
+import java.util.List;
+
+/**
+ * @author listening
+ * @description RoleServiceFacade:
+ * @create 2017 04 11 11:09.
+ */
+public interface RoleServiceFacade {
+    /**
+     * 新增角色
+     * @param command
+     */
+    void addRole(CreateRoleCommand command);
+
+    /**
+     * 新增角色并赋予权限
+     * @param command
+     */
+    void addRoleWithPerms(CreateRoleWithPermCommand command);
+
+    /**
+     * 获取所有角色及权限信息
+     * @return
+     */
+    List<RoleDTO> getAllRoleWithPerms();
+
+    /**
+     * 更新角色
+     * @param command
+     */
+    void updateRole(UpdateRoleCommand command);
+
+    /**
+     * 删除角色
+     * @param command
+     */
+    void deleteRole(DeleteRoleCommand command);
+}

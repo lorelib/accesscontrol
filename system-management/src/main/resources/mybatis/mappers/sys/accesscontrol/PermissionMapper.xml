@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lorelib.hawk.system.accesscontrol.domain.PermissionRepository">
+    <insert id="addPerms">
+        <foreach collection="list" item="perm">
+            INSERT INTO ac_permission (
+            id,
+            roleId,
+            resourceId,
+            resourceName,
+            resourceType,
+            createBy,
+            createDate
+            ) VALUES (
+            #{perm.id},
+            #{perm.roleId.id},
+            #{perm.resource.resourceId},
+            #{perm.resource.resourceName},
+            #{perm.resource.resourceType},
+            #{perm.createBy},
+            #{perm.createDate}
+            );
+        </foreach>
+    </insert>
+
+    <select id="getPermsBy" resultMap="permMap">
+        SELECT
+        roleId,
+        resourceId,
+        resourceName,
+        resourceType
+        FROM ac_permission
+        WHERE roleId = #{id}
+    </select>
+
+    <delete id="removePerms">
+        <foreach collection="list" item="perm">
+            DELETE FROM ac_permission
+            WHERE roleId = #{perm.roleId.id}
+            AND resourceId = #{perm.resource.resourceId}
+            AND resourceType = #{perm.resource.resourceType};
+        </foreach>
+    </delete>
+
+    <delete id="deletePermsByRole">
+        DELETE FROM ac_permission WHERE roleId = #{id}
+    </delete>
+
+    <resultMap id="permMap" type="Permission">
+        <association property="roleId" javaType="RoleId">
+            <result property="id" column="roleId"/>
+        </association>
+        <association property="resource" javaType="Resource" autoMapping="true"/>
+    </resultMap>
+</mapper>

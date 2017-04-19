@@ -18,7 +18,8 @@ public class JSONUtil extends JSONObject {
                 SerializerFeature.WriteNullStringAsEmpty,
                 SerializerFeature.SkipTransientField,
                 SerializerFeature.WriteNullBooleanAsFalse,
-                SerializerFeature.WriteNullListAsEmpty);
+                SerializerFeature.WriteNullListAsEmpty,
+                SerializerFeature.DisableCircularReferenceDetect);
     }
 
     /**

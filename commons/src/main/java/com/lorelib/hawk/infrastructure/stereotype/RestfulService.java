@@ -1,6 +1,6 @@
 package com.lorelib.hawk.infrastructure.stereotype;
 
-import org.springframework.stereotype.*;
+import org.springframework.stereotype.Service;
 
 import java.lang.annotation.*;
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default Suite">
+    <test name="accesscontrol">
+        <classes>
+            <class name="com.lorelib.hawk.system.accesscontrol.domain.RoleRepositoryTest">
+                <methods>
+                    <include name="addResource"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
