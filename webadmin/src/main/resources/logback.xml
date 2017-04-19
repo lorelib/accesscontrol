@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration scan="true" scanPeriod="3600 seconds" debug="false">
     <contextName>AccessControl</contextName>
-    <property name="LOG_DIR" value="${log.dir}/logs/AccessControl" />
+    <property name="LOG_DIR" value="${log.dir}/logs/hawk" />
 
-    <appender name="AccessControl" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="hawk" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <prudent>true</prudent>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_DIR}/AccessControl-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_DIR}/hawk-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <MaxFileSize>100MB</MaxFileSize>
