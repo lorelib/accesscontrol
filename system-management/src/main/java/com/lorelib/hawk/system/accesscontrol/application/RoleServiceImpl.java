@@ -52,8 +52,8 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public int getRolesSize() {
-        return roleRepository.getRolesSize();
+    public int getRolesSize(Criteria<Role> criteria) {
+        return roleRepository.getRolesSize(criteria);
     }
 
     @Override

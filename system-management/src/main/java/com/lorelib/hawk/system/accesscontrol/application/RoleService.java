@@ -42,9 +42,10 @@ public interface RoleService {
 
     /**
      * 获取角色总数
+     * @param criteria
      * @return
      */
-    int getRolesSize();
+    int getRolesSize(Criteria<Role> criteria);
 
     /**
      * 为用户分配角色

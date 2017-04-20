@@ -44,8 +44,8 @@ public class RoleRepositoryImpl implements RoleRepository {
     }
 
     @Override
-    public int getRolesSize() {
-        return session.selectOne(ROLE_MAPPER + "getRolesSize");
+    public int getRolesSize(Criteria<Role> criteria) {
+        return session.selectOne(ROLE_MAPPER + "getRolesSize", criteria);
     }
 
     @Override

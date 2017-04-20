@@ -32,9 +32,10 @@ public interface RoleRepository extends BaseRepository<RoleId> {
 
     /**
      * 获取角色总数
+     * @param criteria
      * @return
      */
-    int getRolesSize();
+    int getRolesSize(Criteria<Role> criteria);
 
     /**
      * 通过角色标识获取角色及其权限

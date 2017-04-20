@@ -62,7 +62,7 @@ public class RoleControllerTest extends TestNGUtil {
 
     @Test
     public void findRolesWithPerms() throws Exception {
-        String roleName = "";
+        String roleName = "员";
         MvcResult result = mockMvc.perform(
                 post("/role/findRolesWithPerms")
                         .param("roleName", roleName)

@@ -73,6 +73,10 @@
 
     <select id="getRolesSize" resultType="int">
         SELECT COUNT(id) FROM ac_role
+        WHERE 1 = 1
+        <if test="where != null">
+            AND roleName LIKE CONCAT('%', #{where.roleName}, '%')
+        </if>
     </select>
 
     <select id="getRoleWithPermsBy" resultMap="roleMapWithPerm">

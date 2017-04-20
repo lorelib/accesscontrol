@@ -52,7 +52,7 @@ public class RoleServiceFacadeImpl implements RoleServiceFacade {
         Criteria<Role> criteria = new Criteria<>(where, page);
         List<Role> roles = roleService.findRolesWithPerms(criteria);
 
-        int size = roleService.getRolesSize();
+        int size = roleService.getRolesSize(criteria);
 
         return new PageList(size, RoleDTOAssembler.toDTO(roles));
     }
