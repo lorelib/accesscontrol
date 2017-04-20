@@ -1,5 +1,6 @@
 package com.lorelib.hawk.system.accesscontrol.application;
 
+import com.lorelib.hawk.infrastructure.helpers.query.Criteria;
 import com.lorelib.hawk.infrastructure.helpers.utils.StringUtil;
 import com.lorelib.hawk.infrastructure.stereotype.ApplicationService;
 import com.lorelib.hawk.system.accesscontrol.domain.*;
@@ -36,13 +37,23 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public List<Role> getAllRole() {
-        return null;
+    public List<Role> getAllRoleWithPerms() {
+        return roleRepository.getAllRoleWithPerms();
     }
 
     @Override
-    public List<Role> getAllRoleWithPerms() {
-        return roleRepository.getAllRoleWithPerms();
+    public List<Role> findRolesWithPerms(Criteria<Role> criteria) {
+        List<Role> roles = roleRepository.findRoles(criteria);
+        for (Role role: roles) {
+            List<Permission> perms = permRepository.getPermsBy(role.getId());
+            role.setPerms(perms);
+        }
+        return roles;
+    }
+
+    @Override
+    public int getRolesSize() {
+        return roleRepository.getRolesSize();
     }
 
     @Override

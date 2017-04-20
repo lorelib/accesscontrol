@@ -1,5 +1,6 @@
 package com.lorelib.hawk.system.accesscontrol.application;
 
+import com.lorelib.hawk.infrastructure.helpers.query.Criteria;
 import com.lorelib.hawk.system.accesscontrol.domain.Resource;
 import com.lorelib.hawk.system.accesscontrol.domain.Role;
 
@@ -27,16 +28,23 @@ public interface RoleService {
     void addRoleWithPerms(String roleName, String description, List<Resource> resources);
 
     /**
-     * 获取所有角色信息
-     * @return
-     */
-    List<Role> getAllRole();
-
-    /**
      * 获取所有角色及权限信息
      * @return
      */
     List<Role> getAllRoleWithPerms();
+
+    /**
+     * 查找角色及权限信息，支持角色名称模糊匹配
+     * @param criteria
+     * @return
+     */
+    List<Role> findRolesWithPerms(Criteria<Role> criteria);
+
+    /**
+     * 获取角色总数
+     * @return
+     */
+    int getRolesSize();
 
     /**
      * 为用户分配角色

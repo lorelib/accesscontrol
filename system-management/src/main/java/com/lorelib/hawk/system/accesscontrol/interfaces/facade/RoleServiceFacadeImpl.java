@@ -1,5 +1,8 @@
 package com.lorelib.hawk.system.accesscontrol.interfaces.facade;
 
+import com.lorelib.hawk.infrastructure.helpers.query.Criteria;
+import com.lorelib.hawk.infrastructure.helpers.query.Page;
+import com.lorelib.hawk.infrastructure.helpers.query.PageList;
 import com.lorelib.hawk.system.accesscontrol.application.RoleService;
 import com.lorelib.hawk.system.accesscontrol.domain.Resource;
 import com.lorelib.hawk.system.accesscontrol.domain.Role;
@@ -40,6 +43,18 @@ public class RoleServiceFacadeImpl implements RoleServiceFacade {
     public List<RoleDTO> getAllRoleWithPerms() {
         List<Role> roles = roleService.getAllRoleWithPerms();
         return RoleDTOAssembler.toDTO(roles);
+    }
+
+    @Override
+    public PageList findRolesWithPerms(String roleName, int pageIndex, int pageSize) {
+        Role where = new Role().setRoleName(roleName);
+        Page page = new Page(pageIndex, pageSize);
+        Criteria<Role> criteria = new Criteria<>(where, page);
+        List<Role> roles = roleService.findRolesWithPerms(criteria);
+
+        int size = roleService.getRolesSize();
+
+        return new PageList(size, RoleDTOAssembler.toDTO(roles));
     }
 
     @Override

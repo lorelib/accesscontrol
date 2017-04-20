@@ -1,6 +1,7 @@
 package com.lorelib.hawk.system.accesscontrol.domain;
 
 import com.lorelib.hawk.infrastructure.helpers.base.BaseRepository;
+import com.lorelib.hawk.infrastructure.helpers.query.Criteria;
 
 import java.util.List;
 
@@ -21,6 +22,19 @@ public interface RoleRepository extends BaseRepository<RoleId> {
      * @return
      */
     List<Role> getAllRoleWithPerms();
+
+    /**
+     * 查找角色，支持角色名称模糊匹配
+     * @param criteria
+     * @return
+     */
+    List<Role> findRoles(Criteria<Role> criteria);
+
+    /**
+     * 获取角色总数
+     * @return
+     */
+    int getRolesSize();
 
     /**
      * 通过角色标识获取角色及其权限

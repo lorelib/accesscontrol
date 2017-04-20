@@ -1,5 +1,6 @@
 package com.lorelib.hawk.system.accesscontrol.infrastructure.persistence;
 
+import com.lorelib.hawk.infrastructure.helpers.query.Criteria;
 import com.lorelib.hawk.system.accesscontrol.domain.Role;
 import com.lorelib.hawk.system.accesscontrol.domain.RoleId;
 import com.lorelib.hawk.system.accesscontrol.domain.RoleRepository;
@@ -35,6 +36,16 @@ public class RoleRepositoryImpl implements RoleRepository {
     @Override
     public Role getRoleWithPermsBy(RoleId roleId) {
         return session.selectOne(ROLE_MAPPER + "getRoleWithPermsBy", roleId);
+    }
+
+    @Override
+    public List<Role> findRoles(Criteria<Role> criteria) {
+        return session.selectList(ROLE_MAPPER + "findRoles", criteria);
+    }
+
+    @Override
+    public int getRolesSize() {
+        return session.selectOne(ROLE_MAPPER + "getRolesSize");
     }
 
     @Override

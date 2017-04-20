@@ -1,5 +1,6 @@
 package com.lorelib.hawk.system.accesscontrol.interfaces.facade;
 
+import com.lorelib.hawk.infrastructure.helpers.query.PageList;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRoleCommand;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRoleWithPermCommand;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.DeleteRoleCommand;
@@ -31,6 +32,15 @@ public interface RoleServiceFacade {
      * @return
      */
     List<RoleDTO> getAllRoleWithPerms();
+
+    /**
+     * 根据角色名称模糊匹配查找角色及权限信息
+     * @param roleName
+     * @param pageIndex
+     * @param pageSize
+     * @return
+     */
+    PageList findRolesWithPerms(String roleName, int pageIndex, int pageSize);
 
     /**
      * 更新角色

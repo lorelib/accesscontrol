@@ -61,6 +61,19 @@ public class RoleControllerTest extends TestNGUtil {
     }
 
     @Test
+    public void findRolesWithPerms() throws Exception {
+        String roleName = "";
+        MvcResult result = mockMvc.perform(
+                post("/role/findRolesWithPerms")
+                        .param("roleName", roleName)
+                        .param("pageIndex", "3")
+                        .param("pageSize", "5")
+        ).andReturn();
+        Assert.assertEquals(result.getResponse().getStatus(), 200);
+        println("响应结果: " + result.getResponse().getContentAsString());
+    }
+
+    @Test
     public void updateRoleTest()  throws Exception {
         ResourceDTO r1 = new ResourceDTO(ResourceType.MENU, 4L, "数据管理");
         ResourceDTO r2 = new ResourceDTO(ResourceType.MENU, 6L, "角色管理");

@@ -138,4 +138,25 @@ public class Role extends DomainEntity<Role, RoleId> {
     public List<Permission> getNeedDel() {
         return needDel;
     }
+
+    public Role setRoleName(String roleName) {
+        this.roleName = roleName;
+        return this;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPerms(List<Permission> perms) {
+        this.perms = perms;
+    }
+
+    public void setNeedAdd(List<Permission> needAdd) {
+        this.needAdd = needAdd;
+    }
+
+    public void setNeedDel(List<Permission> needDel) {
+        this.needDel = needDel;
+    }
 }

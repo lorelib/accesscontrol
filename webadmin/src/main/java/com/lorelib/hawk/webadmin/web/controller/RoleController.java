@@ -1,18 +1,16 @@
 package com.lorelib.hawk.webadmin.web.controller;
 
+import com.lorelib.hawk.infrastructure.helpers.base.Response;
+import com.lorelib.hawk.infrastructure.helpers.query.PageList;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.RoleServiceFacade;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRoleCommand;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRoleWithPermCommand;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.DeleteRoleCommand;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.UpdateRoleCommand;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.dto.RoleDTO;
-import com.lorelib.hawk.webadmin.common.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,9 +35,9 @@ public class RoleController {
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
-    public Result addRoleWithPerms(@RequestBody CreateRoleWithPermCommand command) {
+    public Response addRoleWithPerms(@RequestBody CreateRoleWithPermCommand command) {
         roleServiceFacade.addRoleWithPerms(command);
-        return new Result(1, "");
+        return new Response(1, "");
     }
 
     @RequestMapping(
@@ -49,6 +47,16 @@ public class RoleController {
     public List<RoleDTO> getAllRoleWithPerms() {
         List<RoleDTO> list = roleServiceFacade.getAllRoleWithPerms();
         return list;
+    }
+
+    @RequestMapping(
+            path = "findRolesWithPerms", method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE
+    )
+    public Response findRolesWithPerms(@RequestParam String roleName,
+                                       @RequestParam int pageIndex, @RequestParam int pageSize) {
+        PageList list = roleServiceFacade.findRolesWithPerms(roleName, pageIndex, pageSize);
+        return new Response(1, "", list);
     }
 
     @RequestMapping(

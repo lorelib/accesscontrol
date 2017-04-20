@@ -31,11 +31,47 @@
         LEFT JOIN ac_permission p ON r.id = p.roleId
     </sql>
 
-    <select id="getAllRoleWithPerms" resultMap="roleMap">
-        <include refid="roleWithPerms"/>
+    <select id="findRoles" resultMap="roleMap" parameterType="Criteria">
+        SELECT
+        id,
+        roleName,
+        description,
+        createBy,
+        createDate,
+        updateBy,
+        updateDate
+        FROM ac_role
+        WHERE 1 = 1
+        <if test="where != null">
+            AND roleName LIKE CONCAT('%', #{where.roleName}, '%')
+        </if>
+        <choose>
+            <when test="order != null">
+                ORDER BY #{order.field1}
+                <if test="order.field2 != null">
+                    , #{order.field2}
+                </if>
+                <choose>
+                    <when test="order.desc == TRUE">
+                        DESC
+                    </when>
+                    <otherwise>
+                        ASC
+                    </otherwise>
+                </choose>
+            </when>
+            <otherwise>
+                ORDER BY createDate DESC
+            </otherwise>
+        </choose>
+        LIMIT #{page.pageStart}, #{page.pageSize}
     </select>
 
-    <select id="getRoleWithPermsBy" resultMap="roleMap">
+    <select id="getRolesSize" resultType="int">
+        SELECT COUNT(id) FROM ac_role
+    </select>
+
+    <select id="getRoleWithPermsBy" resultMap="roleMapWithPerm">
         <include refid="roleWithPerms"/>
         WHERE r.id = #{id}
     </select>
@@ -54,12 +90,18 @@
     </delete>
 
     <resultMap id="roleMap" type="Role" autoMapping="true">
+        <association property="id" javaType="RoleId">
+            <result property="id" column="id"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="roleMapWithPerm" type="Role" autoMapping="true">
         <result property="description" column="roleDesc"/>
         <result property="createBy" column="roleCreateBy"/>
         <result property="createDate" column="roleCreateDate"/>
         <association property="id" javaType="RoleId">
             <result property="id" column="roleId"/>
         </association>
-        <collection property="perms" resultMap="com.lorelib.hawk.system.accesscontrol.domain.PermissionRepository.permMap"/>
+        <collection property="perms" notNullColumn="" resultMap="com.lorelib.hawk.system.accesscontrol.domain.PermissionRepository.permMap"/>
     </resultMap>
 </mapper>
