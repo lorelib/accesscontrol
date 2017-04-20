@@ -1,4 +1,4 @@
-package com.lorelib.hawk.system.accesscontrol.persistence;
+package com.lorelib.hawk.system.accesscontrol.infrastructure.persistence;
 
 import com.lorelib.hawk.system.accesscontrol.domain.Permission;
 import com.lorelib.hawk.system.accesscontrol.domain.PermissionRepository;

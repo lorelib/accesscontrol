@@ -1,4 +1,4 @@
-package com.lorelib.hawk.system.menu.persistence;
+package com.lorelib.hawk.system.menu.infrastructure.persistence;
 
 import com.lorelib.hawk.system.menu.domain.Menu;
 import com.lorelib.hawk.system.menu.domain.MenuRepository;
