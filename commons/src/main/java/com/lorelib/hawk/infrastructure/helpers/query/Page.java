@@ -22,7 +22,7 @@ public class Page implements Serializable {
     }
 
     public Page(Integer pageIndex, Integer pageSize) {
-        this.pageIndex = pageIndex;
+        this.pageIndex = pageIndex - 1; // 前端传递的页面均是以1开头，故此处减1
         this.pageSize = pageSize;
     }
 
