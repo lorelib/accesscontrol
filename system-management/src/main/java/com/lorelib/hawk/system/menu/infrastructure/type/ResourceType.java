@@ -1,4 +1,4 @@
-package com.lorelib.hawk.system.menu;
+package com.lorelib.hawk.system.menu.infrastructure.type;
 
 /**
  * @author listening

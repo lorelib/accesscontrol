@@ -6,7 +6,7 @@ import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRol
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.DeleteRoleCommand;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.UpdateRoleCommand;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.dto.ResourceDTO;
-import com.lorelib.hawk.system.menu.ResourceType;
+import com.lorelib.hawk.system.menu.infrastructure.type.ResourceType;
 import com.lorelib.hawk.infrastructure.test.TestNGUtil;
 import com.google.common.collect.Lists;
 import org.springframework.http.MediaType;
@@ -66,7 +66,7 @@ public class RoleControllerTest extends TestNGUtil {
         MvcResult result = mockMvc.perform(
                 post("/role/findRolesWithPerms")
                         .param("roleName", roleName)
-                        .param("pageIndex", "3")
+                        .param("pageIndex", "1")
                         .param("pageSize", "5")
         ).andReturn();
         Assert.assertEquals(result.getResponse().getStatus(), 200);

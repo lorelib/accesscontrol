@@ -1,6 +1,6 @@
 package com.lorelib.hawk.system.accesscontrol.interfaces.facade.dto;
 
-import com.lorelib.hawk.system.menu.ResourceType;
+import com.lorelib.hawk.system.menu.infrastructure.type.ResourceType;
 import com.lorelib.hawk.infrastructure.stereotype.DTO;
 
 import javax.validation.constraints.NotNull;

@@ -31,6 +31,10 @@
         LEFT JOIN ac_permission p ON r.id = p.roleId
     </sql>
 
+    <select id="getAllRoleWithPerms" resultMap="roleMap">
+        <include refid="roleWithPerms"/>
+    </select>
+
     <select id="findRoles" resultMap="roleMap" parameterType="Criteria">
         SELECT
         id,

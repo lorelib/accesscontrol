@@ -49,6 +49,11 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
         </dependency>
+        <!-- javax.el-glassfish -->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+        </dependency>
         <!-- spring -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -229,6 +234,7 @@
                 <excludes>
                     <exclude>mysql/*</exclude>
                     <exclude>filters/*</exclude>
+                    <exclude>bak/*</exclude>
                 </excludes>
             </resource>
         </resources>
@@ -252,6 +258,16 @@
                 <version>3.0.2</version>
                 <configuration>
                     <encoding>${project.encoding}</encoding>
+                </configuration>
+            </plugin>
+            <!-- web打包插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <webappDirectory>${basedir}/src/main/webapp</webappDirectory>
+                    <useCache>false</useCache>
                 </configuration>
             </plugin>
             <!-- clean插件 -->

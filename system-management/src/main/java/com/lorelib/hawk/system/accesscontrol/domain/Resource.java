@@ -1,6 +1,6 @@
 package com.lorelib.hawk.system.accesscontrol.domain;
 
-import com.lorelib.hawk.system.menu.ResourceType;
+import com.lorelib.hawk.system.menu.infrastructure.type.ResourceType;
 import com.lorelib.hawk.infrastructure.stereotype.ValueObject;
 
 /**

@@ -2,7 +2,7 @@ package com.lorelib.hawk.system.accesscontrol.application;
 
 import com.lorelib.hawk.system.accesscontrol.domain.Resource;
 import com.lorelib.hawk.system.accesscontrol.domain.Role;
-import com.lorelib.hawk.system.menu.ResourceType;
+import com.lorelib.hawk.system.menu.infrastructure.type.ResourceType;
 import com.lorelib.hawk.infrastructure.test.TestNGUtil;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;

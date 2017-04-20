@@ -4,7 +4,7 @@ import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRol
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRoleWithPermCommand;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.dto.ResourceDTO;
 import com.lorelib.hawk.system.accesscontrol.interfaces.facade.dto.RoleDTO;
-import com.lorelib.hawk.system.menu.ResourceType;
+import com.lorelib.hawk.system.menu.infrastructure.type.ResourceType;
 import com.lorelib.hawk.infrastructure.test.TestNGUtil;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
