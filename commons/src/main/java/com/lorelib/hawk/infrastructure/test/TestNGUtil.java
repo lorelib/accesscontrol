@@ -83,4 +83,26 @@ public class TestNGUtil extends AbstractTestNGSpringContextTests {
             writeJsonString(tips, obj);
         }
     }
+
+    /**
+     * 打印对象信息，去掉null和空
+     * @param obj
+     */
+    protected void printlnNoBlank(Object obj) {
+        printlnNoBlank(null, obj);
+    }
+
+    /**
+     * 打印对象信息，去掉null和空
+     * @param tips 提示信息
+     * @param obj
+     */
+    protected void printlnNoBlank(String tips, Object obj) {
+        if (StringUtil.isBlank(tips)) tips = "result: ";
+        if (obj instanceof String) {
+            System.out.println(tips + obj);
+        } else {
+            System.out.println(tips + JSONUtil.noneBlank(obj));
+        }
+    }
 }
