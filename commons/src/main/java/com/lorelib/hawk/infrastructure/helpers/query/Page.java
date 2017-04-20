@@ -27,8 +27,8 @@ public class Page implements Serializable {
     }
 
     public Page(Integer pageIndex, Integer pageSize) {
-        this.pageIndex = pageIndex;
-        this.pageSize = pageSize;
+        if (pageIndex != null) this.pageIndex = pageIndex;
+        if (pageSize != null) this.pageSize = pageSize;
         this.pageStart = (pageIndex - 1) * pageSize;
     }
 
