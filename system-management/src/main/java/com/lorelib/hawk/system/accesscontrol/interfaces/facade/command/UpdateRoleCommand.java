@@ -20,6 +20,11 @@ public class UpdateRoleCommand implements Command {
     private Long roleId;
 
     /**
+     * 角色名称
+     */
+    private String roleName;
+
+    /**
      * 角色描述信息
      */
     private String roleDesc;
@@ -33,10 +38,19 @@ public class UpdateRoleCommand implements Command {
     public UpdateRoleCommand() {
     }
 
-    public UpdateRoleCommand(Long roleId, String roleDesc, List<ResourceDTO> resources) {
+    public UpdateRoleCommand(Long roleId, List<ResourceDTO> resources) {
         this.roleId = roleId;
-        this.roleDesc = roleDesc;
         this.resources = resources;
+    }
+
+    public UpdateRoleCommand(Long roleId, String roleName, List<ResourceDTO> resources) {
+        this(roleId, resources);
+        this.roleName = roleName;
+    }
+
+    public UpdateRoleCommand(Long roleId, String roleName, String roleDesc, List<ResourceDTO> resources) {
+        this(roleId, roleName, resources);
+        this.roleDesc = roleDesc;
     }
 
     public Long getRoleId() {
@@ -45,6 +59,14 @@ public class UpdateRoleCommand implements Command {
 
     public void setRoleId(Long roleId) {
         this.roleId = roleId;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public String getRoleDesc() {

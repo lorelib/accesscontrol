@@ -69,8 +69,9 @@ public interface RoleService {
     /**
      * 更新角色
      * @param roleId    角色标识
+     * @param roleName  角色名称
      * @param desc      角色描述信息
      * @param resources 资源
      */
-    void updateRole(Long roleId, String desc, List<Resource> resources);
+    void updateRole(Long roleId, String roleName, String desc, List<Resource> resources);
 }

@@ -76,12 +76,12 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void updateRole(Long roleId, String desc, List<Resource> resources) {
+    public void updateRole(Long roleId, String roleName, String desc, List<Resource> resources) {
         RoleId rid = new RoleId(roleId);
         Role role = roleRepository.getRoleWithPermsBy(rid);
         Validate.notNull(role, "roleId: " + roleId + "的角色不存在!");
 
-        if (StringUtil.isNotBlank(desc)) roleRepository.updateRole(role.desc(desc));
+        roleRepository.updateRole(role.desc(desc).setRoleName(roleName));
 
         role.updatePerms(resources);
         if (CollectionUtils.isNotEmpty(role.getNeedAdd())) permRepository.addPerms(role.getNeedAdd());

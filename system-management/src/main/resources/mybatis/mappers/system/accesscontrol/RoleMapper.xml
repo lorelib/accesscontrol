@@ -110,6 +110,6 @@
         <association property="id" javaType="RoleId">
             <result property="id" column="roleId"/>
         </association>
-        <collection property="perms" notNullColumn="" resultMap="com.lorelib.hawk.system.accesscontrol.domain.PermissionRepository.permMap"/>
+        <collection property="perms" resultMap="com.lorelib.hawk.system.accesscontrol.domain.PermissionRepository.permMap"/>
     </resultMap>
 </mapper>

@@ -59,6 +59,6 @@ public class RoleServiceTest extends TestNGUtil {
         Resource r3 = new Resource(ResourceType.MENU, 3L, "自动估价服务统计");
         Resource r4 = new Resource(ResourceType.MENU, 6L, "角色管理");
         List<Resource> resources = Lists.newArrayList(r2, r3, r4);
-        roleService.updateRole(roleId, desc, resources);
+        roleService.updateRole(roleId, "test", desc, resources);
     }
 }

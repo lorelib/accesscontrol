@@ -60,7 +60,7 @@ public class RoleServiceFacadeImpl implements RoleServiceFacade {
     @Override
     public void updateRole(UpdateRoleCommand command) {
         ParamsValidatorUtil.validate(command);
-        roleService.updateRole(command.getRoleId(), command.getRoleDesc(),
+        roleService.updateRole(command.getRoleId(), command.getRoleName(), command.getRoleDesc(),
                 BeanMapper.mapList(command.getResources(), Resource.class));
     }
 

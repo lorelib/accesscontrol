@@ -79,7 +79,7 @@ public class RoleControllerTest extends TestNGUtil {
         ResourceDTO r2 = new ResourceDTO(ResourceType.MENU, 6L, "角色管理");
         List<ResourceDTO> resources = Lists.newArrayList(r1, r2);
 
-        UpdateRoleCommand command = new UpdateRoleCommand(854191890841698304L, "", resources);
+        UpdateRoleCommand command = new UpdateRoleCommand(854971411152379904L, "经理", resources);
         MvcResult result = mockMvc.perform(
                 post("/role/updateRole")
                         .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
