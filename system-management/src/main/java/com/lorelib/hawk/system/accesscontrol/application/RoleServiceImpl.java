@@ -26,11 +26,6 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void addPermsToRole(final Long roleId, final List<Long> resourceIds) {
-
-    }
-
-    @Override
     public void addRoleWithPerms(final String roleName, final String description, final List<Resource> resources) {
         RoleId roleId = roleRepository.identifier();
         Role role = new Role(roleId, roleName, description);

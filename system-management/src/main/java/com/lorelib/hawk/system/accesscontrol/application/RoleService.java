@@ -19,13 +19,6 @@ public interface RoleService {
     void addRole(String roleName, String description);
 
     /**
-     * 添加角色权限
-     * @param roleId
-     * @param resourceIds
-     */
-    void addPermsToRole(Long roleId, List<Long> resourceIds);
-
-    /**
      * 新增角色并赋予权限
      * @param roleName      角色名称
      * @param description   描述信息
