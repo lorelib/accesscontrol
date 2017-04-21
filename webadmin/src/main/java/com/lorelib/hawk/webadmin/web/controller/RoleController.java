@@ -41,6 +41,15 @@ public class RoleController {
     }
 
     @RequestMapping(
+            path = "getAllRole", method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE
+    )
+    public Response getAllRole() {
+        List<RoleDTO> roles = roleServiceFacade.getAllRole();
+        return new Response(1, "", roles);
+    }
+
+    @RequestMapping(
             path = "getAllRoleWithPerms", method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )

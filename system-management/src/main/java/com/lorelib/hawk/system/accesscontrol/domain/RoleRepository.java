@@ -18,6 +18,12 @@ public interface RoleRepository extends BaseRepository<RoleId> {
     void addRole(Role role);
 
     /**
+     * 获取所有角色信息
+     * @return
+     */
+    List<Role> getAllRole();
+
+    /**
      * 获取所有角色及对应权限
      * @return
      */

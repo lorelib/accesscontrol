@@ -61,6 +61,15 @@ public class RoleControllerTest extends TestNGUtil {
     }
 
     @Test
+    public void getAllRoleTest() throws Exception {
+        MvcResult result = mockMvc.perform(
+                post("/role/getAllRole")
+        ).andReturn();
+        Assert.assertEquals(result.getResponse().getStatus(), 200);
+        println("响应结果: " + result.getResponse().getContentAsString());
+    }
+
+    @Test
     public void findRolesWithPerms() throws Exception {
         String roleName = "员";
         MvcResult result = mockMvc.perform(

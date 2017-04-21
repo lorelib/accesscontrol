@@ -28,6 +28,12 @@ public interface RoleServiceFacade {
     void addRoleWithPerms(CreateRoleWithPermCommand command);
 
     /**
+     * 获取所有角色信息
+     * @return
+     */
+    List<RoleDTO> getAllRole();
+
+    /**
      * 获取所有角色及权限信息
      * @return
      */

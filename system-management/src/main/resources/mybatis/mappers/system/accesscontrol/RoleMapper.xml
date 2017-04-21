@@ -17,6 +17,10 @@
         )
     </insert>
 
+    <select id="getAllRole" resultMap="roleMap">
+        SELECT id, roleName FROM ac_role
+    </select>
+
     <sql id="roleWithPerms">
         SELECT
         r.id AS roleId,

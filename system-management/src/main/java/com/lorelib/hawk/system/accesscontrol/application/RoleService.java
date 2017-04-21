@@ -28,6 +28,12 @@ public interface RoleService {
     void addRoleWithPerms(String roleName, String description, List<Resource> resources);
 
     /**
+     * 获取所有角色信息
+     * @return
+     */
+    List<Role> getAllRole();
+
+    /**
      * 获取所有角色及权限信息
      * @return
      */

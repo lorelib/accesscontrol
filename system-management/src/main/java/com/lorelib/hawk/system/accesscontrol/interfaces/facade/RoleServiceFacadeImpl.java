@@ -46,6 +46,12 @@ public class RoleServiceFacadeImpl implements RoleServiceFacade {
     }
 
     @Override
+    public List<RoleDTO> getAllRole() {
+        List<Role> roles = roleService.getAllRole();
+        return RoleDTOAssembler.toDTO(roles);
+    }
+
+    @Override
     public PageList findRolesWithPerms(String roleName, int pageIndex, int pageSize) {
         Role where = new Role().setRoleName(roleName);
         Page page = new Page(pageIndex, pageSize);

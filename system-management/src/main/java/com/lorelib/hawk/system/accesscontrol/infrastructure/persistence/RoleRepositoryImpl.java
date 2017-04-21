@@ -29,6 +29,11 @@ public class RoleRepositoryImpl implements RoleRepository {
     }
 
     @Override
+    public List<Role> getAllRole() {
+        return session.selectList(ROLE_MAPPER + "getAllRole");
+    }
+
+    @Override
     public List<Role> getAllRoleWithPerms() {
         return session.selectList(ROLE_MAPPER + "getAllRoleWithPerms");
     }
