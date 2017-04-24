@@ -37,7 +37,7 @@ public class RoleController {
     )
     public Response addRoleWithPerms(@RequestBody CreateRoleWithPermCommand command) {
         roleServiceFacade.addRoleWithPerms(command);
-        return new Response(1, "");
+        return new Response(0, "新增角色成功！");
     }
 
     @RequestMapping(
@@ -46,16 +46,16 @@ public class RoleController {
     )
     public Response getAllRole() {
         List<RoleDTO> roles = roleServiceFacade.getAllRole();
-        return new Response(1, "", roles);
+        return new Response(0, "", roles);
     }
 
     @RequestMapping(
             path = "getAllRoleWithPerms", method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
-    public List<RoleDTO> getAllRoleWithPerms() {
+    public Response getAllRoleWithPerms() {
         List<RoleDTO> list = roleServiceFacade.getAllRoleWithPerms();
-        return list;
+        return new Response(0, "", list);
     }
 
     @RequestMapping(
@@ -65,7 +65,7 @@ public class RoleController {
     public Response findRolesWithPerms(@RequestParam String roleName,
                                        @RequestParam int pageIndex, @RequestParam int pageSize) {
         PageList list = roleServiceFacade.findRolesWithPerms(roleName, pageIndex, pageSize);
-        return new Response(1, "", list);
+        return new Response(0, "", list);
     }
 
     @RequestMapping(
@@ -73,8 +73,9 @@ public class RoleController {
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
-    public void updateRole(@RequestBody UpdateRoleCommand command) {
+    public Response updateRole(@RequestBody UpdateRoleCommand command) {
         roleServiceFacade.updateRole(command);
+        return new Response(0, "修改角色成功！");
     }
 
     @RequestMapping(
@@ -82,8 +83,9 @@ public class RoleController {
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
-    public void deleteRole(@RequestBody DeleteRoleCommand command) {
+    public Response deleteRole(@RequestBody DeleteRoleCommand command) {
         roleServiceFacade.deleteRole(command);
+        return new Response(0, "删除角色成功！");
     }
 
     @Autowired

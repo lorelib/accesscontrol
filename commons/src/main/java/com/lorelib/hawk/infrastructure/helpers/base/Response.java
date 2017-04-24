@@ -14,9 +14,9 @@ public class Response<T> implements DTO {
     private int code;
 
     /**
-     * 错误信息
+     * 响应信息
      */
-    private String errmsg;
+    private String msg;
 
     /**
      * 数据载体
@@ -28,7 +28,7 @@ public class Response<T> implements DTO {
 
     public Response(int code, String errmsg) {
         this.code = code;
-        this.errmsg = errmsg;
+        this.msg = errmsg;
     }
 
     public Response(int code, String errmsg, T body) {
@@ -44,12 +44,12 @@ public class Response<T> implements DTO {
         this.code = code;
     }
 
-    public String getErrmsg() {
-        return errmsg;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setErrmsg(String errmsg) {
-        this.errmsg = errmsg;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public T getBody() {
