@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lorelib.hawk.system.accesscontrol.domain.RoleRepository">
+<mapper namespace="com.lorelib.hawk.system.domain.accesscontrol.RoleRepository">
     <insert id="addRole">
         INSERT INTO ac_role (
         id,
@@ -118,6 +118,6 @@
         <association property="id" javaType="RoleId">
             <result property="id" column="roleId"/>
         </association>
-        <collection property="perms" resultMap="com.lorelib.hawk.system.accesscontrol.domain.PermissionRepository.permMap"/>
+        <collection property="perms" resultMap="com.lorelib.hawk.system.domain.accesscontrol.PermissionRepository.permMap"/>
     </resultMap>
 </mapper>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lorelib.hawk.system.menu.domain.MenuRepository">
+<mapper namespace="com.lorelib.hawk.system.domain.menu.MenuRepository">
     <sql id="select">
         SELECT
         id, parentId, menuName, menuAlias, description

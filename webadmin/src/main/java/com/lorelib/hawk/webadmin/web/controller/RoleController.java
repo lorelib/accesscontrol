@@ -2,12 +2,12 @@ package com.lorelib.hawk.webadmin.web.controller;
 
 import com.lorelib.hawk.infrastructure.helpers.base.Response;
 import com.lorelib.hawk.infrastructure.helpers.query.PageList;
-import com.lorelib.hawk.system.accesscontrol.interfaces.facade.RoleServiceFacade;
-import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRoleCommand;
-import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRoleWithPermCommand;
-import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.DeleteRoleCommand;
-import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.UpdateRoleCommand;
-import com.lorelib.hawk.system.accesscontrol.interfaces.facade.dto.RoleDTO;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.RoleServiceFacade;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.CreateRoleCommand;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.CreateRoleWithPermCommand;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.DeleteRoleCommand;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.UpdateRoleCommand;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.RoleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

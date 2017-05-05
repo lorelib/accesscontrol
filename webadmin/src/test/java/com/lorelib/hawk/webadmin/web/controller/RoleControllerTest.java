@@ -1,12 +1,12 @@
 package com.lorelib.hawk.webadmin.web.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRoleCommand;
-import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRoleWithPermCommand;
-import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.DeleteRoleCommand;
-import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.UpdateRoleCommand;
-import com.lorelib.hawk.system.accesscontrol.interfaces.facade.dto.ResourceDTO;
-import com.lorelib.hawk.system.menu.infrastructure.type.ResourceType;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.CreateRoleCommand;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.CreateRoleWithPermCommand;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.DeleteRoleCommand;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.UpdateRoleCommand;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.ResourceDTO;
+import com.lorelib.hawk.system.infrastructure.persistence.ResourceType;
 import com.lorelib.hawk.infrastructure.test.TestNGUtil;
 import com.google.common.collect.Lists;
 import org.springframework.http.MediaType;

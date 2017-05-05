@@ -1,6 +1,6 @@
 package com.lorelib.hawk.webadmin.web.controller;
 
-import com.lorelib.hawk.system.accesscontrol.interfaces.facade.command.CreateRoleCommand;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.CreateRoleCommand;
 import com.lorelib.hawk.infrastructure.test.TestNGUtil;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;

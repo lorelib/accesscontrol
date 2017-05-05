@@ -1,7 +1,7 @@
 package com.lorelib.hawk.webadmin.web.controller;
 
-import com.lorelib.hawk.system.menu.interfaces.facade.MenuServiceFacade;
-import com.lorelib.hawk.system.menu.interfaces.facade.dto.MenuDTO;
+import com.lorelib.hawk.system.interfaces.facade.menu.MenuServiceFacade;
+import com.lorelib.hawk.system.interfaces.facade.menu.dto.MenuDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
