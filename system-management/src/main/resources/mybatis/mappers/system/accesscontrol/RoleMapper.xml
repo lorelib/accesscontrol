@@ -51,7 +51,9 @@
         FROM ac_role
         WHERE 1 = 1
         <if test="where != null">
-            AND roleName LIKE CONCAT('%', #{where.roleName}, '%')
+            <if test="where.roleName != null and where.roleName != ''">
+                AND roleName LIKE CONCAT('%', #{where.roleName}, '%')
+            </if>
         </if>
         <choose>
             <when test="order != null">
@@ -79,7 +81,9 @@
         SELECT COUNT(id) FROM ac_role
         WHERE 1 = 1
         <if test="where != null">
-            AND roleName LIKE CONCAT('%', #{where.roleName}, '%')
+            <if test="where.roleName != null and where.roleName != ''">
+                AND roleName LIKE CONCAT('%', #{where.roleName}, '%')
+            </if>
         </if>
     </select>
 
