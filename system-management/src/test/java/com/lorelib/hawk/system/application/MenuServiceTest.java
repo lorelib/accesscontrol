@@ -1,6 +1,5 @@
 package com.lorelib.hawk.system.application;
 
-import com.lorelib.hawk.system.application.MenuService;
 import com.lorelib.hawk.system.domain.menu.Menu;
 import com.lorelib.hawk.infrastructure.test.TestNGUtil;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -20,10 +20,10 @@ public class ParamsValidatorUtil {
      * @param <T>
      */
     public static <T> boolean validate(T obj, Class<?>... groups) {
-        String err = "";
+        StringBuilder err = new StringBuilder();
         Set<ConstraintViolation<T>> violations = validator.validate(obj, groups);
         for (ConstraintViolation<T> violation: violations) {
-            err += violation.getMessage() + " | ";
+            err.append(violation.getMessage()).append(" | ");
         }
         if (StringUtil.isNotBlank(err)) {
             throw new IllegalArgumentException(err.substring(0, err.length() - 2));

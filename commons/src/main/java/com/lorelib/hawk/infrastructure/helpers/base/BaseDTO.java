@@ -44,7 +44,7 @@ public class BaseDTO implements DTO {
     }
 
     public String getCreateBy() {
-        return createBy;
+        return this.createBy;
     }
 
     public void setCreateBy(String createBy) {
@@ -52,15 +52,15 @@ public class BaseDTO implements DTO {
     }
 
     public Date getCreateDate() {
-        return createDate;
+        return this.createDate == null ? null : (Date) this.createDate.clone();
     }
 
     public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+        this.createDate = createDate == null ? null : (Date) createDate.clone();
     }
 
     public String getUpdateBy() {
-        return updateBy;
+        return this.updateBy;
     }
 
     public void setUpdateBy(String updateBy) {
@@ -68,10 +68,10 @@ public class BaseDTO implements DTO {
     }
 
     public Date getUpdateDate() {
-        return updateDate;
+        return this.updateDate == null ? null : (Date) this.updateDate.clone();
     }
 
     public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
+        this.updateDate = updateDate == null ? null : (Date) updateDate.clone();
     }
 }

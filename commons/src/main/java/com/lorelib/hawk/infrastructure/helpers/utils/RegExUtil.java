@@ -26,7 +26,7 @@ public class RegExUtil {
      * @param regex
      * @return
      */
-    public static List<String> Matcher(String input,String regex){
+    public static List<String> matcher(String input,String regex){
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher= pattern.matcher(input);
         List<String> list = new ArrayList<>();

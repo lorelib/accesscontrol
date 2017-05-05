@@ -11,8 +11,8 @@ public class Snowflake {
 
     private long workerIdBits = 5L;
     private long dataCenterIdBits = 5L;
-    private long maxWorkerId = -1L ^ (-1L << workerIdBits);
-    private long maxDataCenterId = -1L ^ (-1l << dataCenterIdBits);
+    //private long maxWorkerId = -1L ^ (-1L << workerIdBits);
+    //private long maxDataCenterId = -1L ^ (-1l << dataCenterIdBits);
     private long sequenceBits = 12L;
 
     private long workerIdShift = sequenceBits;
@@ -20,7 +20,7 @@ public class Snowflake {
     private long timestampLeftShift = sequenceBits + workerIdBits + dataCenterIdBits;
     private long sequenceMask = -1L ^ (-1L << sequenceBits);
 
-    private static long lastTimestamp = -1L;
+    private volatile long lastTimestamp = -1L;
     private long twepoch = 1288834974657L;
 
     protected Snowflake() {

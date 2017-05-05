@@ -51,10 +51,6 @@ public class Menu extends DomainEntity<Menu, MenuId> {
      */
     private boolean isLeaf;
 
-    public static int DefaultRootNode() {
-        return DEFAULT_ROOT_NODE;
-    }
-
     public boolean isLeaf() {
         return child.size() > 0 ? false : true;
     }

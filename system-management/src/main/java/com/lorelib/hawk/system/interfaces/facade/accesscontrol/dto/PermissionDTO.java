@@ -1,11 +1,13 @@
 package com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto;
 
+import com.lorelib.hawk.infrastructure.stereotype.DTO;
+
 /**
  * @author listening
  * @description PermissionDTO:
  * @create 2017 04 13 13:36.
  */
-public class PermissionDTO {
+public class PermissionDTO implements DTO {
     /**
      * 资源标识
      */

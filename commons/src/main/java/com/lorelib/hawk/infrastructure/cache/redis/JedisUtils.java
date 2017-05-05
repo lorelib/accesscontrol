@@ -4,6 +4,8 @@ import com.lorelib.hawk.infrastructure.helpers.spring.SpringContextHolder;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.exceptions.JedisException;
@@ -11,11 +13,11 @@ import redis.clients.jedis.exceptions.JedisException;
 /**
  * Jedis Cache 工具类
  */
+@Component
 public class JedisUtils {
-
 	private static Logger LOGGER = LoggerFactory.getLogger(JedisUtils.class);
-	
-	private static JedisPool jedisPool = SpringContextHolder.getBean(JedisPool.class);
+	@Autowired
+	private static JedisPool jedisPool;
 
 	/**
 	 * 获取缓存

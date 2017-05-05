@@ -1,12 +1,15 @@
 package com.lorelib.hawk.infrastructure.helpers.utils;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public final class ListSortUtil {
-    /** 升序排列
+    /**
+     * 升序排列
+     *
      * @param targetList 目标排序List
      * @param sortField  排序字段(实体类属性名)
      */
@@ -15,7 +18,9 @@ public final class ListSortUtil {
         sort(targetList, sortField, SortMode.ASC);
     }
 
-    /** 排序
+    /**
+     * 排序
+     *
      * @param targetList 目标排序List
      * @param sortField  排序字段(实体类属性名)
      * @param sortMode   排序方式（asc or  desc）
@@ -25,11 +30,10 @@ public final class ListSortUtil {
         Collections.sort(targetList, new Comparator() {
             public int compare(Object obj1, Object obj2) {
                 int retVal = 0;
+                //首字母转大写
+                String newStr = sortField.substring(0, 1).toUpperCase() + sortField.replaceFirst("\\w", "");
+                String methodStr = "get" + newStr;
                 try {
-                    //首字母转大写
-                    String newStr = sortField.substring(0, 1).toUpperCase() + sortField.replaceFirst("\\w", "");
-                    String methodStr = "get" + newStr;
-
                     Method method1 = ((T) obj1).getClass().getMethod(methodStr);
                     Method method2 = ((T) obj2).getClass().getMethod(methodStr);
                     Comparable r1 = (Comparable) method1.invoke((obj1));
@@ -39,8 +43,12 @@ public final class ListSortUtil {
                     } else {
                         retVal = r1.compareTo(r2);
                     }
-                } catch (Exception e) {
-                    throw new RuntimeException("Can not compare for " + JSONUtil.toJsonString(targetList));
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
                 }
                 return retVal;
             }

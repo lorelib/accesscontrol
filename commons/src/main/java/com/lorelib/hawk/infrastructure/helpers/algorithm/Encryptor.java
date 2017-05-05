@@ -27,11 +27,11 @@ public class Encryptor {
         try {
             MessageDigest algorithm = MessageDigest.getInstance(type);
             algorithm.reset();
-            algorithm.update(val.getBytes());
+            algorithm.update(val.getBytes("UTF-8"));
             byte[] messageDigest = algorithm.digest();
             return toHexString(messageDigest);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

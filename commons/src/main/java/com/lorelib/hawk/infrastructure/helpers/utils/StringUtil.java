@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class StringUtil extends StringUtils {
 
-    public final static Set<Map.Entry<String, String>> sets = new HashSet<>();
+    private final static Set<Map.Entry<String, String>> sets = new HashSet<>();
 
     static {
         HashMap<String, String> hashMap = new HashMap<>();
@@ -81,7 +81,7 @@ public class StringUtil extends StringUtils {
      * @return
      */
     public static String nullToBlankStr(String str) {
-        return str == null ? "" : (str == "null" ? "" : str);
+        return isBlank(str) ? "" : str;
     }
 
     public static boolean equals(String s1, String s2) {

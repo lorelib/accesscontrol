@@ -19,7 +19,6 @@ public class UserControllerTest extends TestNGUtil {
     public void loginTest() throws Exception {
         String username = "admin@fxt";
         String password = "a123456";
-        CreateRoleCommand command = new CreateRoleCommand("普通职员2", "");
         MvcResult result = mockMvc.perform(
                 post("/user/login")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)

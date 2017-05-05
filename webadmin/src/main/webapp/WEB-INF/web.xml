@@ -11,7 +11,7 @@
     </context-param>
 
     <listener>
-        <listener-class>com.lorelib.hawk.webadmin.web.context.ContextLoaderListener</listener-class>
+        <listener-class>com.lorelib.hawk.webadmin.web.context.OptAdminContextLoaderListener</listener-class>
     </listener>
 
     <listener>
