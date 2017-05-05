@@ -2,7 +2,6 @@ package com.lorelib.hawk.system.application;
 
 import com.lorelib.hawk.infrastructure.helpers.query.Criteria;
 import com.lorelib.hawk.infrastructure.stereotype.ApplicationService;
-import com.lorelib.hawk.system.accesscontrol.domain.*;
 import com.lorelib.hawk.system.domain.accesscontrol.*;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.Validate;
