@@ -5,7 +5,7 @@ import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.CreateRol
 import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.CreateRoleWithPermCommand;
 import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.DeleteRoleCommand;
 import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.UpdateRoleCommand;
-import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.RoleDTO;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.RoleDto;
 
 import java.util.List;
 
@@ -31,13 +31,13 @@ public interface RoleServiceFacade {
      * 获取所有角色信息
      * @return
      */
-    List<RoleDTO> getAllRole();
+    List<RoleDto> getAllRole();
 
     /**
      * 获取所有角色及权限信息
      * @return
      */
-    List<RoleDTO> getAllRoleWithPerms();
+    List<RoleDto> getAllRoleWithPerms();
 
     /**
      * 根据角色名称模糊匹配查找角色及权限信息

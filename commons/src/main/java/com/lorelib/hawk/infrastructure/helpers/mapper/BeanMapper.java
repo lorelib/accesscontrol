@@ -17,7 +17,6 @@ import java.util.Set;
  * 4. 区分创建新的B对象与将对象A值复制到已存在的B对象两种函数.
  */
 public class BeanMapper {
-
 	/**
 	 * 持有Dozer单例, 避免重复创建DozerMapper消耗资源.
 	 */

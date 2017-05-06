@@ -10,6 +10,7 @@
     <property name="fileExtensions" value="java, properties, xml"/>
     <!-- Checks for whitespace                               -->
     <!-- See http://checkstyle.sf.net/config_whitespace.html -->
+    <!-- 检查文件中是否含有'\t' -->
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
     </module>
@@ -23,7 +24,9 @@
         <module name="ParameterNumber">
             <property name="max" value="5"/>
         </module>
+        <!-- 检查外部类型名称是否与文件名称匹配 -->
         <module name="OuterTypeFilename"/>
+        <!-- 非法标记文本 -->
         <module name="IllegalTokenText">
             <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL"/>
             <property name="format"
@@ -36,6 +39,7 @@
             <property name="allowByTailComment" value="true"/>
             <property name="allowNonPrintableEscapes" value="true"/>
         </module>
+        <!-- 设置行长度 -->
         <module name="LineLength">
             <property name="max" value="100"/>
             <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>

@@ -3,7 +3,7 @@ package com.lorelib.hawk.system.interfaces.facade.menu;
 import com.lorelib.hawk.system.application.MenuService;
 import com.lorelib.hawk.system.domain.menu.Menu;
 import com.lorelib.hawk.system.interfaces.facade.menu.assembler.MenuDTOAssembler;
-import com.lorelib.hawk.system.interfaces.facade.menu.dto.MenuDTO;
+import com.lorelib.hawk.system.interfaces.facade.menu.dto.MenuDto;
 import com.lorelib.hawk.infrastructure.stereotype.Facade;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,7 +20,7 @@ public class MenuServiceFacadeImpl implements MenuServiceFacade {
     private MenuService menuService;
 
     @Override
-    public List<MenuDTO> getAllMenus() {
+    public List<MenuDto> getAllMenus() {
         List<Menu> menus = menuService.getAllMenus();
         return MenuDTOAssembler.toDTO(menus);
     }

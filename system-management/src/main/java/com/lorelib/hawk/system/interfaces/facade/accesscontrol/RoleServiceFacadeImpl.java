@@ -11,7 +11,7 @@ import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.CreateRol
 import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.CreateRoleWithPermCommand;
 import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.DeleteRoleCommand;
 import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.UpdateRoleCommand;
-import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.RoleDTO;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.RoleDto;
 import com.lorelib.hawk.infrastructure.helpers.mapper.BeanMapper;
 import com.lorelib.hawk.infrastructure.helpers.utils.ParamsValidatorUtil;
 import com.lorelib.hawk.infrastructure.stereotype.Facade;
@@ -40,13 +40,13 @@ public class RoleServiceFacadeImpl implements RoleServiceFacade {
     }
 
     @Override
-    public List<RoleDTO> getAllRoleWithPerms() {
+    public List<RoleDto> getAllRoleWithPerms() {
         List<Role> roles = roleService.getAllRoleWithPerms();
         return RoleDTOAssembler.toDTO(roles);
     }
 
     @Override
-    public List<RoleDTO> getAllRole() {
+    public List<RoleDto> getAllRole() {
         List<Role> roles = roleService.getAllRole();
         return RoleDTOAssembler.toDTO(roles);
     }

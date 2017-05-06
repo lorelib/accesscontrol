@@ -1,13 +1,13 @@
 package com.lorelib.hawk.infrastructure.helpers.base;
 
-import com.lorelib.hawk.infrastructure.stereotype.DTO;
+import com.lorelib.hawk.infrastructure.stereotype.Dto;
 
 /**
  * @author listening
  * @description Response:
  * @create 2017 04 13 16:22.
  */
-public class Response<T> implements DTO {
+public class Response<T> implements Dto {
     /**
      * 响应码
      */

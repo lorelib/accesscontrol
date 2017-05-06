@@ -10,17 +10,17 @@ import org.apache.commons.lang3.Validate;
  */
 public class Permission extends DomainEntity<Permission, Long> {
     /**
-     * 标识，象征性的标识，不做具体使用
+     * 标识，象征性的标识，不做具体使用.
      */
     private Long id;
 
     /**
-     * 角色
+     * 角色.
      */
     private RoleId roleId;
 
     /**
-     * 资源
+     * 资源.
      */
     private Resource resource;
 

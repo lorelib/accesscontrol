@@ -7,7 +7,7 @@ import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.CreateRol
 import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.CreateRoleWithPermCommand;
 import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.DeleteRoleCommand;
 import com.lorelib.hawk.system.interfaces.facade.accesscontrol.command.UpdateRoleCommand;
-import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.RoleDTO;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.RoleDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -45,7 +45,7 @@ public class RoleController {
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
     public Response getAllRole() {
-        List<RoleDTO> roles = roleServiceFacade.getAllRole();
+        List<RoleDto> roles = roleServiceFacade.getAllRole();
         return new Response(0, "", roles);
     }
 
@@ -54,7 +54,7 @@ public class RoleController {
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
     public Response getAllRoleWithPerms() {
-        List<RoleDTO> list = roleServiceFacade.getAllRoleWithPerms();
+        List<RoleDto> list = roleServiceFacade.getAllRoleWithPerms();
         return new Response(0, "", list);
     }
 

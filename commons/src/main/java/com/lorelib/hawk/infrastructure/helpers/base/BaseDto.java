@@ -1,37 +1,37 @@
 package com.lorelib.hawk.infrastructure.helpers.base;
 
-import com.lorelib.hawk.infrastructure.stereotype.DTO;
+import com.lorelib.hawk.infrastructure.stereotype.Dto;
 
 import java.util.Date;
 
 /**
  * @author listening
- * @description BaseDTO:
+ * @description BaseDto:
  * @create 2017 04 10 17:00.
  */
-public class BaseDTO implements DTO {
+public class BaseDto implements Dto {
     /**
-     * 主键ID
+     * 主键ID.
      */
     protected long id;
 
     /**
-     * 创建者userId
+     * 创建者userId.
      */
     protected String createBy;
 
     /**
-     * 创建日期
+     * 创建日期.
      */
     protected Date createDate;
 
     /**
-     * 更新者userId
+     * 更新者userId.
      */
     protected String updateBy;
 
     /**
-     * 更新日期
+     * 更新日期.
      */
     protected Date updateDate;
 

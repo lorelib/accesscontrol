@@ -1,7 +1,7 @@
 package com.lorelib.hawk.system.interfaces.facade;
 
 import com.lorelib.hawk.system.interfaces.facade.menu.MenuServiceFacade;
-import com.lorelib.hawk.system.interfaces.facade.menu.dto.MenuDTO;
+import com.lorelib.hawk.system.interfaces.facade.menu.dto.MenuDto;
 import com.lorelib.hawk.infrastructure.test.TestNGUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Assert;
@@ -20,7 +20,7 @@ public class MenuServiceFacadeTest extends TestNGUtil {
 
     @Test
     private void getAllMenusTest() {
-        List<MenuDTO> menus = menuServiceFacade.getAllMenus();
+        List<MenuDto> menus = menuServiceFacade.getAllMenus();
         Assert.assertNotNull(menus);
         writeJsonString(menus);
     }
