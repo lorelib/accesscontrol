@@ -47,12 +47,12 @@ public class HttpClient {
         return post(uri, json, "application/json", true);
     }
 
-    public static String post(String uri, String data, String contentType, boolean isSsl) throws Exception {
+    public static String post(String uri, String data, String contentType, boolean isSSL) throws Exception {
         String result = null;
         CloseableHttpClient httpClient = null;
         CloseableHttpResponse response = null;
         try {
-            httpClient = isSsl ? createSSLHttpClient() : HttpClients.createDefault();
+            httpClient = isSSL ? createSSLHttpClient() : HttpClients.createDefault();
             HttpPost httpPost = new HttpPost(uri);
             if (StringUtil.isNotBlank(data)) {
                 httpPost.setEntity(new StringEntity(data, Charsets.UTF_8));
@@ -80,7 +80,7 @@ public class HttpClient {
     }
 
     /**
-     * 发送文件
+     * 发送文件.
      */
     public static String postFile(String uri, String data, InputStream in, boolean isSSL) throws Exception {
         String result = null;
