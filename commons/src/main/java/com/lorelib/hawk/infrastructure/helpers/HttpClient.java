@@ -35,18 +35,6 @@ public class HttpClient {
         return post(uri, null, null, false);
     }
 
-    public static String postByHttps(String uri) throws Exception {
-        return post(uri, null, null, true);
-    }
-
-    public static String postJson(String uri, String json) throws Exception {
-        return post(uri, json, "application/json", false);
-    }
-
-    public static String postJsonByHttps(String uri, String json) throws Exception {
-        return post(uri, json, "application/json", true);
-    }
-
     public static String post(String uri, String data, String contentType, boolean isSSL) throws Exception {
         String result = null;
         CloseableHttpClient httpClient = null;
@@ -69,6 +57,18 @@ public class HttpClient {
             if (httpClient != null) httpClient.close();
         }
         return result;
+    }
+
+    public static String postByHttps(String uri) throws Exception {
+        return post(uri, null, null, true);
+    }
+
+    public static String postJson(String uri, String json) throws Exception {
+        return post(uri, json, "application/json", false);
+    }
+
+    public static String postJsonByHttps(String uri, String json) throws Exception {
+        return post(uri, json, "application/json", true);
     }
 
     public static String postFile(String uri, String data, InputStream in) throws Exception {
