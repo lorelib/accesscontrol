@@ -14,7 +14,7 @@ public class CacheManager {
     private static final int DEFAULT_CACHE_SECONDS = 180;
     public static final int CACHE_SECONDS = getInteger("cache_seconds", DEFAULT_CACHE_SECONDS);
     private static final boolean REDIS_ENABLE = getBoolean("redis.enable", false);
-    private static final Map<String, Object> secondCache = new HashMap();
+    private static final Map<String, Object> SECOND_CACHE = new HashMap();
 
     public static void set(String key, String value) {
         set(key, value, DEFAULT_CACHE_SECONDS);
@@ -24,7 +24,7 @@ public class CacheManager {
         if (REDIS_ENABLE) {
             JedisUtils.set(key, value, cacheSeconds);
         } else {
-            secondCache.put(key, value);
+            SECOND_CACHE.put(key, value);
         }
     }
 
@@ -37,13 +37,13 @@ public class CacheManager {
             JedisUtils.hset(key, field, value, cacheSeconds);
         } else {
             Map<String, String> map;
-            if (secondCache.get(key) == null) {
+            if (SECOND_CACHE.get(key) == null) {
                 map = new HashMap<String, String>();
             } else {
-                map = (Map<String, String>) secondCache.get(key);
+                map = (Map<String, String>) SECOND_CACHE.get(key);
             }
             map.put(field, value);
-            secondCache.put(key, map);
+            SECOND_CACHE.put(key, map);
         }
     }
 
@@ -51,7 +51,7 @@ public class CacheManager {
         if (REDIS_ENABLE) {
             return JedisUtils.get(key);
         } else {
-            return (String) secondCache.get(key);
+            return (String) SECOND_CACHE.get(key);
         }
     }
 
@@ -60,7 +60,7 @@ public class CacheManager {
         if (REDIS_ENABLE) {
             value = JedisUtils.hget(key, field);
         } else {
-            Map<String, String> map = (Map<String, String>) secondCache.get(key);
+            Map<String, String> map = (Map<String, String>) SECOND_CACHE.get(key);
             if (map != null) {
                 value = map.get(field);
             }
@@ -72,7 +72,7 @@ public class CacheManager {
         if (REDIS_ENABLE) {
             JedisUtils.del(key);
         } else {
-            secondCache.remove(key);
+            SECOND_CACHE.remove(key);
         }
     }
 
@@ -80,7 +80,7 @@ public class CacheManager {
         if (REDIS_ENABLE) {
             JedisUtils.hdel(key, field);
         } else {
-            Map<String, String> map = (Map<String, String>) secondCache.get(key);
+            Map<String, String> map = (Map<String, String>) SECOND_CACHE.get(key);
             if (map != null) {
                 map.remove(field);
             }

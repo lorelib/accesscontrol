@@ -28,6 +28,8 @@ public class JSONUtil extends JSONObject {
      * @return
      */
     public static String noneBlank(Object obj) {
-        return JSONObject.toJSONString(obj, SerializerFeature.NotWriteDefaultValue, SerializerFeature.SkipTransientField);
+        return JSONObject.toJSONString(obj,
+                SerializerFeature.NotWriteDefaultValue,
+                SerializerFeature.SkipTransientField);
     }
 }

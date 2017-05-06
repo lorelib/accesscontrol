@@ -11,17 +11,17 @@ import java.util.Set;
  */
 public class ParamsValidatorUtil {
     private final static ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-    private final static Validator validator = factory.getValidator();
+    private final static Validator VALIDATOR = factory.getValidator();
 
     /**
-     * 验证对象是否合法
+     * 验证对象是否合法.
      * @param obj       被验证对象
      * @param groups    所属组
      * @param <T>
      */
     public static <T> boolean validate(T obj, Class<?>... groups) {
         StringBuilder err = new StringBuilder();
-        Set<ConstraintViolation<T>> violations = validator.validate(obj, groups);
+        Set<ConstraintViolation<T>> violations = VALIDATOR.validate(obj, groups);
         for (ConstraintViolation<T> violation: violations) {
             err.append(violation.getMessage()).append(" | ");
         }

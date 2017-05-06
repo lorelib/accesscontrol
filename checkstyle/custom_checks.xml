@@ -25,7 +25,9 @@
         <!-- javadoc的检查 -->
         <module name="JavadocParagraph"/>
         <!-- 检查所有的interface和class -->
-        <module name="JavadocType"/>
+        <module name="JavadocType">
+            <property name="allowUnknownTags" value="true"/>
+        </module>
         <!-- javadoc顺序 -->
         <module name="AtclauseOrder">
             <property name="tagOrder" value="@param, @return, @throws, @deprecated"/>
