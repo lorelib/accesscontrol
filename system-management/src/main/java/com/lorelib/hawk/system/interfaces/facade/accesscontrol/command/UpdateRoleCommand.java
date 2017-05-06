@@ -14,23 +14,23 @@ import java.util.List;
  */
 public class UpdateRoleCommand implements Command {
     /**
-     * 角色标识
+     * 角色标识.
      */
     @NotNull(message = "角色名称是必需的")
     private Long roleId;
 
     /**
-     * 角色名称
+     * 角色名称.
      */
     private String roleName;
 
     /**
-     * 角色描述信息
+     * 角色描述信息.
      */
     private String roleDesc;
 
     /**
-     * 资源集合
+     * 资源集合.
      */
     @Size(min = 1, message = "资源是必需的")
     private List<ResourceDto> resources;
@@ -48,7 +48,8 @@ public class UpdateRoleCommand implements Command {
         this.roleName = roleName;
     }
 
-    public UpdateRoleCommand(Long roleId, String roleName, String roleDesc, List<ResourceDto> resources) {
+    public UpdateRoleCommand(Long roleId, String roleName, String roleDesc,
+                             List<ResourceDto> resources) {
         this(roleId, roleName, resources);
         this.roleDesc = roleDesc;
     }

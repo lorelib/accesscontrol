@@ -16,31 +16,31 @@ import java.util.List;
  */
 public interface RoleServiceFacade {
     /**
-     * 新增角色
+     * 新增角色.
      * @param command
      */
     void addRole(CreateRoleCommand command);
 
     /**
-     * 新增角色并赋予权限
+     * 新增角色并赋予权限.
      * @param command
      */
     void addRoleWithPerms(CreateRoleWithPermCommand command);
 
     /**
-     * 获取所有角色信息
+     * 获取所有角色信息.
      * @return
      */
     List<RoleDto> getAllRole();
 
     /**
-     * 获取所有角色及权限信息
+     * 获取所有角色及权限信息.
      * @return
      */
     List<RoleDto> getAllRoleWithPerms();
 
     /**
-     * 根据角色名称模糊匹配查找角色及权限信息
+     * 根据角色名称模糊匹配查找角色及权限信息.
      * @param roleName
      * @param pageIndex
      * @param pageSize
@@ -49,13 +49,13 @@ public interface RoleServiceFacade {
     PageList findRolesWithPerms(String roleName, int pageIndex, int pageSize);
 
     /**
-     * 更新角色
+     * 更新角色.
      * @param command
      */
     void updateRole(UpdateRoleCommand command);
 
     /**
-     * 删除角色
+     * 删除角色.
      * @param command
      */
     void deleteRole(DeleteRoleCommand command);

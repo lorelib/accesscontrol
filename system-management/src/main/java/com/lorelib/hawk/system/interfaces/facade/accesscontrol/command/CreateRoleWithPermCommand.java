@@ -14,18 +14,18 @@ import java.util.List;
  */
 public class CreateRoleWithPermCommand implements Command {
     /**
-     * 角色名称
+     * 角色名称.
      */
     @NotNull(message = "角色名称是必需的")
     private String roleName;
 
     /**
-     * 描述（简介）
+     * 描述（简介）.
      */
     private String description;
 
     /**
-     * 资源集合
+     * 资源集合.
      */
     @Valid
     private List<ResourceDto> resources;

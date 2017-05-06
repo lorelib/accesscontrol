@@ -11,13 +11,13 @@ import javax.validation.constraints.NotNull;
  */
 public class CreateRoleCommand implements Command {
     /**
-     * 角色名称
+     * 角色名称.
      */
     @NotNull(message = "角色名称是必需的")
     private String roleName;
 
     /**
-     * 描述（简介）
+     * 描述（简介）.
      */
     private String description;
 

@@ -38,7 +38,7 @@ public class StringUtil extends StringUtils {
      * @param format
      * @param args
      * @return
-     * @description 目前只支持{i}模式匹配
+     * @description 目前只支持{i}模式匹配.
      */
     public static String format(String format, Object... args) {
         for (int i = 0; i < args.length; i++) {
@@ -75,7 +75,7 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * null和"null"转化成""
+     * null和"null"转化成"".
      *
      * @param str
      * @return
@@ -96,7 +96,7 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * 去掉特殊字符
+     * 去掉特殊字符.
      *
      * @param orignal
      */
@@ -110,7 +110,7 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * 中文转义代码
+     * 中文转义代码.
      *
      * @param str
      * @return
@@ -129,7 +129,7 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * 将字符串中的中文数字转阿拉伯数字，不处理类似“一十一”这样的数字
+     * 将字符串中的中文数字转阿拉伯数字，不处理类似“一十一”这样的数字.
      *
      * @param str
      * @return
@@ -163,7 +163,7 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * 处理类似21的中文数字，不可包含非中文数字的字符
+     * 处理类似21的中文数字，不可包含非中文数字的字符.
      * @return
      */
     private static String handleLike21(String str) {
@@ -171,7 +171,7 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * 处理类似20的中文数字，不可包含非中文数字的字符
+     * 处理类似20的中文数字，不可包含非中文数字的字符.
      * @return
      */
     private static String handleLike20(String str) {
@@ -179,7 +179,7 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * 处理类似11的中文数字，不可包含非中文数字的字符
+     * 处理类似11的中文数字，不可包含非中文数字的字符.
      * @return
      */
     private static String handleLike11(String str) {
@@ -187,7 +187,7 @@ public class StringUtil extends StringUtils {
     }
 
     /***
-     * 多个字符是否为空 有一个不为空 则返回true
+     * 多个字符是否为空 有一个不为空 则返回true.
      * @param cs
      * @return
      */
@@ -201,7 +201,7 @@ public class StringUtil extends StringUtils {
     }
 
     /***
-     * 多个值比较 contains 以排除空值
+     * 多个值比较 contains 以排除空值.
      * @param cs
      * @param searchChars
      * @return
@@ -254,7 +254,11 @@ public class StringUtil extends StringUtils {
         return trimJsonContent(obj.toString(), len);
     }
 
-    // 判断字符串中是否含有数字
+    /**
+     * 判断字符串中是否含有数字.
+     * @param content
+     * @return
+     */
     public static boolean hasDigit(String content) {
         boolean flag = false;
         Pattern p = Pattern.compile(".*\\d+.*");
@@ -266,7 +270,7 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * 一个数字都没有
+     * 一个数字都没有.
      * @param content
      * @return
      */

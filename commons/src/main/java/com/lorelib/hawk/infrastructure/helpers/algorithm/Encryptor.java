@@ -1,26 +1,24 @@
 package com.lorelib.hawk.infrastructure.helpers.algorithm;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
 
 /**
- * 加密算法
+ * 加密算法.
  */
 public class Encryptor {
-
     private static final char[] hexCode = "0123456789abcdef".toCharArray();
 
     public static String md5(String val) {
         return generateValue("MD5", val);
     }
 
-    public static String sha1(String val) {
-        return generateValue("SHA-1", val);
-    }
-
     public static String md5() {
         return md5(UUID.randomUUID().toString());
+    }
+
+    public static String sha1(String val) {
+        return generateValue("SHA-1", val);
     }
 
     public static String generateValue(String type, String val) {
@@ -46,5 +44,4 @@ public class Encryptor {
         }
         return r.toString();
     }
-
 }

@@ -9,26 +9,26 @@ public class EmailUtil {
     private static Properties props;
 
     /**
-     * SMTP主机
+     * SMTP主机.
      */
     private static String hostname = ConfigHolder.getString("email.smtp.hostname");
 
     /**
-     * smtp是否需要认证
+     * smtp是否需要认证.
      */
     private static boolean needAuth = ConfigHolder.getBoolean("email.smtp.needAuth");
 
     /**
-     * 端口
+     * 端口.
      */
     private static int port = ConfigHolder.getInteger("email.smtp.port", 25);
 
     /**
-     * smtp认证用户名
+     * smtp认证用户名.
      */
     private static String username = ConfigHolder.getString("email.smtp.username");
     /**
-     * smtp认证密码
+     * smtp认证密码.
      */
     private static String password = ConfigHolder.getString("email.smtp.password");
 

@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public class CurrentThreadHolder {
     /**
-     * 当前线程信息持有器
+     * 当前线程信息持有器.
      */
     private static final ThreadLocal<Map> currentThreadHolder = new ThreadLocal<>();
 

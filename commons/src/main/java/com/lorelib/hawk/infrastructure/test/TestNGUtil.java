@@ -14,7 +14,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 /**
- * 测试工具类
+ * 测试工具类.
  * Created by listening on 2017/3/9.
  */
 @WebAppConfiguration
@@ -35,7 +35,7 @@ public class TestNGUtil extends AbstractTestNGSpringContextTests {
     }
 
     /**
-     * 对象参数验证
+     * 对象参数验证.
      * @param obj
      * @param groups
      * @param <T>
@@ -46,7 +46,7 @@ public class TestNGUtil extends AbstractTestNGSpringContextTests {
     }
 
     /**
-     * 转换成json数据输出
+     * 转换成json数据输出.
      * @param obj
      */
     protected void writeJsonString(Object obj) {
@@ -54,7 +54,7 @@ public class TestNGUtil extends AbstractTestNGSpringContextTests {
     }
 
     /**
-     * 转换成json数据输出
+     * 转换成json数据输出.
      * @param obj
      */
     protected void writeJsonString(String tips, Object obj) {
@@ -63,7 +63,7 @@ public class TestNGUtil extends AbstractTestNGSpringContextTests {
     }
 
     /**
-     * 打印对象信息
+     * 打印对象信息.
      * @param obj
      */
     protected void println(Object obj) {
@@ -71,12 +71,13 @@ public class TestNGUtil extends AbstractTestNGSpringContextTests {
     }
 
     /**
-     * 打印对象信息
+     * 打印对象信息.
      * @param tips 提示信息
      * @param obj
      */
     protected void println(String tips, Object obj) {
         if (StringUtil.isBlank(tips)) tips = "result: ";
+
         if (obj instanceof String) {
             System.out.println(tips + obj);
         } else {
@@ -85,7 +86,7 @@ public class TestNGUtil extends AbstractTestNGSpringContextTests {
     }
 
     /**
-     * 打印对象信息，去掉null和空
+     * 打印对象信息，去掉null和空.
      * @param obj
      */
     protected void printlnNoBlank(Object obj) {
@@ -93,12 +94,13 @@ public class TestNGUtil extends AbstractTestNGSpringContextTests {
     }
 
     /**
-     * 打印对象信息，去掉null和空
+     * 打印对象信息，去掉null和空.
      * @param tips 提示信息
      * @param obj
      */
     protected void printlnNoBlank(String tips, Object obj) {
         if (StringUtil.isBlank(tips)) tips = "result: ";
+
         if (obj instanceof String) {
             System.out.println(tips + obj);
         } else {

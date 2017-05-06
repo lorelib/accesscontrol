@@ -9,12 +9,11 @@ import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 
 /**
- * Des 加密方式
+ * Des 加密方式.
  */
 public class DesEncryptor {
-
     /**
-     * DES 加密 返回字符串
+     * DES 加密 返回字符串.
      *
      * @param message
      */
@@ -23,12 +22,14 @@ public class DesEncryptor {
     }
 
     /**
-     * DES 加密
+     * DES 加密.
      *
      * @param message
      */
     public static byte[] encrypt(String message, String key) throws Exception {
-        if (key.length() > 9) key = key.substring(0, 8);
+        if (key.length() > 9) {
+            key = key.substring(0, 8);
+        }
         Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
         DESKeySpec desKeySpec = new DESKeySpec(key.getBytes("UTF-8"));
         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
@@ -40,8 +41,7 @@ public class DesEncryptor {
     }
 
     /**
-     * des 解密
-     *
+     * des 解密.
      */
     public static String decrypt(byte[] bytes, String key) throws Exception {
         Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
@@ -58,7 +58,7 @@ public class DesEncryptor {
 
     private static String bytes2HexStr(byte[] bytes) {
         StringBuffer sb = new StringBuffer();
-        for(int i = 0; i < bytes.length; i++){
+        for (int i = 0; i < bytes.length; i++) {
             String hex = Integer.toHexString(bytes[i] & 0xFF);
             if (hex.length() == 1) {
                 hex = '0' + hex;
@@ -79,7 +79,7 @@ public class DesEncryptor {
     }
 
     /**
-     * 解密16进制字符串
+     * 解密16进制字符串.
      *
      * @param message
      */
@@ -88,7 +88,7 @@ public class DesEncryptor {
     }
 
     /**
-     * DES加密转64进制字符串
+     * DES加密转64进制字符串.
      *
      * @param message
      */
@@ -97,7 +97,7 @@ public class DesEncryptor {
     }
 
     /**
-     * 解密64进制字符串
+     * 解密64进制字符串.
      *
      * @param message
      */
@@ -107,7 +107,8 @@ public class DesEncryptor {
     }
 
     /**
-     * 字节转64进制
+     * 字节转64进制.
+     *
      * @param bytes
      * @return
      */
@@ -117,7 +118,8 @@ public class DesEncryptor {
     }
 
     /**
-     * 64进制转字节
+     * 64进制转字节.
+     *
      * @param base64
      * @return
      */
@@ -125,5 +127,4 @@ public class DesEncryptor {
         //return new BASE64Decoder().decodeBuffer(base64);
         return Base64.decodeBase64(base64);
     }
-
 }

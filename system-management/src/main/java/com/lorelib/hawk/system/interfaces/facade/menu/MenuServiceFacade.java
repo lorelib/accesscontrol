@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface MenuServiceFacade {
     /**
-     * 获取所有菜单
+     * 获取所有菜单.
      * @return
      */
     List<MenuDto> getAllMenus();
