@@ -1,6 +1,6 @@
 package com.lorelib.hawk.system.interfaces.facade.menu;
 
-import com.lorelib.hawk.system.interfaces.facade.menu.dto.MenuDTO;
+import com.lorelib.hawk.system.interfaces.facade.menu.dto.MenuDto;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import java.util.List;
  */
 public interface MenuServiceFacade {
     /**
-     * 获取所有菜单
+     * 获取所有菜单.
      * @return
      */
-    List<MenuDTO> getAllMenus();
+    List<MenuDto> getAllMenus();
 }

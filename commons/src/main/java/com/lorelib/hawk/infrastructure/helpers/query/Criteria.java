@@ -11,17 +11,17 @@ import java.io.Serializable;
  */
 public class Criteria<T> implements Serializable, TypeAlias {
     /**
-     * where条件
+     * where条件.
      */
     private T where;
 
     /**
-     * 排序
+     * 排序.
      */
     private Order order;
 
     /**
-     * 分页
+     * 分页.
      */
     private Page page = new Page();
 

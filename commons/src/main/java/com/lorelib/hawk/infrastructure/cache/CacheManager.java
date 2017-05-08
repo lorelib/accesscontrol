@@ -1,7 +1,8 @@
 package com.lorelib.hawk.infrastructure.cache;
 
 import com.lorelib.hawk.infrastructure.cache.redis.JedisUtils;
-import com.lorelib.hawk.infrastructure.config.ConfigHolder;
+
+import static com.lorelib.hawk.infrastructure.config.ConfigHolder.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,11 +11,10 @@ import java.util.Map;
  * Created by luomm on 2015/9/21.
  */
 public class CacheManager {
-
     private static final int DEFAULT_CACHE_SECONDS = 180;
-    public static final int CACHE_SECONDS = ConfigHolder.getInteger("cache_seconds", DEFAULT_CACHE_SECONDS);
-    private static final boolean REDIS_ENABLE = ConfigHolder.getBoolean("redis.enable", false);
-    private final static Map<String, Object> secondCache = new HashMap();
+    public static final int CACHE_SECONDS = getInteger("cache_seconds", DEFAULT_CACHE_SECONDS);
+    private static final boolean REDIS_ENABLE = getBoolean("redis.enable", false);
+    private static final Map<String, Object> SECOND_CACHE = new HashMap();
 
     public static void set(String key, String value) {
         set(key, value, DEFAULT_CACHE_SECONDS);
@@ -24,23 +24,7 @@ public class CacheManager {
         if (REDIS_ENABLE) {
             JedisUtils.set(key, value, cacheSeconds);
         } else {
-            secondCache.put(key, value);
-        }
-    }
-
-    public static String get(String key) {
-        if (REDIS_ENABLE) {
-            return JedisUtils.get(key);
-        } else {
-            return (String)secondCache.get(key);
-        }
-    }
-
-    public static void remove(String key) {
-        if (REDIS_ENABLE) {
-            JedisUtils.del(key);
-        } else {
-            secondCache.remove(key);
+            SECOND_CACHE.put(key, value);
         }
     }
 
@@ -53,46 +37,53 @@ public class CacheManager {
             JedisUtils.hset(key, field, value, cacheSeconds);
         } else {
             Map<String, String> map;
-            if (secondCache.get(key) == null) {
+            if (SECOND_CACHE.get(key) == null) {
                 map = new HashMap<String, String>();
             } else {
-                map = (Map<String, String>) secondCache.get(key);
+                map = (Map<String, String>) SECOND_CACHE.get(key);
             }
             map.put(field, value);
-            secondCache.put(key, map);
+            SECOND_CACHE.put(key, map);
+        }
+    }
+
+    public static String get(String key) {
+        if (REDIS_ENABLE) {
+            return JedisUtils.get(key);
+        } else {
+            return (String) SECOND_CACHE.get(key);
         }
     }
 
     public static String get(String key, String field) {
         String value = null;
         if (REDIS_ENABLE) {
-            try {
-                value = JedisUtils.hget(key, field);
-            } catch (Exception e) {
-                value = null;
-            }
+            value = JedisUtils.hget(key, field);
         } else {
-            Map<String, String> map = (Map<String, String>) secondCache.get(key);
-            if(map != null) {
+            Map<String, String> map = (Map<String, String>) SECOND_CACHE.get(key);
+            if (map != null) {
                 value = map.get(field);
             }
         }
         return value;
     }
 
+    public static void remove(String key) {
+        if (REDIS_ENABLE) {
+            JedisUtils.del(key);
+        } else {
+            SECOND_CACHE.remove(key);
+        }
+    }
+
     public static void remove(String key, String field) {
         if (REDIS_ENABLE) {
-            try {
-                JedisUtils.hdel(key, field);
-            } catch (Exception e) {
-
-            }
+            JedisUtils.hdel(key, field);
         } else {
-            Map<String, String> map = (Map<String, String>) secondCache.get(key);
-            if(map != null) {
+            Map<String, String> map = (Map<String, String>) SECOND_CACHE.get(key);
+            if (map != null) {
                 map.remove(field);
             }
         }
     }
-
 }

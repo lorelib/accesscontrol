@@ -42,31 +42,13 @@ public class ConfigHolder {
     }
 
     public static boolean getBoolean(String key) {
-        if (StringUtil.isBlank(get(key))) throw new RuntimeException("[key: " + key + "]期望bool类型，实际为空");
+        if (StringUtil.isBlank(get(key))) {
+            throw new RuntimeException("[key: " + key + "]期望bool类型，实际为空");
+        }
         if (!(get(key).equalsIgnoreCase("true") || get(key).equalsIgnoreCase("false"))) {
             throw new RuntimeException("[key: " + key + "]期望bool类型，实际为非bool类型");
         }
         return Boolean.parseBoolean(get(key));
-    }
-
-    public static int getInteger(String key) {
-        return Integer.parseInt(get(key));
-    }
-
-    public static String getString(String key) {
-        return get(key);
-    }
-
-    public static long getLong(String key) {
-        return Long.parseLong(get(key));
-    }
-
-    public static float getFloat(String key) {
-        return Float.parseFloat(get(key));
-    }
-
-    public static Double getDouble(String key) {
-        return Double.parseDouble(get(key));
     }
 
     public static boolean getBoolean(String key, boolean defaultValue) {
@@ -77,6 +59,10 @@ public class ConfigHolder {
         }
     }
 
+    public static int getInteger(String key) {
+        return Integer.parseInt(get(key));
+    }
+
     public static int getInteger(String key, int defaultValue) {
         try {
             return getInteger(key);
@@ -85,8 +71,16 @@ public class ConfigHolder {
         }
     }
 
+    public static String getString(String key) {
+        return get(key);
+    }
+
     public static String getString(String key, String defaultValue) {
         return getString(key) == null ? defaultValue : getString(key);
+    }
+
+    public static long getLong(String key) {
+        return Long.parseLong(get(key));
     }
 
     public static long getLong(String key, long defaultValue) {
@@ -97,12 +91,20 @@ public class ConfigHolder {
         }
     }
 
+    public static float getFloat(String key) {
+        return Float.parseFloat(get(key));
+    }
+
     public static float getFloat(String key, float defaultValue) {
         try {
             return getFloat(key);
         } catch (NumberFormatException e) {
             return defaultValue;
         }
+    }
+
+    public static Double getDouble(String key) {
+        return Double.parseDouble(get(key));
     }
 
     public static double getDouble(String key, double defaultValue) {

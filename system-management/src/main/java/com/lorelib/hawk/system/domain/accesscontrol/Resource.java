@@ -10,17 +10,17 @@ import com.lorelib.hawk.infrastructure.stereotype.ValueObject;
  */
 public final class Resource extends ValueObject {
     /**
-     * 资源标识
+     * 资源标识.
      */
     private Long resourceId;
 
     /**
-     * 资源名称
+     * 资源名称.
      */
     private String resourceName;
 
     /**
-     * 资源类型
+     * 资源类型.
      */
     private String resourceType;
 

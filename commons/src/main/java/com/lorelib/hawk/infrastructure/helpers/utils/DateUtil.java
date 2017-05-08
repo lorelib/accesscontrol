@@ -6,29 +6,29 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * 日期转换,日期比较,日期获取的工具类(修改格式化SimpleDateFormat的方式和增加方法继承)
+ * 日期转换,日期比较,日期获取的工具类(修改格式化SimpleDateFormat的方式和增加方法继承).
  *
  * @author luomm
  */
 public class DateUtil {
-    public final static String DEFAULT_PATTERN = DateFormatPattern.YMD_HMS_LINE;
+    public static final String DEFAULT_PATTERN = DateFormatPattern.YMD_HMS_LINE;
 
     /**
-     * 使用默认的日期格式来创建SimpleDateFormat
+     * 使用默认的日期格式来创建SimpleDateFormat.
      */
     private static SimpleDateFormat getFormattor() {
         return getFormattor(DEFAULT_PATTERN);
     }
 
     /**
-     * 使用指定的日期格式来创建SimpleDateFormat
+     * 使用指定的日期格式来创建SimpleDateFormat.
      */
     public static SimpleDateFormat getFormattor(String format) {
         return new SimpleDateFormat(format);
     }
 
     /**
-     * 使用默认的日期格式把当前系统日期转换为文本
+     * 使用默认的日期格式把当前系统日期转换为文本.
      */
     public static String dateToText() {
         return getFormattor().format(getCurrentDate());
@@ -39,28 +39,28 @@ public class DateUtil {
     }
 
     /**
-     * 转换指定日期为默认格式的文本
+     * 转换指定日期为默认格式的文本.
      */
     public static String dateToText(Date date) {
         return getFormattor().format(date);
     }
 
     /**
-     * 使用指定的文本日期格式转换指定日期为文本
+     * 使用指定的文本日期格式转换指定日期为文本.
      */
     public static String dateToText(String format, Date date) {
         return getFormattor(format).format(date);
     }
 
     /**
-     * 使用默认的日期格式转换文本为日期
+     * 使用默认的日期格式转换文本为日期.
      */
     public static Date textToDate(String dateStr) {
         return textToDate(DEFAULT_PATTERN, dateStr);
     }
 
     /**
-     * 使用指定的日期格式转换文本为日期,如果解析出错,返回null;
+     * 使用指定的日期格式转换文本为日期,如果解析出错,返回null.
      */
     public static Date textToDate(String format, String dateStr) {
         Date date = null;
@@ -73,28 +73,28 @@ public class DateUtil {
     }
 
     /**
-     * 获取系统当前日期
+     * 获取系统当前日期.
      */
     public static Date getCurrentDate() {
         return new Date();
     }
 
     /**
-     * 获取指定日期的下一天
+     * 获取指定日期的下一天.
      */
     public static Date nextDate(Date date) {
         return getDateForDay(date, 1);
     }
 
     /**
-     * 获取指定日期的前一天
+     * 获取指定日期的前一天.
      */
     public static Date beforeDate(Date date) {
         return getDateForDay(date, -1);
     }
 
     /**
-     * 获取指定天数后的日期,
+     * 获取指定天数后的日期.
      *
      * @param date   指定当前日期
      * @param amount 正数表示以后的天数,负数表示之前的天数, 比如scope=1表示下一天,scope=-1表示前一天
@@ -108,7 +108,7 @@ public class DateUtil {
     }
 
     /**
-     * 获取date指定amount分钟前或后的日期
+     * 获取date指定amount分钟前或后的日期.
      *
      * @param date
      * @param amount
@@ -130,7 +130,7 @@ public class DateUtil {
     }
 
     /**
-     * 比较两个文本日期的相差天数,可带时分秒的
+     * 比较两个文本日期的相差天数,可带时分秒的.
      *
      * @param bigDay      大的日期
      * @param smallDay    小的日期
@@ -150,7 +150,7 @@ public class DateUtil {
     }
 
     /**
-     * 获得Date的日期字段的数值表示
+     * 获得Date的日期字段的数值表示.
      */
     public static int getDatePart(Date date, int ymd) {
         Calendar calendar = Calendar.getInstance();
@@ -159,21 +159,21 @@ public class DateUtil {
     }
 
     /**
-     * 获得年的数值表示
+     * 获得年的数值表示.
      */
     public static int getYear(Date date) {
         return getDatePart(date, Calendar.YEAR);
     }
 
     /**
-     * 获得月的数值表示
+     * 获得月的数值表示.
      */
     public static int getMonth(Date date) {
         return getDatePart(date, Calendar.MONTH) + 1;
     }
 
     /**
-     * 获得所给日期月份的几号
+     * 获得所给日期月份的几号.
      */
     public static int getDay(Date date) {
         return getDatePart(date, Calendar.DATE);
@@ -192,29 +192,29 @@ public class DateUtil {
     }
 
     /**
-     * 日期格式
+     * 日期格式.
      *
      * @author luomm
      */
     public interface DateFormatPattern {
 
         /**
-         * 日期格式 yyyy-MM-dd 如:2007-07-20
+         * 日期格式 yyyy-MM-dd 如:2007-07-20.
          */
         String YMD_LINE = "yyyy-MM-dd";
 
         /**
-         * 日期格式 yyyyMMdd 如:20070720
+         * 日期格式 yyyyMMdd 如:20070720.
          */
         String YMD_NO_LINE = "yyyyMMdd";
 
         /**
-         * 日期格式 yyyy-MM-dd HH:mm:ss 如:2007-07-20 07:30:30 小时范围是0-24
+         * 日期格式 yyyy-MM-dd HH:mm:ss 如:2007-07-20 07:30:30 小时范围是0-24.
          */
         String YMD_HMS_LINE = "yyyy-MM-dd HH:mm:ss";
 
         /**
-         * 日期格式 yyyyMMddHHmmss 如:20070720073030 小时范围是0-24
+         * 日期格式 yyyyMMddHHmmss 如:20070720073030 小时范围是0-24.
          */
         String YMD_HMS_NO_LINE = "yyyyMMddHHmmss";
 
@@ -224,12 +224,12 @@ public class DateUtil {
         String CNYMD_HMS_LINE = "yyyy年MM月dd日 HH时mm分ss秒";
 
         /**
-         * 日期格式 yyyy-MM-dd kk:mm:ss 如:2007-07-20 07:30:30 小时范围是1-12
+         * 日期格式 yyyy-MM-dd kk:mm:ss 如:2007-07-20 07:30:30 小时范围是1-12.
          */
         String YMD_12HMS_LINE = "yyyy-MM-dd hh:mm:ss";
 
         /**
-         * 日期格式 MM-dd HH:mm 如:07-20 07:30
+         * 日期格式 MM-dd HH:mm 如:07-20 07:30.
          */
         String MD_HM_LINE = "MM-dd HH:mm";
     }

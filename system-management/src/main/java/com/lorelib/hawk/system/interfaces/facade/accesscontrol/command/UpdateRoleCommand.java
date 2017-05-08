@@ -1,6 +1,6 @@
 package com.lorelib.hawk.system.interfaces.facade.accesscontrol.command;
 
-import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.ResourceDTO;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.ResourceDto;
 import com.lorelib.hawk.infrastructure.stereotype.Command;
 
 import javax.validation.constraints.NotNull;
@@ -14,41 +14,42 @@ import java.util.List;
  */
 public class UpdateRoleCommand implements Command {
     /**
-     * 角色标识
+     * 角色标识.
      */
     @NotNull(message = "角色名称是必需的")
     private Long roleId;
 
     /**
-     * 角色名称
+     * 角色名称.
      */
     private String roleName;
 
     /**
-     * 角色描述信息
+     * 角色描述信息.
      */
     private String roleDesc;
 
     /**
-     * 资源集合
+     * 资源集合.
      */
     @Size(min = 1, message = "资源是必需的")
-    private List<ResourceDTO> resources;
+    private List<ResourceDto> resources;
 
     public UpdateRoleCommand() {
     }
 
-    public UpdateRoleCommand(Long roleId, List<ResourceDTO> resources) {
+    public UpdateRoleCommand(Long roleId, List<ResourceDto> resources) {
         this.roleId = roleId;
         this.resources = resources;
     }
 
-    public UpdateRoleCommand(Long roleId, String roleName, List<ResourceDTO> resources) {
+    public UpdateRoleCommand(Long roleId, String roleName, List<ResourceDto> resources) {
         this(roleId, resources);
         this.roleName = roleName;
     }
 
-    public UpdateRoleCommand(Long roleId, String roleName, String roleDesc, List<ResourceDTO> resources) {
+    public UpdateRoleCommand(Long roleId, String roleName, String roleDesc,
+                             List<ResourceDto> resources) {
         this(roleId, roleName, resources);
         this.roleDesc = roleDesc;
     }
@@ -77,11 +78,11 @@ public class UpdateRoleCommand implements Command {
         this.roleDesc = roleDesc;
     }
 
-    public List<ResourceDTO> getResources() {
+    public List<ResourceDto> getResources() {
         return resources;
     }
 
-    public void setResources(List<ResourceDTO> resources) {
+    public void setResources(List<ResourceDto> resources) {
         this.resources = resources;
     }
 }

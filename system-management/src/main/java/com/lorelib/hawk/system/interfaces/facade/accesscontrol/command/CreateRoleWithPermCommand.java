@@ -1,6 +1,6 @@
 package com.lorelib.hawk.system.interfaces.facade.accesscontrol.command;
 
-import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.ResourceDTO;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.ResourceDto;
 import com.lorelib.hawk.infrastructure.stereotype.Command;
 
 import javax.validation.Valid;
@@ -14,26 +14,26 @@ import java.util.List;
  */
 public class CreateRoleWithPermCommand implements Command {
     /**
-     * 角色名称
+     * 角色名称.
      */
     @NotNull(message = "角色名称是必需的")
     private String roleName;
 
     /**
-     * 描述（简介）
+     * 描述（简介）.
      */
     private String description;
 
     /**
-     * 资源集合
+     * 资源集合.
      */
     @Valid
-    private List<ResourceDTO> resources;
+    private List<ResourceDto> resources;
 
     public CreateRoleWithPermCommand() {
     }
 
-    public CreateRoleWithPermCommand(String roleName, String description, List<ResourceDTO> resources) {
+    public CreateRoleWithPermCommand(String roleName, String description, List<ResourceDto> resources) {
         this.roleName = roleName;
         this.description = description;
         this.resources = resources;
@@ -55,11 +55,11 @@ public class CreateRoleWithPermCommand implements Command {
         this.description = description;
     }
 
-    public List<ResourceDTO> getResources() {
+    public List<ResourceDto> getResources() {
         return resources;
     }
 
-    public void setResources(List<ResourceDTO> resources) {
+    public void setResources(List<ResourceDto> resources) {
         this.resources = resources;
     }
 }

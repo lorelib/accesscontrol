@@ -1,16 +1,16 @@
 package com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto;
 
 import com.lorelib.hawk.system.infrastructure.persistence.ResourceType;
-import com.lorelib.hawk.infrastructure.stereotype.DTO;
+import com.lorelib.hawk.infrastructure.stereotype.Dto;
 
 import javax.validation.constraints.NotNull;
 
 /**
  * @author listening
- * @description ResourceDTO:
+ * @description ResourceDto:
  * @create 2017 04 18 11:17.
  */
-public class ResourceDTO implements DTO {
+public class ResourceDto implements Dto {
     /**
      * 资源标识
      */
@@ -29,15 +29,15 @@ public class ResourceDTO implements DTO {
     @NotNull(message = "资源类型是必需的")
     private String resourceType;
 
-    public ResourceDTO() {
+    public ResourceDto() {
     }
 
-    public ResourceDTO(ResourceType resourceType, Long resourceId) {
+    public ResourceDto(ResourceType resourceType, Long resourceId) {
         this.resourceType = resourceType.name();
         this.resourceId = resourceId;
     }
 
-    public ResourceDTO(ResourceType resourceType, Long resourceId, String resourceName) {
+    public ResourceDto(ResourceType resourceType, Long resourceId, String resourceName) {
         this(resourceType, resourceId);
         this.resourceName = resourceName;
     }

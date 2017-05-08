@@ -1,15 +1,15 @@
 package com.lorelib.hawk.system.interfaces.facade.menu.dto;
 
-import com.lorelib.hawk.infrastructure.stereotype.DTO;
+import com.lorelib.hawk.infrastructure.stereotype.Dto;
 
 import java.util.List;
 
 /**
  * @author listening
- * @description MenuDTO:
+ * @description MenuDto:
  * @create 2017 04 10 16:57.
  */
-public class MenuDTO implements DTO {
+public class MenuDto implements Dto {
     private Long id;
 
     /**
@@ -35,7 +35,7 @@ public class MenuDTO implements DTO {
     /**
      * 子节点
      */
-    private List<MenuDTO> child;
+    private List<MenuDto> child;
 
     /**
      * 是否叶子节点
@@ -82,11 +82,11 @@ public class MenuDTO implements DTO {
         this.description = description;
     }
 
-    public List<MenuDTO> getChild() {
+    public List<MenuDto> getChild() {
         return child;
     }
 
-    public void setChild(List<MenuDTO> child) {
+    public void setChild(List<MenuDto> child) {
         this.child = child;
     }
 

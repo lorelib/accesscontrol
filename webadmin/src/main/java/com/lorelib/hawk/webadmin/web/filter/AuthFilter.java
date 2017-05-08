@@ -6,7 +6,7 @@ import java.io.IOException;
 
 /**
  * @author listening
- * @description AuthFilter: 安全认证
+ * @description AuthFilter: 安全认证.
  * @create 2017 04 18 14:53.
  */
 @WebFilter

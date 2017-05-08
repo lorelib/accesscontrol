@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
  */
 public class DeleteRoleCommand implements Command {
     /**
-     * 角色标识
+     * 角色标识.
      */
     @NotNull(message = "角色名称是必需的")
     private Long roleId;

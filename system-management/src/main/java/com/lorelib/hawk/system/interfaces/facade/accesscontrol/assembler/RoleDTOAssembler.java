@@ -1,7 +1,7 @@
 package com.lorelib.hawk.system.interfaces.facade.accesscontrol.assembler;
 
 import com.lorelib.hawk.system.domain.accesscontrol.Role;
-import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.RoleDTO;
+import com.lorelib.hawk.system.interfaces.facade.accesscontrol.dto.RoleDto;
 import com.google.common.collect.Lists;
 import org.apache.commons.collections.CollectionUtils;
 
@@ -13,8 +13,8 @@ import java.util.List;
  * @create 2017 04 13 13:42.
  */
 public class RoleDTOAssembler {
-    public static RoleDTO toDTO(final Role role) {
-        RoleDTO dto = new RoleDTO();
+    public static RoleDto toDTO(final Role role) {
+        RoleDto dto = new RoleDto();
         dto.setId(String.valueOf(role.getId().idValue()));
         dto.setRoleName(role.getRoleName());
         dto.setDescription(role.getDescription());
@@ -22,8 +22,8 @@ public class RoleDTOAssembler {
         return dto;
     }
 
-    public static List<RoleDTO> toDTO(final List<Role> roles) {
-        List<RoleDTO> list = Lists.newArrayList();
+    public static List<RoleDto> toDTO(final List<Role> roles) {
+        List<RoleDto> list = Lists.newArrayList();
         for (Role role: roles) {
             list.add(toDTO(role));
         }

@@ -6,27 +6,27 @@ import com.lorelib.hawk.infrastructure.helpers.utils.JSONUtil;
 import java.util.Date;
 
 /**
- * 基础实体类
+ * 基础实体类.
  * Created by listening on 2017/3/4.
  */
 public abstract class DomainEntity<T, TID> implements Entity {
     /**
-     * 创建者userId
+     * 创建者userId.
      */
     protected String createBy;
 
     /**
-     * 创建日期
+     * 创建日期.
      */
     protected Date createDate = DateUtil.getCurrentDate();
 
     /**
-     * 更新者userId
+     * 更新者userId.
      */
     protected String updateBy;
 
     /**
-     * 更新日期
+     * 更新日期.
      */
     protected Date updateDate;
 
@@ -37,7 +37,7 @@ public abstract class DomainEntity<T, TID> implements Entity {
     public abstract TID getId();
 
     /**
-     * 通过比较唯一标识来区分不同的实体
+     * 通过比较唯一标识来区分不同的实体.
      * @param other
      * @return
      */

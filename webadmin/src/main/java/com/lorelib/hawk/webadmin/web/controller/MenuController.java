@@ -1,7 +1,7 @@
 package com.lorelib.hawk.webadmin.web.controller;
 
 import com.lorelib.hawk.system.interfaces.facade.menu.MenuServiceFacade;
-import com.lorelib.hawk.system.interfaces.facade.menu.dto.MenuDTO;
+import com.lorelib.hawk.system.interfaces.facade.menu.dto.MenuDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +25,7 @@ public class MenuController {
             path = "getAllMenu", method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
-    public List<MenuDTO> getAllMenu() {
+    public List<MenuDto> getAllMenu() {
         return menuServiceFacade.getAllMenus();
     }
 }

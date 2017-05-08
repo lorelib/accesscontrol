@@ -14,32 +14,32 @@ import java.util.List;
  */
 public class Role extends DomainEntity<Role, RoleId> {
     /**
-     * 标识
+     * 标识.
      */
     private RoleId id;
 
     /**
-     * 角色名称
+     * 角色名称.
      */
     private String roleName;
 
     /**
-     * 描述（简介）
+     * 描述（简介）.
      */
     private String description;
 
     /**
-     * 角色拥有的权限
+     * 角色拥有的权限.
      */
     private List<Permission> perms;
 
     /**
-     * 需要新增的
+     * 需要新增的.
      */
     private List<Permission> needAdd;
 
     /**
-     * 需要删除的
+     * 需要删除的.
      */
     private List<Permission> needDel;
 
@@ -57,7 +57,7 @@ public class Role extends DomainEntity<Role, RoleId> {
     }
 
     /**
-     * 新增权限
+     * 新增权限.
      * @param resources
      * @return
      */
@@ -71,7 +71,7 @@ public class Role extends DomainEntity<Role, RoleId> {
     }
 
     /**
-     * 更新权限
+     * 更新权限.
      * @param resources
      */
     public void updatePerms(final List<Resource> resources) {

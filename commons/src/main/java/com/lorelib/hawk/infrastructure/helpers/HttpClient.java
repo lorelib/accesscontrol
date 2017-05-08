@@ -25,7 +25,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
 /**
- * Http请求客户端
+ * Http请求客户端.
  *
  * @author luomm 2015年4月30日
  */
@@ -35,18 +35,6 @@ public class HttpClient {
         return post(uri, null, null, false);
     }
 
-    public static String postByHttps(String uri) throws Exception {
-        return post(uri, null, null, true);
-    }
-
-    public static String postJSON(String uri, String json) throws Exception {
-        return post(uri, json, "application/json", false);
-    }
-
-    public static String postJSONByHttps(String uri, String json) throws Exception {
-        return post(uri, json, "application/json", true);
-    }
-
     public static String post(String uri, String data, String contentType, boolean isSSL) throws Exception {
         String result = null;
         CloseableHttpClient httpClient = null;
@@ -54,8 +42,12 @@ public class HttpClient {
         try {
             httpClient = isSSL ? createSSLHttpClient() : HttpClients.createDefault();
             HttpPost httpPost = new HttpPost(uri);
-            if (StringUtil.isNotBlank(data)) httpPost.setEntity(new StringEntity(data, Charsets.UTF_8));
-            if (StringUtil.isNotBlank(contentType)) httpPost.setHeader("Content-Type", contentType + ";charset=utf-8");
+            if (StringUtil.isNotBlank(data)) {
+                httpPost.setEntity(new StringEntity(data, Charsets.UTF_8));
+            }
+            if (StringUtil.isNotBlank(contentType)) {
+                httpPost.setHeader("Content-Type", contentType + ";charset=utf-8");
+            }
             httpPost.setHeader("charset", Charsets.UTF_8.displayName());
             response = httpClient.execute(httpPost);
             HttpEntity httpEntity = response.getEntity();
@@ -67,6 +59,18 @@ public class HttpClient {
         return result;
     }
 
+    public static String postByHttps(String uri) throws Exception {
+        return post(uri, null, null, true);
+    }
+
+    public static String postJson(String uri, String json) throws Exception {
+        return post(uri, json, "application/json", false);
+    }
+
+    public static String postJsonByHttps(String uri, String json) throws Exception {
+        return post(uri, json, "application/json", true);
+    }
+
     public static String postFile(String uri, String data, InputStream in) throws Exception {
         return postFile(uri, data, in, false);
     }
@@ -76,7 +80,7 @@ public class HttpClient {
     }
 
     /**
-     * 发送文件
+     * 发送文件.
      */
     public static String postFile(String uri, String data, InputStream in, boolean isSSL) throws Exception {
         String result = null;
