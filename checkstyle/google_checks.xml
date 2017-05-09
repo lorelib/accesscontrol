@@ -93,11 +93,11 @@
             <property name="tokens" value="COMMA"/>
             <property name="option" value="EOL"/>
         </module>
-        <module name="SeparatorWrap">
-            <property name="id" value="SeparatorWrapMethodRef"/>
+        <!--<module name="SeparatorWrap">
+            &lt;!&ndash;<property name="id" value="SeparatorWrapMethodRef"/>
             <property name="tokens" value="METHOD_REF"/>
-            <property name="option" value="nl"/>
-        </module>
+            <property name="option" value="nl"/>&ndash;&gt;
+        </module>-->
         <module name="PackageName">
             <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
             <message key="name.invalidPattern"
@@ -177,7 +177,7 @@
         <module name="ParenPad"/>
         <module name="OperatorWrap">
             <property name="option" value="NL"/>
-            <property name="tokens" value="BAND, BOR, BSR, BXOR, DIV, EQUAL, GE, GT, LAND, LE, LITERAL_INSTANCEOF, LOR, LT, MINUS, MOD, NOT_EQUAL, PLUS, QUESTION, SL, SR, STAR, METHOD_REF "/>
+            <property name="tokens" value="BAND, BOR, BSR, BXOR, DIV, EQUAL, GE, GT, LAND, LE, LITERAL_INSTANCEOF, LOR, LT, MINUS, MOD, NOT_EQUAL, PLUS, QUESTION, SL, SR, STAR "/>
         </module>
         <module name="AnnotationLocation">
             <property name="id" value="AnnotationLocationMostCases"/>
