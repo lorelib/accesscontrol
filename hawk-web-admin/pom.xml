@@ -9,13 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>system-management</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>hawk-web-admin</artifactId>
+    <packaging>war</packaging>
 
     <dependencies>
         <dependency>
             <groupId>com.lorelib.hawk</groupId>
-            <artifactId>commons</artifactId>
+            <artifactId>hawk-service-admin</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
@@ -28,7 +28,7 @@
             </activation>
             <build>
                 <filters>
-                    <filter>src/test/resources/filters/profile-test.properties</filter>
+                    <filter>src/main/resources/filters/profile-test.properties</filter>
                 </filters>
             </build>
         </profile>
@@ -36,7 +36,7 @@
             <id>prod</id>
             <build>
                 <filters>
-                    <filter>src/test/resources/filters/profile-production.properties</filter>
+                    <filter>src/main/resources/filters/profile-production.properties</filter>
                 </filters>
             </build>
         </profile>

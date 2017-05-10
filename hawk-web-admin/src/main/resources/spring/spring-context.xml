@@ -19,6 +19,15 @@
 
     <context:property-placeholder ignore-unresolvable="true" location="classpath*:application.properties"/>
 
+    <bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
+        <property name="slowSqlMillis" value="5000"/>
+        <property name="logSlowSql" value="true"/>
+    </bean>
+
+    <bean id="log-filter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">
+        <property name="resultSetLogEnabled" value="true"/>
+    </bean>
+
     <!-- dataSource 配置 start -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driver}"/>
@@ -35,6 +44,15 @@
         <property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"/>
         <!-- 配置一个连接在池中最小空闲生存的时间，单位是毫秒 -->
         <property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"/>
+
+        <!--<property name="filters" value="stat"/>-->
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter"/>
+                <ref bean="log-filter"/>
+            </list>
+        </property>
+        <property name="useGlobalDataSourceStat" value="true"/>
     </bean>
     <!-- dataSource 配置 end -->
 
